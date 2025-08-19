@@ -1,0 +1,15 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+#region-chart, #producto-chart {
+  width: 400px;
+  height: 300px;
+}
+
+#ventas-table {
+  grid-column: span 2;
+  margin-top: 20px;
+}
