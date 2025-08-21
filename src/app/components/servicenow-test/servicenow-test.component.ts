@@ -24,6 +24,7 @@ export class ServicenowTestComponent implements OnInit {
     this.loadData();
   }
 
+  // All chart definition of ServiceNow dashboard part
   initCharts() {
     // api data from servicenow
     const apiData = this.data.result;
@@ -61,9 +62,17 @@ export class ServicenowTestComponent implements OnInit {
     const incidentTable = dc.dataTable('#incident-table');
     incidentTable
       .dimension(numberDim)
-      .columns(['number', 'priority', 'opened_at'])
+      .columns([
+        'number',
+        'priority',
+        'opened_at',
+        'state',
+        'severity',
+        'subcategory',
+      ])
       .sortBy((d: any) => d.number)
-      .order(d3.ascending);
+      .order(d3.ascending)
+      .size(Infinity);
 
     // Render all the graphic items
     dc.renderAll();
@@ -76,7 +85,7 @@ export class ServicenowTestComponent implements OnInit {
       password: environment.servicenow.password,
       table: 'incident',
       queryParams: {
-        sysparm_limit: 10,
+        sysparm_limit: 50,
       },
     };
 

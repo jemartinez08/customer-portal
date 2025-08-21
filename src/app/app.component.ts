@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashboardTestComponent } from "./components/dashboard-test/dashboard-test.component";
+import { NavbarComponentComponent } from "./components/navbar-component/navbar-component.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DashboardTestComponent],
+  imports: [RouterOutlet, NavbarComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

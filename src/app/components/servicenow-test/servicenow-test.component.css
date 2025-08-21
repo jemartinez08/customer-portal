@@ -1,0 +1,84 @@
+/* Estilo general */
+:host ::ng-deep .dc-data-table {
+  width: 100%;
+  border-collapse: separate; /* Permite bordes redondeados */
+  border-spacing: 0;         /* Elimina espacios entre celdas */
+  table-layout: fixed;
+  font-size: 14px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 22px;
+}
+
+/* Encabezado */
+:host ::ng-deep .dc-data-table thead {
+  background-color: #1f558a;
+  color: #fff;
+  height: 20px;
+  font-size: large;
+}
+
+:host ::ng-deep .dc-data-table td {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  border-right: 1px solid #444;
+}
+
+/* Bordes redondeados en header */
+:host ::ng-deep .dc-data-table th:first-child {
+  border-top-left-radius: 12px;
+}
+:host ::ng-deep .dc-data-table th:last-child {
+  border-top-right-radius: 12px;
+  border-right: none;
+}
+
+/* Filas */
+:host ::ng-deep .dc-data-table tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.25s ease;
+}
+
+/* Filas intercaladas */
+:host ::ng-deep .dc-data-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+:host ::ng-deep .dc-data-table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+:host ::ng-deep .dc-data-table tbody tr:hover {
+  background-color: #eaf4ff;
+}
+
+/* Celdas */
+:host ::ng-deep .dc-data-table td {
+  padding: 12px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:host ::ng-deep .dc-data-table td:last-child {
+  border-right: none;
+}
+
+/* Bordes redondeados en la última fila */
+:host ::ng-deep .dc-data-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+:host ::ng-deep .dc-data-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Resaltar fila seleccionada */
+:host ::ng-deep .dc-data-table tr.dc-table-row-selected {
+  background-color: #d1f2eb;
+  font-weight: bold;
+}

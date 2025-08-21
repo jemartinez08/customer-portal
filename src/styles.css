@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "dc/dc.css";
+
+/* Global Font */
+/* src/styles.scss */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
