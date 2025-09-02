@@ -1,0 +1,12 @@
+.header-container {
+  max-width: 100%;
+  width: auto;
+  background-color: var(--sand);
+  border-radius: var(--general-radius);
+  padding: 8px;
+}
+
+h1 {
+    color: var(--night);
+    padding: 12px;
+}

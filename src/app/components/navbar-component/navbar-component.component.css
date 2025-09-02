@@ -1,18 +1,21 @@
 .img-logo {
-  width: 90%;
+  margin-top: 32px;
+  width: 70%;
+  margin-left: 28px;
 }
 
 #subtitle {
   margin-top: -5px;
   margin-left: 30px;
-  margin-right: 18px;
+  margin-right: 38px;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--core);
   text-align: right;
 }
 
 nav {
-  z-index: 1000;
+  z-index: -10;
   transition: transform 0.4s ease-in-out;
   transform: translateY(0);
   pointer-events: auto; /* Asegura que sea clickeable */
@@ -29,7 +32,7 @@ ul li {
 a {
   color: var(--night);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 400;
 }
 

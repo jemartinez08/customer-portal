@@ -1,0 +1,6 @@
+.dashboard-content {
+  margin-top: 22px;
+  background-color: var(--sand);
+  padding: 18px;
+  border-radius: var(--general-radius);
+}
