@@ -5,6 +5,17 @@
 /* src/styles.scss */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+/*Color variables*/
+:root {
+  --sand: rgb(245, 243, 237);
+  --core: rgb(143, 83, 240);
+  --night: rgb(55, 55, 55);
+  --bg: rgb(255, 255, 255);
+}
+
+
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0px;
+  background-color: var(--bg);
 }

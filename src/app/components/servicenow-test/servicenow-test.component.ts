@@ -69,6 +69,7 @@ export class ServicenowTestComponent implements OnInit {
         'state',
         'severity',
         'subcategory',
+        'urgency'
       ])
       .sortBy((d: any) => d.number)
       .order(d3.ascending)

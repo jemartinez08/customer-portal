@@ -1,3 +1,82 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.nav-container {
+  margin-left: 22px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 340px;
+  
+  background: var(--sand);
+  color: white;
+  flex-shrink: 0;          /* evita que se achique */
+  transition: width 0.3s ease;
+  margin: 1%;
+  border-radius: 15px;
+}
+
+.sidebar.closed {
+  width: 22px;
+}
+
+/* Main content */
 .main-content {
-  padding-top: 64px; /* Ajusta según la altura real del navbar */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  z-index: 10;
+}
+
+/* Header */
+.header {
+  height: 60px;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  flex-shrink: 0;  
+}
+
+/* Content area */
+.content {
+  flex: 1;
+  overflow-y: auto;        /* scroll solo aquí */
+  padding: 1rem;
+  background: #f1f5f9;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--core);
+}
+.close-button:hover {
+  cursor: pointer;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+  }
 }

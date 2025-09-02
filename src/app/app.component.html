@@ -1,4 +1,21 @@
-<app-navbar-component></app-navbar-component>
-<div class="main-content">
-    <router-outlet></router-outlet>
+<div class="app-container">
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.closed]="isSidebarClosed">
+    <button class="close-button" (click)="toggleSidebar()">☰</button>
+    <div class="nav-container">
+        <app-navbar-component></app-navbar-component>
+    </div>
+  </aside>
+
+  <!-- Contenedor principal -->
+  <div class="main-content">
+    <header class="header">
+      <h1>Mi Aplicación</h1>
+    </header>
+
+    <!-- Aquí carga el router -->
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
 </div>
