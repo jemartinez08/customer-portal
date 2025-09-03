@@ -1,4 +1,8 @@
 .header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   max-width: 100%;
   width: auto;
   background-color: var(--sand);
@@ -7,6 +11,14 @@
 }
 
 h1 {
-    color: var(--night);
-    padding: 12px;
+  color: var(--night);
+  padding: 12px;
+}
+
+.header-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  max-width: 100%;
+  width: auto;
 }
