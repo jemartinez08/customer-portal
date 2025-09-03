@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { HeaderCardComponent } from "../header-card/header-card.component";
+import { HeaderCardComponent } from '../header-card/header-card.component';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +9,6 @@ import { HeaderCardComponent } from "../header-card/header-card.component";
 })
 export class HeaderComponent {
   @Input() title: string = '';
+  isMainKPI: boolean = true;
+  notMainKpi: boolean = false;
 }

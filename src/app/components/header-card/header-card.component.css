@@ -8,6 +8,15 @@
   margin: 8px;
 }
 
+.card-container.kpiCardTrue {
+}
+
+.card-container.kpiCardFalse {
+  border: 2px solid;
+  border-color: var(--core);
+  padding: 6px;
+}
+
 .card-container #title {
   color: var(--night);
   font-size: 0.8rem;

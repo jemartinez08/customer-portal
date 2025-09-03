@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="card-container" [ngClass]="{ kpiCardTrue: !KPICard, kpiCardFalse: KPICard }">
   <p id="title">Mean time to resolution</p>
   <p id="value">12</p>
   <div class="indicator-container">
