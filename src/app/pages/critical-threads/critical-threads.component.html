@@ -1,4 +1,22 @@
-<app-header title="Critical Threads"></app-header>
+<app-header title="Critical Threads">
+  <div kpiObject class="kpi-object-container">
+    <app-header-card
+      [KPICard]="notMainKpi"
+      [KpiValue]="mttValue"
+      [KpiTitle]="'Mean Time to Resolution'"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="notMainKpi"
+      [KpiValue]="numberOfOpenedTickets"
+      [KpiTitle]="'Opened Tickets'"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="isMainKPI"
+      [KpiValue]="22"
+      [KpiTitle]="'Critical Vulnerabilities'"
+    ></app-header-card>
+  </div>
+</app-header>
 <div class="dashboard-content">
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->

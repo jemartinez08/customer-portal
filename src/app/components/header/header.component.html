@@ -1,20 +1,6 @@
 <div class="header-container">
   <h1>{{ title }}</h1>
   <div class="header-card-container">
-    <app-header-card
-      [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
-    ></app-header-card>
-    <app-header-card
-      [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
-    ></app-header-card>
-    <app-header-card
-      [KPICard]="isMainKPI"
-      [KpiValue]="22"
-      [KpiTitle]="'Critical Vulnerabilities'"
-    ></app-header-card>
+    <ng-content select="[kpiObject]"></ng-content>
   </div>
 </div>
