@@ -8,7 +8,7 @@
 /*Color variables*/
 :root {
   --sand: rgb(245, 243, 237);
-  --core: rgb(143, 83, 240);
+  --core: #8f53f0;
   --night: rgb(55, 55, 55);
   --bg: rgb(255, 255, 255);
   --general-radius: 22px;
@@ -21,3 +21,6 @@ body {
   margin: 0px;
   background-color: var(--bg);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

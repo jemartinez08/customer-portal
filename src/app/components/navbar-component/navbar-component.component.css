@@ -26,6 +26,9 @@ ul {
 }
 
 ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 18px;
 }
 

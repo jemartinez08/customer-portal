@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HeaderCardComponent } from '../header-card/header-card.component';
+import { ChartDataService } from '../../services/chart-data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,22 @@ import { HeaderCardComponent } from '../header-card/header-card.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
-  @Input() title: string = '';
+export class HeaderComponent implements OnInit {
+  @Input() title: string = 'Tickets per month';
   isMainKPI: boolean = true;
   notMainKpi: boolean = false;
+  mttValue: number = 0;
+  numberOfOpenedTickets: number = 0;
+  filteredData: any;
+
+  constructor(private dataService: ChartDataService) {}
+
+  async ngOnInit() {
+    setTimeout(() => {
+      this.filteredData = this.dataService.getKpiData();
+      this.mttValue = this.filteredData.data.MTTR;
+      this.numberOfOpenedTickets = this.filteredData.data.openedTickets.length;
+      console.log(this.filteredData.data.openedTickets.length);
+    }, 1000);
+  }
 }
