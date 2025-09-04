@@ -5,6 +5,8 @@
   background-color: var(--bg);
   border-radius: var(--interior-radius);
   padding: 8px;
+  padding-left: 18px;
+  padding-right: 18px;
   margin: 8px;
 }
 
@@ -15,6 +17,8 @@
   border: 2px solid;
   border-color: var(--core);
   padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .card-container #title {

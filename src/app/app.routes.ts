@@ -1,12 +1,16 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { AboutComponent } from './pages/about/about.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { ServicenowComponent } from './pages/servicenow/servicenow.component';
+import { SplunkComponent } from './pages/splunk/splunk.component';
+import { CrowdstrikeComponent } from './pages/crowdstrike/crowdstrike.component';
+import { ProofpointComponent } from './pages/proofpoint/proofpoint.component';
+import { MainportalComponent } from './pages/mainportal/mainportal.component';
 
 export const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }, // Redirección para rutas incorrectas
+  { path: 'mainportal', component: MainportalComponent },
+  { path: 'servicenow', component: ServicenowComponent },
+  { path: 'splunk', component: SplunkComponent },
+  { path: 'crowdstrike', component: CrowdstrikeComponent },
+  { path: 'proofpoint', component: ProofpointComponent },
+  { path: '', redirectTo: '/main-portal', pathMatch: 'full' },
+  { path: '**', redirectTo: '/main-portal' }, // Redirección para rutas incorrectas
 ];

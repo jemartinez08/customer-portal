@@ -9,4 +9,6 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderCardComponent {
   @Input() KPICard: boolean = false;
+  @Input() KpiValue: number = 0;
+  @Input() KpiTitle: string = 'KPI';
 }
