@@ -2,18 +2,18 @@
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
+      [KpiTitle]="'Total Incidents'"
+      [group]="all"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
+      [KpiTitle]="'Affected Hosts'"
+      [group]="openIncidentsGroup"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
       [KpiTitle]="'Critical Vulnerabilities'"
+      [group]="criticalTotal"
     ></app-header-card>
   </div>
 </app-header>
@@ -21,9 +21,27 @@
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
+    <div class="grid-item item1">
+      <app-barchart
+        [title]="'Tickets per month'"
+        [dimension]="typeDim"
+        [group]="typeGroup"
+      >
+      </app-barchart>
+    </div>
+    <div class="grid-item item2">
+      <app-piechart
+        [title]="'Ticket Priority'"
+        [dimension]="srcDim"
+        [group]="srcGroup"
+      ></app-piechart>
+    </div>
+    <div class="grid-item item3">
+      <app-linechart
+        [dimension]="dateDim"
+        [group]="criticalGroup"
+      ></app-linechart>
+    </div>
     <div class="grid-item item4"></div>
     <div class="grid-item item5"></div>
   </div>

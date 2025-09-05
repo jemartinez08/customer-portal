@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeaderCardComponent } from '../header-card/header-card.component';
 import { ChartDataService } from '../../services/chart-data.service';
 
 @Component({
   selector: 'app-header',
-  imports: [HeaderCardComponent],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

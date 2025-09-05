@@ -34,8 +34,8 @@ export class LinechartComponent {
       .x(d3.scaleBand().domain(this.group.all().map((d) => d.key)))
       //.renderArea(true) // relleno debajo de la línea (opcional)
       .elasticY(true)
-      .xAxisLabel('Fecha')
-      .yAxisLabel('Cantidad');
+      .xAxisLabel('Amount')
+      .yAxisLabel('Date');
 
     chart.render();
   }

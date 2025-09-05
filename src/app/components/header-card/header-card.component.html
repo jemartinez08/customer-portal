@@ -3,7 +3,7 @@
   [ngClass]="{ kpiCardTrue: !KPICard, kpiCardFalse: KPICard }"
 >
   <p id="title">{{ KpiTitle }}</p>
-  <p id="value">{{ KpiValue }}</p>
+  <p #kpiContainer class="value"></p>
   <div class="indicator-container">
     <div class="icon-container">
       <svg
