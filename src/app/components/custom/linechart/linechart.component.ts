@@ -13,11 +13,14 @@ export class LinechartComponent {
   @Input() dimension!: crossfilter.Dimension<any, any>;
   @Input() group!: crossfilter.Group<any, any, any>;
   @Input() title: string = '';
+  @Input() xAxis: string = '';
+  @Input() yAxis: string = '';
 
   constructor(private el: ElementRef) {}
 
   ngOnChanges() {
     if (this.dimension && this.group) {
+      console.log('Hola')
       this.renderChart();
     }
   }
@@ -34,8 +37,8 @@ export class LinechartComponent {
       .x(d3.scaleBand().domain(this.group.all().map((d) => d.key)))
       //.renderArea(true) // relleno debajo de la línea (opcional)
       .elasticY(true)
-      .xAxisLabel('Amount')
-      .yAxisLabel('Date');
+      .xAxisLabel(this.xAxis)
+      .yAxisLabel(this.yAxis);
 
     chart.render();
   }

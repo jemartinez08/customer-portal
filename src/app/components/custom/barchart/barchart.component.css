@@ -1,11 +1,24 @@
 .barchart-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
   width: auto;
   max-height: 100%;
   height: auto;
   border-radius: var(--interior-radius);
+}
+
+#title {
+  width: 100%;
+  margin-left: 22px;
+  text-align: start;
+}
+
+#tickets-barchart {
+  width: 95%;
+  height: 100%;
 }
 
 .barchart-container #title {

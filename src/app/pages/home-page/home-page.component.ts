@@ -4,6 +4,7 @@ import { HeaderCardComponent } from '../../components/header-card/header-card.co
 import { BarchartComponent } from '../../components/custom/barchart/barchart.component';
 import { PiechartComponent } from '../../components/custom/piechart/piechart.component';
 import { LinechartComponent } from '../../components/custom/linechart/linechart.component';
+import { RadarChartComponent } from '../../components/custom/radar-chart/radar-chart.component';
 
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
@@ -17,6 +18,7 @@ import * as d3 from 'd3';
     BarchartComponent,
     PiechartComponent,
     LinechartComponent,
+    RadarChartComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -40,6 +42,7 @@ export class HomePageComponent {
         ioc_type: 'URL',
         ioc_value: 'http://malicious-site.com',
         threat_family: 'GenericPhish',
+        attack_vector: 'email',
       },
       {
         id: 'evt-002',
@@ -52,6 +55,7 @@ export class HomePageComponent {
         ioc_type: 'Hash',
         ioc_value: 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',
         threat_family: 'LockBit',
+        attack_vector: 'endpoint',
       },
       {
         id: 'evt-003',
@@ -64,6 +68,7 @@ export class HomePageComponent {
         ioc_type: 'IP',
         ioc_value: '185.203.116.9',
         threat_family: 'Emotet',
+        attack_vector: 'cloud',
       },
       {
         id: 'evt-004',
@@ -71,11 +76,12 @@ export class HomePageComponent {
         threat_type: 'Phishing',
         severity: 'Critical',
         affected_host: 'Dev-PC-12',
-        source: 'IDS/IPS',
+        source: 'EDR',
         status: 'Open',
         ioc_type: 'IP',
         ioc_value: '185.203.116.10',
         threat_family: 'Emotet',
+        attack_vector: 'cloud',
       },
       {
         id: 'evt-005',
@@ -88,6 +94,33 @@ export class HomePageComponent {
         ioc_type: 'IP',
         ioc_value: '185.203.116.11',
         threat_family: 'Emotet',
+        attack_vector: 'network',
+      },
+      {
+        id: 'evt-006',
+        timestamp: '2025-09-08T11:30:00Z',
+        threat_type: 'Phishing',
+        severity: 'Moderate',
+        affected_host: 'Dev-PC-13',
+        source: 'SIEM',
+        status: 'Open',
+        ioc_type: 'IP',
+        ioc_value: '185.203.116.12',
+        threat_family: 'Emotet',
+        attack_vector: 'network',
+      },
+      {
+        id: 'evt-007',
+        timestamp: '2025-09-08T11:30:00Z',
+        threat_type: 'Phishing',
+        severity: 'Critical',
+        affected_host: 'Dev-PC-14',
+        source: 'SIEM',
+        status: 'Open',
+        ioc_type: 'IP',
+        ioc_value: '185.203.116.13',
+        threat_family: 'Emotet',
+        attack_vector: 'endpoint',
       },
     ],
     filters: {
@@ -132,13 +165,17 @@ export class HomePageComponent {
   dailyGroup = this.dateDim.group();
   // → { "2025-09-01": 1, "2025-09-02": 2 }
 
-  // 3. Group → contar solo amenazas críticas
+  // 4. Group → contar solo amenazas críticas
   criticalGroup = this.dateDim
     .group()
     .reduceSum((d) => (d.severity === 'Critical' ? 1 : 0));
 
-  // 4. Dimension por fuente
+  // 5. Dimension por fuente
   srcDim = this.cf.dimension((d) => d.source);
   srcGroup = this.srcDim.group();
   // → { EDR: 1, SIEM: 1, IDS/IPS: 1 }
+
+  // 6. Incidentes por vector dimension y grupo
+  vectorDim = this.cf.dimension((d) => d.attack_vector);
+  vectorGroup = this.vectorDim.group().reduceCount();
 }

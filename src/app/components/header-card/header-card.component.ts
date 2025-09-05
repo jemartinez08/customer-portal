@@ -18,6 +18,7 @@ interface Event {
   ioc_type: string;
   ioc_value: string;
   threat_family: string;
+  attack_vector: string;
 }
 
 import crossfilter from 'crossfilter2';
@@ -43,7 +44,6 @@ export class HeaderCardComponent implements OnChanges {
     if (this.group) {
       this.renderChart();
       //dc.renderAll(); // forzar renderizado inicial de todos los charts/numberDisplays
-      console.log(this.group);
     }
   }
 

@@ -26,8 +26,6 @@ export class PiechartComponent {
     const chart = dc.pieChart('#priority-piechart');
 
     chart
-      .width(400)
-      .height(200)
       .ordinalColors(["#8f53f0"])
       .dimension(this.dimension)
       .group(this.group)

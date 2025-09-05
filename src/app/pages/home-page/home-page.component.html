@@ -23,7 +23,9 @@
   <div class="main-grid-container">
     <div class="grid-item item1">
       <app-barchart
-        [title]="'Tickets per month'"
+        [xAxis]="'Thread type'"
+        [yAxis]="'Amount'"
+        [title]="'Incidents per thread type'"
         [dimension]="typeDim"
         [group]="typeGroup"
       >
@@ -31,18 +33,26 @@
     </div>
     <div class="grid-item item2">
       <app-piechart
-        [title]="'Ticket Priority'"
+        [title]="'Incidents source'"
         [dimension]="srcDim"
         [group]="srcGroup"
       ></app-piechart>
     </div>
     <div class="grid-item item3">
       <app-linechart
+        [title]="'Critical threads per day'"
+        [xAxis]="'Days'"
+        [yAxis]="'Amount'"
         [dimension]="dateDim"
         [group]="criticalGroup"
       ></app-linechart>
     </div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
+    <div class="grid-item item4">
+      <app-radar-chart
+        [dimension]="vectorDim"
+        [group]="vectorGroup"
+        [title]="'Attack vectors'"
+      ></app-radar-chart>
+    </div>
   </div>
 </div>

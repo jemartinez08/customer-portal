@@ -1,12 +1,12 @@
-.piechart-container {
+.barchart-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   width: auto;
   max-height: 100%;
-  width: auto;
+  height: auto;
   border-radius: var(--interior-radius);
 }
 
@@ -16,12 +16,7 @@
   text-align: start;
 }
 
-#priority-piechart {
-  width: 100%;
-  height: 80%;
-}
-
-.piechart-container #title {
+.barchart-container #title {
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--night);
@@ -29,7 +24,7 @@
   text-align: left;
 }
 
-.piechart {
+.barchart {
   height: 212px;
   max-width: 100%;
   width: auto;
