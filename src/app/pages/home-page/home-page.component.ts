@@ -9,6 +9,7 @@ import { RadarChartComponent } from '../../components/custom/radar-chart/radar-c
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
+import { CustomBarchartComponent } from "../../components/custom/custom-barchart/custom-barchart.component";
 
 @Component({
   selector: 'app-home-page',
@@ -19,7 +20,8 @@ import * as d3 from 'd3';
     PiechartComponent,
     LinechartComponent,
     RadarChartComponent,
-  ],
+    CustomBarchartComponent
+],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
 })
