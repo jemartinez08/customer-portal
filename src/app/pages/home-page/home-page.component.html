@@ -22,14 +22,21 @@
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
     <div class="grid-item item1">
-      <app-barchart
+      <!-- <app-barchart
         [xAxis]="'Thread type'"
         [yAxis]="'Amount'"
         [title]="'Incidents per thread type'"
         [dimension]="typeDim"
         [group]="typeGroup"
       >
-      </app-barchart>
+      </app-barchart> -->
+      <app-custom-barchart
+        [dimension]="typeDim"
+        [group]="typeGroup"
+        xAxisLabel="Thread type"
+        yAxisLabel="Amount"
+        title="Incidents per thread type"
+      ></app-custom-barchart>
     </div>
     <div class="grid-item item2">
       <app-piechart
@@ -39,13 +46,18 @@
       ></app-piechart>
     </div>
     <div class="grid-item item3">
-      <app-linechart
+      <!-- <app-linechart
         [title]="'Critical threads per day'"
         [xAxis]="'Days'"
         [yAxis]="'Amount'"
         [dimension]="dateDim"
         [group]="criticalGroup"
-      ></app-linechart>
+      ></app-linechart> -->
+      <app-custom-linechart
+        [dimention]="dateDim"
+        [group]="criticalGroup"
+        [title]="'Linechart'"
+      ></app-custom-linechart>
     </div>
     <div class="grid-item item4">
       <app-radar-chart

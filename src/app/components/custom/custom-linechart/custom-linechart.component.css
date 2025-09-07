@@ -1,12 +1,10 @@
 .linechart-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   width: auto;
-  max-height: 100%;
-  height: auto;
   border-radius: var(--interior-radius);
 }
 
@@ -14,12 +12,6 @@
   width: 100%;
   margin-left: 22px;
   text-align: start;
-}
-
-#line-chart {
-  flex: 1; /* ocupa todo el espacio disponible */
-  width: 95%; /* ancho relativo al contenedor */
-  min-height: 200px;
 }
 
 .linechart-container #title {
@@ -31,7 +23,7 @@
 }
 
 .linechart {
-  height: 212px;
+  height: 180px;
   max-width: 100%;
   width: auto;
 }

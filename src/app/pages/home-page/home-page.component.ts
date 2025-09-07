@@ -9,7 +9,8 @@ import { RadarChartComponent } from '../../components/custom/radar-chart/radar-c
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
-import { CustomBarchartComponent } from "../../components/custom/custom-barchart/custom-barchart.component";
+import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
+import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 
 @Component({
   selector: 'app-home-page',
@@ -20,8 +21,9 @@ import { CustomBarchartComponent } from "../../components/custom/custom-barchart
     PiechartComponent,
     LinechartComponent,
     RadarChartComponent,
-    CustomBarchartComponent
-],
+    CustomBarchartComponent,
+    CustomLinechartComponent,
+  ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
 })
@@ -149,6 +151,8 @@ export class HomePageComponent {
   openIncidentsGroup = this.cf
     .groupAll()
     .reduceSum((d: any) => (d.status === 'Open' ? 1 : 0));
+
+  // Graficos
 
   // 1. Dimension por tipo de amenaza
   typeDim = this.cf.dimension((d: any) => d.threat_type);

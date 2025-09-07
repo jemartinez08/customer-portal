@@ -37,10 +37,15 @@
       ></app-piechart>
     </div>
     <div class="grid-item item3">
-      <app-linechart
+      <!-- <app-linechart
         [dimension]="chartService.dimensions['month']"
         [group]="chartService.groups['month']"
-      ></app-linechart>
+      ></app-linechart> -->
+      <app-custom-linechart
+        [dimention]="chartService.dimensions['month']"
+        [group]="chartService.groups['month']"
+        [title]="'Linechart'"
+      ></app-custom-linechart>
     </div>
     <div class="grid-item item4">
       <app-stackedbars></app-stackedbars>

@@ -21,16 +21,19 @@ export class RadarChartComponent implements OnChanges {
   constructor(private el: ElementRef) {}
 
   ngOnChanges() {
+    console.log('Hola.....');
     if (this.dimension && this.group) {
       this.renderChart(); // dibuja inicialmente
 
-      // Suscribirse a cambios de filtros en todos los charts DC
-      dc.chartRegistry.list().forEach((chart: any) => {
-        chart.on('filtered', () => {
-          console.log('Grupo actualizado:', this.group.all()); // log para debug
-          this.renderChart(); // redibujar D3
+      setTimeout(() => {
+        // Suscribirse a cambios de filtros en todos los charts DC
+        dc.chartRegistry.list().forEach((chart: any) => {
+          chart.on('filtered.radarchart', () => {
+            console.log('Grupo actualizado:', this.group.all()); // log para debug
+            this.renderChart(); // redibujar D3
+          });
         });
-      });
+      }, 1000);
     }
   }
 

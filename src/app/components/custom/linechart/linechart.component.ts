@@ -1,4 +1,11 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  OnChanges,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
@@ -9,37 +16,72 @@ import * as d3 from 'd3';
   templateUrl: './linechart.component.html',
   styleUrl: './linechart.component.css',
 })
-export class LinechartComponent {
+export class LinechartComponent implements OnChanges, OnInit, OnDestroy {
   @Input() dimension!: crossfilter.Dimension<any, any>;
   @Input() group!: crossfilter.Group<any, any, any>;
   @Input() title: string = '';
   @Input() xAxis: string = '';
   @Input() yAxis: string = '';
 
+  private chart: any;
+  private resizeObserver!: ResizeObserver;
+
   constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    const container = this.el.nativeElement.querySelector(
+      '.linechart-container'
+    ) as HTMLElement;
+
+    this.resizeObserver = new ResizeObserver(() => {
+      this.renderChart();
+    });
+
+    this.resizeObserver.observe(container); // observa el contenedor flexible
+  }
 
   ngOnChanges() {
     if (this.dimension && this.group) {
-      console.log('Hola')
       this.renderChart();
     }
   }
 
-  private renderChart() {
-    const chart = dc.lineChart('#line-chart');
+  ngOnDestroy() {
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+    if (this.chart) {
+      this.chart.filterAll();
+      this.chart.dispose();
+    }
+  }
 
-    chart
-      .width(400)
-      .height(180)
+  private renderChart() {
+    const container = this.el.nativeElement.querySelector(
+      '#line-chart'
+    ) as HTMLElement;
+    if (!container) return;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    // Limpiar el SVG previo
+    d3.select(container).select('svg').remove();
+
+    // Crear chart DC con nuevo ancho/alto
+    const chart = dc
+      .lineChart(container)
+      .width(width)
+      .height(height)
       .dimension(this.dimension)
-      .ordinalColors(['#8f53f0'])
       .group(this.group)
-      .x(d3.scaleBand().domain(this.group.all().map((d) => d.key)))
-      //.renderArea(true) // relleno debajo de la línea (opcional)
+      .ordinalColors(['#8f53f0'])
       .elasticY(true)
+      .x(d3.scaleBand().domain(this.group.all().map((d) => d.key)))
       .xAxisLabel(this.xAxis)
-      .yAxisLabel(this.yAxis);
+      .yAxisLabel(this.yAxis)
+      .transitionDuration(500);
 
     chart.render();
+    this.chart = chart;
   }
 }
