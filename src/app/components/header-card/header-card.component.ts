@@ -36,7 +36,7 @@ export class HeaderCardComponent implements OnChanges {
   @Input() KpiValue: number = 0;
   @Input() KpiTitle: string = 'KPI';
   @Input() dimension!: crossfilter.Dimension<any, any>;
-  @Input() group!: crossfilter.GroupAll<Event, unknown>;
+  @Input() group!: crossfilter.GroupAll<unknown, unknown>;
 
   @ViewChild('kpiContainer', { static: true }) kpiContainer!: ElementRef;
 

@@ -2,18 +2,18 @@
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
+      [group]="openIncidents"
+      [KpiTitle]="'Opened Incidents'"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
+      [group]="highPriorityIncidents"
+      [KpiTitle]="'High Priority Incidents'"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
-      [KpiTitle]="'Critical Vulnerabilities'"
+      [KpiTitle]="'Critical Incidents'"
+      [group]="criticalIncidents"
     ></app-header-card>
   </div>
 </app-header>
@@ -22,18 +22,25 @@
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
     <div class="grid-item item1">
-      <app-barchart
+      <!-- <app-barchart
         [title]="'Tickets per month'"
         [dimension]="chartService.dimensions['priority']"
         [group]="chartService.groups['month']"
       >
-      </app-barchart>
+      </app-barchart> -->
+      <app-custom-barchart
+        [dimension]="priorityDimension"
+        [group]="incidentsByPriority"
+        xAxisLabel="Thread type"
+        yAxisLabel="Amount"
+        title="Incidents by priority"
+      ></app-custom-barchart>
     </div>
     <div class="grid-item item2">
       <app-piechart
-        [title]="'Ticket Priority'"
-        [dimension]="chartService.dimensions['priority']"
-        [group]="chartService.groups['priority']"
+        [title]="'Ticket severity'"
+        [dimension]="severityDimension"
+        [group]="incidentsBySeverity"
       ></app-piechart>
     </div>
     <div class="grid-item item3">
@@ -42,13 +49,19 @@
         [group]="chartService.groups['month']"
       ></app-linechart> -->
       <app-custom-linechart
-        [dimention]="chartService.dimensions['month']"
-        [group]="chartService.groups['month']"
+        [dimention]="monthDimension"
+        [group]="incidentsByMonth"
         [title]="'Linechart'"
       ></app-custom-linechart>
     </div>
     <div class="grid-item item4">
-      <app-stackedbars></app-stackedbars>
+      <app-custom-barchart
+        [dimension]="categoryDimension"
+        [group]="incidentsByCategory"
+        xAxisLabel="Thread type"
+        yAxisLabel="Amount"
+        title="Incidents by Caregory"
+      ></app-custom-barchart>
     </div>
     <div class="grid-item item5">5</div>
   </div>

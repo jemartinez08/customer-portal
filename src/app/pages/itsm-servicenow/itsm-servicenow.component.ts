@@ -6,6 +6,7 @@ import { PiechartComponent } from '../../components/custom/piechart/piechart.com
 import { LinechartComponent } from '../../components/custom/linechart/linechart.component';
 import { StackedbarsComponent } from '../../components/custom/stackedbars/stackedbars.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
+import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 
 import { ChartDataService } from '../../services/chart-data.service';
 
@@ -17,6 +18,7 @@ import * as d3 from 'd3';
   selector: 'app-itsm-servicenow',
   imports: [
     BarchartComponent,
+    CustomBarchartComponent,
     HeaderCardComponent,
     HeaderComponent,
     PiechartComponent,
@@ -142,7 +144,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2018-09',
       priority: '1',
       state: '1',
-      severity: '3',
+      severity: '1',
       urgency: '1',
       category: 'software',
       assignment_group: null,
@@ -195,7 +197,7 @@ export class ItsmServicenowComponent implements OnInit {
       number: 'INC0000037',
       opened_at: '2025-03-28 00:34:56',
       month: '2025-03',
-      priority: '3',
+      priority: '2',
       state: '2',
       severity: '3',
       urgency: '3',
@@ -241,7 +243,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-03',
       priority: '1',
       state: '2',
-      severity: '1',
+      severity: '2',
       urgency: '1',
       category: 'network',
       assignment_group: '287ebd7da9fe198100f92cc8d1d2154e',
@@ -285,7 +287,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-03',
       priority: '3',
       state: '2',
-      severity: '3',
+      severity: '2',
       urgency: '3',
       category: 'hardware',
       assignment_group: null,
@@ -296,7 +298,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-06',
       priority: '2',
       state: '2',
-      severity: '3',
+      severity: '2',
       urgency: '1',
       category: 'network',
       assignment_group: '8a5055c9c61122780043563ef53438e3',
@@ -329,7 +331,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2015-08',
       priority: '1',
       state: '3',
-      severity: '1',
+      severity: '2',
       urgency: '1',
       category: 'database',
       assignment_group: null,
@@ -373,7 +375,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-03',
       priority: '2',
       state: '2',
-      severity: '3',
+      severity: '2',
       urgency: '2',
       category: 'software',
       assignment_group: null,
@@ -406,7 +408,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-06',
       priority: '3',
       state: '1',
-      severity: '3',
+      severity: '2',
       urgency: '3',
       category: 'software',
       assignment_group: '8a4dde73c6112278017a6a4baf547aa7',
@@ -428,7 +430,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-06',
       priority: '1',
       state: '2',
-      severity: '3',
+      severity: '1',
       urgency: '1',
       category: 'software',
       assignment_group: '8a4dde73c6112278017a6a4baf547aa7',
@@ -450,7 +452,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-06',
       priority: '1',
       state: '2',
-      severity: '3',
+      severity: '1',
       urgency: '1',
       category: 'inquiry',
       assignment_group: '8a4dde73c6112278017a6a4baf547aa7',
@@ -461,7 +463,7 @@ export class ItsmServicenowComponent implements OnInit {
       month: '2025-06',
       priority: '1',
       state: '2',
-      severity: '3',
+      severity: '1',
       urgency: '1',
       category: '',
       assignment_group: 'd625dccec0a8016700a222a0f7900d06',
@@ -516,7 +518,7 @@ export class ItsmServicenowComponent implements OnInit {
     .groupAll()
     .reduceSum((d) => (d.category === 'network' ? 1 : 0));
 
-  // Dimentions and groups
+  // Dimentions and groups ------------------------------
   // Dimensión por prioridad
   priorityDimension = this.cf.dimension((d) => d.priority);
   // Gráfico de barras: Incidentes por prioridad
