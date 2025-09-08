@@ -55,15 +55,15 @@ export class DataTableComponent implements OnChanges, AfterViewInit, OnDestroy {
     this.table
       .dimension(this.dimension)
       .columns([
-        { label: 'Número', format: (d: any) => d.number },
-        { label: 'Fecha apertura', format: (d: any) => d.opened_at },
-        { label: 'Mes', format: (d: any) => d.month },
-        { label: 'Prioridad', format: (d: any) => d.priority },
-        { label: 'Estado', format: (d: any) => d.state },
-        { label: 'Severidad', format: (d: any) => d.severity },
-        { label: 'Urgencia', format: (d: any) => d.urgency },
-        { label: 'Categoría', format: (d: any) => d.category },
-        { label: 'Grupo asignación', format: (d: any) => d.assignment_group },
+        { label: 'Number', format: (d: any) => d.number },
+        { label: 'Opened at', format: (d: any) => d.opened_at },
+        { label: 'Month', format: (d: any) => d.month },
+        { label: 'Priority', format: (d: any) => d.priority },
+        { label: 'State', format: (d: any) => d.state },
+        { label: 'Severity', format: (d: any) => d.severity },
+        { label: 'Urgency', format: (d: any) => d.urgency },
+        { label: 'Category', format: (d: any) => d.category },
+        { label: 'Assignation Group', format: (d: any) => d.assignment_group },
       ])
       .sortBy((d: { opened_at: any }) => d.opened_at)
       .order(d3.ascending)
