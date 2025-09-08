@@ -60,9 +60,14 @@ export class LinechartComponent implements OnChanges, OnInit, OnDestroy {
     const container = this.el.nativeElement.querySelector(
       '#line-chart'
     ) as HTMLElement;
-    if (!container) return;
+    if (!container) {
+      console.log('Hola');
+      return;
+    }
     const width = container.clientWidth;
     const height = container.clientHeight;
+
+    console.log(width, height);
 
     // Limpiar el SVG previo
     d3.select(container).select('svg').remove();
