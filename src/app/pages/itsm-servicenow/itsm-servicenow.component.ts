@@ -13,6 +13,7 @@ import { ChartDataService } from '../../services/chart-data.service';
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
+import { DataTableComponent } from '../../components/custom/data-table/data-table.component';
 
 @Component({
   selector: 'app-itsm-servicenow',
@@ -25,6 +26,7 @@ import * as d3 from 'd3';
     LinechartComponent,
     CustomLinechartComponent,
     StackedbarsComponent,
+    DataTableComponent,
   ],
   templateUrl: './itsm-servicenow.component.html',
   styleUrl: './itsm-servicenow.component.css',
@@ -482,13 +484,13 @@ export class ItsmServicenowComponent implements OnInit {
   ];
 
   ngOnInit() {
-    const data = this.chartService.loadData();
+    /* const data = this.chartService.loadData();
     // Cargar datos para
     setTimeout(() => {
       this.filteredData = this.chartService.getKpiData();
       this.mttValue = this.filteredData.data.MTTR;
       this.numberOfOpenedTickets = this.filteredData.data.openedTickets.length;
-    }, 1000);
+    }, 1000); */
   }
 
   // Cargar datos en crossfilter
@@ -553,4 +555,8 @@ export class ItsmServicenowComponent implements OnInit {
   monthDimension = this.cf.dimension((d) => d.month);
   // Gráfico de línea o serie temporal: Incidentes por mes
   incidentsByMonth = this.monthDimension.group().reduceCount();
+
+  getCf() {
+    return this.cf;
+  }
 }

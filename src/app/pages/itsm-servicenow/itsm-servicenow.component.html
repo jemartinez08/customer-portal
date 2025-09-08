@@ -63,6 +63,12 @@
         title="Incidents by Caregory"
       ></app-custom-barchart>
     </div>
-    <div class="grid-item item5">5</div>
+  </div>
+
+  <div class="incidents-table">
+    <app-data-table
+      [data]="tickets"
+      [title]="'Incidents Table'"
+    ></app-data-table>
   </div>
 </div>
