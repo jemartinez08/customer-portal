@@ -28,7 +28,6 @@ export class ServicenowTestComponent implements OnInit {
   initCharts() {
     // api data from servicenow
     const apiData = this.data.result;
-    console.log('Datos de la api: ', apiData);
 
     // 1. Initialize crossfilter
     const ndx = crossfilter(apiData);
@@ -69,7 +68,7 @@ export class ServicenowTestComponent implements OnInit {
         'state',
         'severity',
         'subcategory',
-        'urgency'
+        'urgency',
       ])
       .sortBy((d: any) => d.number)
       .order(d3.ascending)
