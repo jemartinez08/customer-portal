@@ -13,7 +13,6 @@ import * as d3 from 'd3';
 
 @Component({
   selector: 'app-custom-linechart',
-  imports: [],
   templateUrl: './custom-linechart.component.html',
   styleUrl: './custom-linechart.component.css',
 })
@@ -25,16 +24,24 @@ export class CustomLinechartComponent
   @Input() title: string = '';
 
   private svg: any;
-  private linePath: any;
-  private points: any;
+  private chartGroup: any;
   private resizeObserver!: ResizeObserver;
 
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
+    // Crear el SVG solo una vez
+    const container = this.el.nativeElement.querySelector('#linechart');
+    this.svg = d3.select(container).append('svg');
+
+    // 👇 translate se aplica aquí una sola vez
+    this.chartGroup = this.svg
+      .append('g')
+      .attr('transform', `translate(50,20)`); // usa los márgenes iniciales
+
     // Observar tamaño del contenedor
     this.resizeObserver = new ResizeObserver(() => this.renderChart());
-    this.resizeObserver.observe(this.el.nativeElement);
+    this.resizeObserver.observe(container);
   }
 
   ngOnDestroy() {
@@ -45,41 +52,37 @@ export class CustomLinechartComponent
 
   ngOnChanges() {
     if (this.dimention && this.group) {
-      this.renderChart(); // dibuja inicialmente
+      this.renderChart();
 
       setTimeout(() => {
-        // Suscribirse a cambios de filtros en todos los charts DC
         dc.chartRegistry.list().forEach((chart: any) => {
           chart.on('filtered.linechart', () => {
-            this.renderChart(); // redibujar D3
+            this.renderChart();
           });
         });
-      }, 1000);
+      }, 500);
     }
   }
 
   private renderChart() {
+    if (!this.group) return;
+
     const data = this.group.all().map((d) => ({ x: d.key, y: d.value }));
     if (!data.length) return;
 
-    const container = this.el.nativeElement as HTMLElement;
-    const width = container.clientWidth || 500;
-    const height = container.clientHeight || 200;
+    const container = this.el.nativeElement.querySelector('#linechart');
+    const { width, height } = container.getBoundingClientRect();
+    if (width === 0 || height === 0) return;
+    console.log(width, height);
+
     const margin = { top: 20, right: 20, bottom: 40, left: 50 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    // Crear SVG si no existe
-    if (!this.svg) {
-      this.svg = d3
-        .select(this.el.nativeElement)
-        .append('svg')
-        .attr('width', width)
-        .attr('height', height)
-        .append('g')
-        .attr('transform', `translate(${margin.left},${margin.top})`);
-    }
+    // 👇 ahora solo se actualizan dimensiones del SVG
+    this.svg.attr('width', width).attr('height', height);
 
+    // Escalas
     const x = d3
       .scaleBand()
       .domain(data.map((d) => d.x))
@@ -92,15 +95,17 @@ export class CustomLinechartComponent
       .nice()
       .range([innerHeight, 0]);
 
-    // Generador de línea suavizada
     const line = d3
       .line<{ x: string; y: number }>()
       .x((d) => x(d.x)! + x.bandwidth() / 2)
       .y((d) => y(d.y))
       .curve(d3.curveMonotoneX);
 
+    // Limpio ejes anteriores 👇
+    this.chartGroup.selectAll('.x-axis').remove();
+    this.chartGroup.selectAll('.y-axis').remove();
     // --- Línea ---
-    const linePath = this.svg.selectAll('.line-path').data([data]);
+    const linePath = this.chartGroup.selectAll('.line-path').data([data]);
 
     linePath
       .enter()
@@ -111,13 +116,13 @@ export class CustomLinechartComponent
       .attr('stroke-width', 2)
       .merge(linePath)
       .transition()
-      .duration(600)
+      .duration(400)
       .attr('d', line);
 
     linePath.exit().remove();
 
     // --- Puntos ---
-    const circles = this.svg
+    const circles = this.chartGroup
       .selectAll('.line-point')
       .data(data, (d: { x: any }) => d.x);
 
@@ -129,41 +134,30 @@ export class CustomLinechartComponent
       .attr('fill', '#8f53f0')
       .merge(circles)
       .transition()
-      .duration(600)
+      .duration(400)
       .attr('cx', (d: { x: string }) => x(d.x)! + x.bandwidth() / 2)
-      .attr('cy', (d: { y: d3.NumberValue }) => y(d.y));
+      .attr('cy', (d: { y: number }) => y(d.y));
 
     circles.exit().remove();
 
     // --- Ejes ---
-    // --- Ejes ---
-    const xAxis = this.svg.selectAll('.x-axis');
-    const yAxis = this.svg.selectAll('.y-axis');
+    this.chartGroup.selectAll('.x-axis').remove();
+    this.chartGroup.selectAll('.y-axis').remove();
 
-    if (xAxis.empty()) {
-      // Crear ejes
-      this.svg
-        .append('g')
-        .attr('class', 'x-axis')
-        .attr('transform', `translate(0,${innerHeight})`)
-        .call(d3.axisBottom(x));
+    this.chartGroup
+      .append('g')
+      .attr('class', 'x-axis')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(x));
 
-      this.svg.append('g').attr('class', 'y-axis').call(d3.axisLeft(y));
-    }
+    this.chartGroup.append('g').attr('class', 'y-axis').call(d3.axisLeft(y));
 
-    // Aplicar estilo delgado y gris oscuro a líneas del eje y ticks
+    // Estilos de ejes
     ['.x-axis', '.y-axis'].forEach((cls) => {
-      const axis = this.svg.select(cls);
-      axis
-        .selectAll('path')
-        .attr('stroke', '#000000ff')
-        .attr('stroke-width', 1); // línea principal del eje
-      axis
-        .selectAll('line')
-        .attr('stroke', '#000000ff')
-        .attr('stroke-width', 1); // ticks
-      // labels se mantienen con fill
-      axis.selectAll('text').attr('fill', '#000000ff');
+      const axis = this.chartGroup.select(cls);
+      axis.selectAll('path').attr('stroke', '#000').attr('stroke-width', 1);
+      axis.selectAll('line').attr('stroke', '#000').attr('stroke-width', 1);
+      axis.selectAll('text').attr('fill', '#000');
     });
   }
 }
