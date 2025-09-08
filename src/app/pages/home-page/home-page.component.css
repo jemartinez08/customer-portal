@@ -4,3 +4,47 @@
   padding: 18px;
   border-radius: var(--general-radius);
 }
+
+.kpi-object-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 3 columnas */
+  grid-template-rows: repeat(6, 122px); /* 2 filas */
+  gap: 18px;
+}
+
+.grid-item {
+  background-color: var(--bg);
+  color: white;
+  text-align: center;
+  justify-content: center;
+  border-radius: var(--interior-radius);
+}
+
+.item1 {
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 2;
+}
+
+.item2 {
+  grid-column: 5 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.item3 {
+  grid-column: 1 / 4;
+  grid-row: 3 / span 2;
+}
+
+.item4 {
+  grid-column: 4 / span 3;
+  grid-row: 3 / span 4;
+}
+.item5 {
+  grid-column: 1 / span 3;
+  grid-row: 5 / span 2;
+}

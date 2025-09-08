@@ -1,0 +1,36 @@
+.piechart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  width: auto;
+  max-height: 100%;
+  width: auto;
+  border-radius: var(--interior-radius);
+}
+
+#title {
+  width: 100%;
+  margin-left: 22px;
+  text-align: start;
+}
+
+#priority-piechart {
+  width: 100%;
+  height: 80%;
+}
+
+.piechart-container #title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--night);
+  padding-left: 22px;
+  text-align: left;
+}
+
+.piechart {
+  height: 212px;
+  max-width: 100%;
+  width: auto;
+}

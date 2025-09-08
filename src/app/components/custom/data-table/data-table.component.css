@@ -1,0 +1,111 @@
+.data-table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 100%;
+  height: auto;
+  border-radius: var(--interior-radius);
+}
+
+.data-table-container #title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--night);
+  padding-left: 22px;
+  text-align: left;
+}
+
+#title {
+  width: 100%;
+  margin-left: 22px;
+  text-align: start;
+}
+
+/* Estilo general */
+:host ::ng-deep #datatable {
+  border-spacing: 0; /* Elimina espacios entre celdas */
+  table-layout: fixed;
+  font-size: 14px;
+  padding: 22px;
+}
+
+/* Encabezado */
+:host ::ng-deep #datatable thead {
+  background-color: var(--core);
+  color: #fff;
+  height: 52px;
+  font-size: large;
+}
+
+/* Redondear esquinas del header */
+:host ::ng-deep #datatable thead th:first-child {
+  border-top-left-radius: 12px;
+}
+:host ::ng-deep #datatable thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+:host ::ng-deep #datatable tr {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  border-right: 1px solid #444;
+}
+
+/* Bordes redondeados en header */
+:host ::ng-deep #datatable tbody:first-child {
+  border-top-left-radius: 12px;
+}
+:host ::ng-deep #datatable tbody:last-child {
+  border-top-right-radius: 12px;
+  border-right: none;
+}
+
+/* Filas */
+:host ::ng-deep #datatable tbody tr {
+  color: var(--night);
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.25s ease;
+}
+
+/* Filas intercaladas */
+:host ::ng-deep #datatable tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+:host ::ng-deep #datatable tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+:host ::ng-deep #datatable tbody tr:hover {
+  background-color: #eaf4ff;
+}
+
+/* Celdas */
+:host ::ng-deep #datatable td {
+  padding: 12px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:host ::ng-deep #datatable td:last-child {
+  border-right: none;
+}
+
+/* Bordes redondeados en la última fila */
+:host ::ng-deep #datatable tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+:host ::ng-deep #datatable tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Resaltar fila seleccionada */
+:host ::ng-deep #datatable tr.dc-table-row-selected {
+  background-color: #d1f2eb;
+  font-weight: bold;
+}

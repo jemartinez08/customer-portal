@@ -1,0 +1,31 @@
+.barchart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  width: auto;
+  max-height: 100%;
+  height: auto;
+  border-radius: var(--interior-radius);
+}
+
+#title {
+  width: 100%;
+  margin-left: 22px;
+  text-align: start;
+}
+
+.barchart-container #title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--night);
+  padding-left: 22px;
+  text-align: left;
+}
+
+.barchart {
+  height: 212px;
+  max-width: 100%;
+  width: auto;
+}

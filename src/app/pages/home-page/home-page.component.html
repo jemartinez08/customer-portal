@@ -1,5 +1,79 @@
-<app-header title="ServiceNow Dashboard"></app-header>
+<app-header title="Protal Home Page">
+  <div kpiObject class="kpi-object-container">
+    <app-header-card
+      [KPICard]="notMainKpi"
+      [KpiTitle]="'Total Incidents'"
+      [group]="all"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="notMainKpi"
+      [KpiTitle]="'Affected Hosts'"
+      [group]="openIncidentsGroup"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="isMainKPI"
+      [KpiTitle]="'Critical Vulnerabilities'"
+      [group]="criticalTotal"
+    ></app-header-card>
+  </div>
+</app-header>
 <div class="dashboard-content">
-  <app-dashboard-test></app-dashboard-test>
-  <app-servicenow-test></app-servicenow-test>
+  <!-- <app-dashboard-test></app-dashboard-test>
+  <app-servicenow-test></app-servicenow-test> -->
+  <div class="main-grid-container">
+    <div class="grid-item item1">
+      <!-- <app-barchart
+        [xAxis]="'Thread type'"
+        [yAxis]="'Amount'"
+        [title]="'Incidents per thread type'"
+        [dimension]="typeDim"
+        [group]="typeGroup"
+      >
+      </app-barchart> -->
+      <app-custom-barchart
+        [dimension]="typeDim"
+        [group]="typeGroup"
+        xAxisLabel="Thread type"
+        yAxisLabel="Amount"
+        title="Incidents per thread type"
+      ></app-custom-barchart>
+    </div>
+    <div class="grid-item item2">
+      <app-piechart
+        [title]="'Incidents source'"
+        [dimension]="srcDim"
+        [group]="srcGroup"
+      ></app-piechart>
+    </div>
+    <div class="grid-item item3">
+      <!-- <app-linechart
+        [title]="'Critical threads per day'"
+        [xAxis]="'Days'"
+        [yAxis]="'Amount'"
+        [dimension]="dateDim"
+        [group]="criticalGroup"
+      ></app-linechart> -->
+      <app-custom-linechart
+        [dimention]="dateDim"
+        [group]="criticalGroup"
+        [title]="'Linechart'"
+      ></app-custom-linechart>
+    </div>
+    <div class="grid-item item4">
+      <app-radar-chart
+        [dimension]="vectorDim"
+        [group]="vectorGroup"
+        [title]="'Attack vectors'"
+      ></app-radar-chart>
+    </div>
+    <div class="grid-item item5">
+      <app-custom-barchart
+        [dimension]="sevDim"
+        [group]="sevGroup"
+        xAxisLabel="Severidad"
+        yAxisLabel="Número de amenazas"
+        title="Amenazas por severidad"
+      ></app-custom-barchart>
+    </div>
+  </div>
 </div>

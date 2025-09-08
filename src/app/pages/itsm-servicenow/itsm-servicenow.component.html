@@ -1,0 +1,74 @@
+<app-header title="ITSM ServiceNow Portal">
+  <div kpiObject class="kpi-object-container">
+    <app-header-card
+      [KPICard]="notMainKpi"
+      [group]="openIncidents"
+      [KpiTitle]="'Opened Incidents'"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="notMainKpi"
+      [group]="highPriorityIncidents"
+      [KpiTitle]="'High Priority Incidents'"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="isMainKPI"
+      [KpiTitle]="'Critical Incidents'"
+      [group]="criticalIncidents"
+    ></app-header-card>
+  </div>
+</app-header>
+<div class="dashboard-content">
+  <!-- <app-dashboard-test></app-dashboard-test>
+  <app-servicenow-test></app-servicenow-test> -->
+  <div class="main-grid-container">
+    <div class="grid-item item1">
+      <!-- <app-barchart
+        [title]="'Tickets per month'"
+        [dimension]="chartService.dimensions['priority']"
+        [group]="chartService.groups['month']"
+      >
+      </app-barchart> -->
+      <app-custom-barchart
+        [dimension]="priorityDimension"
+        [group]="incidentsByPriority"
+        xAxisLabel="Thread type"
+        yAxisLabel="Amount"
+        title="Incidents by priority"
+      ></app-custom-barchart>
+    </div>
+    <div class="grid-item item2">
+      <app-piechart
+        [title]="'Ticket severity'"
+        [dimension]="severityDimension"
+        [group]="incidentsBySeverity"
+      ></app-piechart>
+    </div>
+    <div class="grid-item item3">
+      <!-- <app-linechart
+        [dimension]="chartService.dimensions['month']"
+        [group]="chartService.groups['month']"
+      ></app-linechart> -->
+      <app-custom-linechart
+        [dimention]="monthDimension"
+        [group]="incidentsByMonth"
+        [title]="'Linechart'"
+      ></app-custom-linechart>
+    </div>
+    <div class="grid-item item4">
+      <app-custom-barchart
+        [dimension]="categoryDimension"
+        [group]="incidentsByCategory"
+        xAxisLabel="Thread type"
+        yAxisLabel="Amount"
+        title="Incidents by Caregory"
+      ></app-custom-barchart>
+    </div>
+  </div>
+
+  <div class="incidents-table">
+    <app-data-table
+      [data]="tickets"
+      [title]="'Incidents Table'"
+    ></app-data-table>
+  </div>
+</div>
