@@ -1,9 +1,15 @@
+@if (isLoading) {
+<div class="loading-screen">
+  <div class="spinner"></div>
+  <p>Verificando sesión...</p>
+</div>
+} @else {
 <div class="app-container">
   <!-- Sidebar -->
   <aside class="sidebar" [class.closed]="isSidebarClosed">
     <button class="close-button" (click)="toggleSidebar()">☰</button>
     <div class="nav-container">
-        <app-navbar-component></app-navbar-component>
+      <app-navbar-component></app-navbar-component>
     </div>
   </aside>
 
@@ -15,3 +21,4 @@
     </section>
   </div>
 </div>
+}

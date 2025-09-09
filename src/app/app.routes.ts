@@ -9,22 +9,50 @@ import { AdvancedThreadHuntingComponent } from './pages/advanced-thread-hunting/
 import { IncidentResponseComponent } from './pages/incident-response/incident-response.component';
 import { TicketAnalysisComponent } from './pages/ticket-analysis/ticket-analysis.component';
 
+import { MsalGuard } from '@azure/msal-angular';
+
 export const routes: Routes = [
-  { path: 'home-page', component: HomePageComponent },
-  { path: 'critical-threads', component: CriticalThreadsComponent },
-  { path: 'itsm-servicenow', component: ItsmServicenowComponent },
-  { path: 'soc-splunk', component: SocSplunkComponent },
+  { path: 'home-page', component: HomePageComponent, canActivate: [MsalGuard] },
+  {
+    path: 'critical-threads',
+    component: CriticalThreadsComponent,
+    canActivate: [MsalGuard],
+  },
+  {
+    path: 'itsm-servicenow',
+    component: ItsmServicenowComponent,
+    canActivate: [MsalGuard],
+  },
+  {
+    path: 'soc-splunk',
+    component: SocSplunkComponent,
+    canActivate: [MsalGuard],
+  },
   {
     path: 'edr-crowdstrike-sentinelone',
     component: EdrCrowdstrikeSentineloneComponent,
+    canActivate: [MsalGuard],
   },
-  { path: 'epp-proofpoint', component: EppProofpointComponent },
+  {
+    path: 'epp-proofpoint',
+    component: EppProofpointComponent,
+    canActivate: [MsalGuard],
+  },
   {
     path: 'advanced-thread-hunting',
     component: AdvancedThreadHuntingComponent,
+    canActivate: [MsalGuard],
   },
-  { path: 'incident-response', component: IncidentResponseComponent },
-  { path: 'ticket-analysis', component: TicketAnalysisComponent },
+  {
+    path: 'incident-response',
+    component: IncidentResponseComponent,
+    canActivate: [MsalGuard],
+  },
+  {
+    path: 'ticket-analysis',
+    component: TicketAnalysisComponent,
+    canActivate: [MsalGuard],
+  },
   { path: '', redirectTo: '/home-page', pathMatch: 'full' },
   { path: '**', redirectTo: '/home-page' }, // Redirección para rutas incorrectas
 ];
