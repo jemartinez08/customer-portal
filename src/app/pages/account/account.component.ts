@@ -1,15 +1,15 @@
 import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+
 import { HeaderComponent } from '../../components/header/header.component';
 import { AppComponent } from '../../app.component';
-
 import { SessionModalService } from '../../services/session-modal.service';
-import { Subscription } from 'rxjs';
-import { SessionModalComponent } from '../../components/session-modal/session-modal.component';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-account',
-  imports: [CommonModule, HeaderComponent, SessionModalComponent],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',
 })
@@ -18,18 +18,12 @@ export class AccountComponent implements OnDestroy {
   private sub!: Subscription;
 
   constructor(
-    private session: AppComponent,
+    private session: SessionService,
     private modal: SessionModalService
   ) {
     this.sub = this.modal.publicModalState$.subscribe((valor) => {
       this.modalState = valor;
     });
-    console.log(this.modalState);
-  }
-
-  openModal() {
-    this.modal.openModal();
-    console.log(this.modalState);
   }
 
   logout() {

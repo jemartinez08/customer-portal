@@ -10,9 +10,9 @@ import { SessionModalService } from './session-modal.service';
 export class SessionService {
   private timeoutId: any;
   private warningId: any;
-  //private sessionDuration = 15 * 60 * 1000; // 15 minutos
-  private sessionDuration = 30 * 1000; // 15 minutos
-  private warningDuration = 30 * 1000; // 30 segundos
+  private sessionDuration = 30 * 60 * 1000; // 30 minutos
+  //private sessionDuration = 10 * 1000; // 60 segundos
+  private warningDuration = 30 * 1000; // 10 segundos
   //private warningDuration = 5000; // 30 segundos
 
   constructor(
@@ -30,12 +30,15 @@ export class SessionService {
   }
 
   private showWarningModal() {
+    console.log('Modal Abierto');
     this.modal.openModal();
+    console.log('Cuenta iniciada');
     this.startCountdown(30);
 
     this.warningId = setTimeout(() => {
       this.modal.closeModal();
-      this.logout();
+      console.log('Modal cerrado');
+      // this.logout();
     }, this.warningDuration);
 
     /*dialogRef.afterClosed().subscribe((result: string) => {
@@ -47,7 +50,7 @@ export class SessionService {
     });*/
   }
 
-  private logout() {
+  logout() {
     this.msalService.logoutRedirect();
   }
 

@@ -5,12 +5,5 @@
   <div class="main-grid-container">
     <p>Username</p>
     <button (click)="logout()">Logout</button>
-    <button (click)="openModal()">OpenModal</button>
   </div>
-</div>
-<div
-  class="full-screen-overlay"
-  [ngClass]="{ open: modalState, closed: !modalState }"
->
-  <app-session-modal></app-session-modal>
 </div>

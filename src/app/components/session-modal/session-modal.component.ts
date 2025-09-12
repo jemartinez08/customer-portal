@@ -29,7 +29,7 @@ export class SessionModalComponent implements OnInit, OnDestroy {
   }
 
   start() {
-    this.session.startCountdown(10); // iniciar desde 10 segundos
+    this.session.startCountdown(30); // iniciar desde 10 segundos
   }
 
   // close de modal
