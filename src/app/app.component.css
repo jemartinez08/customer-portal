@@ -79,6 +79,7 @@
   flex-direction: column;
   max-width: 100%;
   width: auto;
+  height: 100%;
   overflow-y: auto; /* scroll solo aquí */
   background-color: var(--bg);
   padding: 18px;
@@ -96,7 +97,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--core);
-  z-index: 1000;
+  z-index: 10;
 }
 .close-button:hover {
   cursor: pointer;

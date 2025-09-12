@@ -42,3 +42,11 @@ a {
 a.active {
   font-weight: 800;
 }
+
+.services-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}

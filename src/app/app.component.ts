@@ -3,6 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
 import { MsalService } from '@azure/msal-angular';
 
+import { AuthService } from './services/auth.service';
+import { SessionService } from './services/session.service';
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponentComponent],
@@ -16,7 +19,11 @@ export class AppComponent implements OnInit {
   // msal config login comprobation
   isLoading = true;
 
-  constructor(private msalService: MsalService) {}
+  constructor(
+    private msalService: MsalService,
+    private authService: AuthService,
+    private session: SessionService
+  ) {}
 
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;
@@ -24,8 +31,6 @@ export class AppComponent implements OnInit {
 
   // MSLA
   ngOnInit(): void {
-    console.log('Iniciando sesión...');
-
     setTimeout(() => {
       this.msalService.handleRedirectObservable().subscribe({
         next: (result) => {
@@ -44,7 +49,11 @@ export class AppComponent implements OnInit {
             console.log('No hay sesión activa, redirigiendo al login...');
             this.login();
           } else {
+            this.authService.setUser(account);
             console.log('Sesión activa detectada:', account);
+
+            // Start session timer
+            this.session.startSessionTimer();
           }
 
           this.isLoading = false;
@@ -58,6 +67,7 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
+    console.log('Hola');
     this.msalService.logoutRedirect();
   }
 }
