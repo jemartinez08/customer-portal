@@ -21,4 +21,10 @@
     </section>
   </div>
 </div>
+<div
+  class="full-screen-overlay"
+  [ngClass]="{ open: modalState, closed: !modalState }"
+>
+  <app-session-modal></app-session-modal>
+</div>
 }

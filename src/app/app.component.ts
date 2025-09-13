@@ -1,11 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
 import { MsalService } from '@azure/msal-angular';
+import { Subscription } from 'rxjs';
+
+import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
+import { AuthService } from './services/auth.service';
+import { SessionModalComponent } from './components/session-modal/session-modal.component';
+import { SessionService } from './services/session.service';
+import { SessionModalService } from './services/session-modal.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponentComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    NavbarComponentComponent,
+    SessionModalComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -13,10 +25,24 @@ export class AppComponent implements OnInit {
   title = 'chats-test';
   isSidebarClosed = false;
 
+  // Datos para comunicar el modal
+  modalState: Boolean | undefined;
+  private sub!: Subscription;
+
   // msal config login comprobation
   isLoading = true;
 
-  constructor(private msalService: MsalService) {}
+  constructor(
+    private msalService: MsalService,
+    private authService: AuthService,
+    private session: SessionService,
+    private modal: SessionModalService
+  ) {
+    this.sub = this.modal.publicModalState$.subscribe((valor) => {
+      this.modalState = valor;
+    });
+    console.log(this.modalState);
+  }
 
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;
@@ -24,13 +50,10 @@ export class AppComponent implements OnInit {
 
   // MSLA
   ngOnInit(): void {
-    console.log('Iniciando sesión...');
-
     setTimeout(() => {
       this.msalService.handleRedirectObservable().subscribe({
         next: (result) => {
           if (result) {
-            console.log('Resultado del login:', result);
             this.msalService.instance.setActiveAccount(result.account); // ✅ Establece la sesión activa
           }
         },
@@ -41,10 +64,13 @@ export class AppComponent implements OnInit {
           const account = this.msalService.instance.getActiveAccount();
 
           if (!account) {
-            console.log('No hay sesión activa, redirigiendo al login...');
             this.login();
           } else {
-            console.log('Sesión activa detectada:', account);
+            // save the user in authService
+            this.authService.setUser(account);
+
+            // Start session timer
+            this.session.startSessionTimer();
           }
 
           this.isLoading = false;
@@ -55,9 +81,5 @@ export class AppComponent implements OnInit {
 
   login() {
     this.msalService.loginRedirect();
-  }
-
-  logout() {
-    this.msalService.logoutRedirect();
   }
 }
