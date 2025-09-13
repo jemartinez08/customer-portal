@@ -20,7 +20,7 @@ import {
 } from '@azure/msal-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// orange-mud-08c19b51e.2.azurestaticapps.net
+// https://orange-mud-08c19b51e.2.azurestaticapps.net/home-page
 
 function MSALInstanceFactory() {
   return new PublicClientApplication({
@@ -28,7 +28,8 @@ function MSALInstanceFactory() {
       clientId: 'a6910611-37cd-4b01-bc6b-70802d75a167',
       authority:
         'https://login.microsoftonline.com/7f0478e2-05c5-419a-873b-b8cdf0069fd4',
-      redirectUri: 'orange-mud-08c19b51e.2.azurestaticapps.net',
+      redirectUri:
+        'https://orange-mud-08c19b51e.2.azurestaticapps.net/home-page',
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,
