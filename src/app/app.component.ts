@@ -66,6 +66,7 @@ export class AppComponent implements OnInit {
           if (!account) {
             this.login();
           } else {
+            // save the user in authService
             this.authService.setUser(account);
 
             // Start session timer

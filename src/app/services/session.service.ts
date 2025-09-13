@@ -38,7 +38,7 @@ export class SessionService {
     this.warningId = setTimeout(() => {
       this.modal.closeModal();
       console.log('Modal cerrado');
-      // this.logout();
+      this.logout();
     }, this.warningDuration);
 
     /*dialogRef.afterClosed().subscribe((result: string) => {

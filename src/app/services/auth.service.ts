@@ -12,7 +12,7 @@ export class AuthService {
     this.userData = data;
   }
 
-  gettUser(data: any) {
+  getUser(data: any) {
     return this.userData;
   }
 

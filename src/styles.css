@@ -7,10 +7,10 @@
 
 /*Color variables*/
 :root {
-  --sand: rgb(245, 243, 237);
+  --sand: #f5f3ed;
   --core: #8f53f0;
-  --night: rgb(55, 55, 55);
-  --bg: rgb(255, 255, 255);
+  --night: #373737;
+  --bg: #ffffff;
   --general-radius: 22px;
   --interior-radius: 18px;
 }
