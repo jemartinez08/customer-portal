@@ -36,4 +36,12 @@ export class SessionModalComponent implements OnInit, OnDestroy {
   closeModal() {
     this.modal.closeModal();
   }
+
+  // continue working and restart session timers
+  contiueWorking() {
+    this.session.clearTimers();
+    this.modal.closeModal();
+    // volver a inciar la cuenta
+    this.session.startSessionTimer();
+  }
 }
