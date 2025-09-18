@@ -39,6 +39,14 @@ export class CustomBarchartComponent
   ngOnChanges() {
     if (this.chart && this.dimension && this.group) {
       this.updateChart();
+
+      setTimeout(() => {
+        dc.chartRegistry.list().forEach((chart: any) => {
+          chart.on('filtered.barchart', () => {
+            this.updateChart();
+          });
+        });
+      }, 500);
     }
   }
 

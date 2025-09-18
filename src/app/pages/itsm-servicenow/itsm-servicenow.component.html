@@ -7,7 +7,7 @@
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [group]="highPriorityIncidents" 
+      [group]="highPriorityIncidents"
       [KpiTitle]="'High Priority Incidents'"
     ></app-header-card>
     <app-header-card
@@ -66,9 +66,11 @@
   </div>
 
   <div class="incidents-table">
-    <app-data-table
+    <!-- <app-data-table
       [data]="tickets"
       [title]="'Incidents Table'"
-    ></app-data-table>
+    ></app-data-table> -->
+    <app-data-dropdown [data]="tickets" [title]="'Incidents'">
+    </app-data-dropdown>
   </div>
 </div>

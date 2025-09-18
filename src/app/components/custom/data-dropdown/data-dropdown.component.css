@@ -1,0 +1,115 @@
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-container h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--night);
+  padding: 16px 24px;
+  text-align: left;
+  margin: 0;
+  border-bottom: 2px solid #eee;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.dropdown-header {
+  font-weight: bold;
+  background-color: var(--core);
+  color: var(--bg);
+  padding: 10px 24px;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr) auto;
+  border-bottom: 2px solid #ccc;
+  align-items: center;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 50px repeat(9, 1fr); /* primera columna fija para iconos */
+  padding: 12px 24px;
+  border-bottom: 1px solid #eee;
+  align-items: center; /* centrar verticalmente */
+  transition: background-color 0.25s ease;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.open-modal {
+  cursor: pointer;
+}
+
+.table-row div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.table-row .arrow {
+  width: 50px; /* ancho fijo de la columna */
+  display: flex; /* usar flex para centrar */
+  justify-content: center; /* centrar horizontalmente */
+  align-items: center; /* centrar verticalmente */
+  font-size: 12px; /* tamaño del icono o SVG */
+}
+
+.table-row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.table-row:hover {
+  background-color: #eaf4ff;
+}
+
+.arrow {
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Opcional: fila expandida resaltada */
+.table-row.collapsed.expanded {
+  font-weight: 600;
+  background-color: #d1f2eb;
+}
+
+.expanded-content {
+  background: #fafafa;
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  font-family: Arial, sans-serif;
+  padding: 16px 24px;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: max-content 1fr; /* etiqueta + valor */
+  gap: 8px 16px; /* fila x columna */
+
+  padding-left: 102px;
+}
+
+.expanded-item-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.detail-value {
+  color: #555;
+}
