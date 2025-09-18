@@ -11,7 +11,7 @@ export class SessionService {
   private timeoutId: any;
   private warningId: any;
   private sessionDuration = 2 * 60 * 60 * 1000; // 2 horas
-  //private sessionDuration = 20 * 1000; // 60 segundos
+  //private sessionDuration = 30 * 1000; // 60 segundos
   private warningDuration = 30 * 1000; // 10 segundos
   //private warningDuration = 5000; // 30 segundos
 

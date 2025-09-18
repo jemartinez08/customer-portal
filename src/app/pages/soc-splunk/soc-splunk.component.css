@@ -13,7 +13,7 @@
 .main-grid-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 122px);
+    grid-template-rows: repeat(6, 122px);
   gap: 18px;
 }
 
