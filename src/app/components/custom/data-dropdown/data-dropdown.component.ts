@@ -50,7 +50,6 @@ export class DataDropdownComponent
         // En lugar de fakeChart, suscríbete a los eventos globales de DC
         dc.chartRegistry.list().forEach((chart: any) => {
           chart.on('filtered', () => {
-            console.log('suscrito');
             this.buildDropdown();
           });
         });
@@ -74,6 +73,8 @@ export class DataDropdownComponent
 
   toggleExpand(index: number) {
     this.expandedIndex = this.expandedIndex === index ? null : index;
+    this.cdr.detectChanges();
+    console.log('Expanded: ', this.expandedIndex);
   }
 
   ngOnDestroy() {

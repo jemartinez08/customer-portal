@@ -9,16 +9,15 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.dropdown-container h3 {
+.dropdown-container #title {
+  width: 100%;
+  margin-left: 12px;
+  text-align: start;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--night);
-  padding: 16px 24px;
+  padding-left: 22px;
   text-align: left;
-  margin: 0;
-  border-bottom: 2px solid #eee;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
 }
 
 .dropdown-header {
