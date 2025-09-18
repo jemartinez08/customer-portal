@@ -1,0 +1,119 @@
+<div class="dropdown-container">
+  <p id="title">{{ title }}</p>
+
+  <div class="dropdown-header table-row">
+    <div></div>
+    <div>Number</div>
+    <div>Opened at</div>
+    <div>Month</div>
+    <div>Priority</div>
+    <div>State</div>
+    <div>Severity</div>
+    <div>Urgency</div>
+    <div>Category</div>
+    <div></div>
+  </div>
+
+  <div class="dropdown-item" *ngFor="let ticket of filteredData; let i = index">
+    <!-- fila resumida -->
+    <div class="table-row collapsed">
+      <div class="arrow" (click)="toggleExpand(i)">
+        <span *ngIf="expandedIndex !== i">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="40px"
+            viewBox="0 -960 960 960"
+            width="40px"
+            fill="#434343"
+          >
+            <path
+              d="M480-344 240-584l47.33-47.33L480-438.67l192.67-192.66L720-584 480-344Z"
+            />
+          </svg>
+        </span>
+        <span *ngIf="expandedIndex === i">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="40px"
+            viewBox="0 -960 960 960"
+            width="40px"
+            fill="#434343"
+          >
+            <path
+              d="M480-545.33 287.33-352.67 240-400l240-240 240 240-47.33 47.33L480-545.33Z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div>{{ ticket.number }}</div>
+      <div>{{ ticket.opened_at }}</div>
+      <div>{{ ticket.month }}</div>
+      <div>{{ ticket.priority }}</div>
+      <div>{{ ticket.state }}</div>
+      <div>{{ ticket.severity }}</div>
+      <div>{{ ticket.urgency }}</div>
+      <div>{{ ticket.category }}</div>
+      <div class="open-modal">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#434343"
+        >
+          <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- detalle expandido -->
+    <div class="expanded-content" *ngIf="expandedIndex === i">
+      <div class="detail-grid">
+        <div class="expanded-item-container">
+          <div class="detail-label">Number:</div>
+          <div class="detail-value">{{ ticket.number }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">Opened at:</div>
+          <div class="detail-value">{{ ticket.opened_at }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">Month:</div>
+          <div class="detail-value">{{ ticket.month }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">Priority:</div>
+          <div class="detail-value">{{ ticket.priority }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">State:</div>
+          <div class="detail-value">{{ ticket.state }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">Severity:</div>
+          <div class="detail-value">{{ ticket.severity }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">Urgency:</div>
+          <div class="detail-value">{{ ticket.urgency }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">Category:</div>
+          <div class="detail-value">{{ ticket.category }}</div>
+        </div>
+
+        <div class="expanded-item-container">
+          <div class="detail-label">Assignment Group:</div>
+          <div class="detail-value">{{ ticket.assignment_group }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

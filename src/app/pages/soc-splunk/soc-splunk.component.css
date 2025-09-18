@@ -12,8 +12,8 @@
 
 .main-grid-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); 
-  grid-template-rows: repeat(4, 122px); 
+  grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 122px);
   gap: 18px;
 }
 
@@ -40,13 +40,11 @@
 }
 
 .item4 {
-  grid-column: 1 / span 6;
+  grid-column: 1 / span 3;
   grid-row: 5 / span 2;
 }
 
-.incidents-table {
-  margin-top: 18px;
-  width: 100%;
-  background-color: var(--bg);
-  border-radius: var(--interior-radius);
+.item5 {
+  grid-column: 4 / span 3;
+  grid-row: 5 / span 2;
 }

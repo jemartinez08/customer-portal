@@ -14,6 +14,7 @@ import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
 import { DataTableComponent } from '../../components/custom/data-table/data-table.component';
+import { DataDropdownComponent } from "../../components/custom/data-dropdown/data-dropdown.component";
 
 @Component({
   selector: 'app-itsm-servicenow',
@@ -27,7 +28,8 @@ import { DataTableComponent } from '../../components/custom/data-table/data-tabl
     CustomLinechartComponent,
     StackedbarsComponent,
     DataTableComponent,
-  ],
+    DataDropdownComponent
+],
   templateUrl: './itsm-servicenow.component.html',
   styleUrl: './itsm-servicenow.component.css',
 })
