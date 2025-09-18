@@ -10,8 +10,8 @@ import { SessionModalService } from './session-modal.service';
 export class SessionService {
   private timeoutId: any;
   private warningId: any;
-  private sessionDuration = 30 * 60 * 1000; // 30 minutos
-  //private sessionDuration = 10 * 1000; // 60 segundos
+  private sessionDuration = 2 * 60 * 60 * 1000; // 2 horas
+  //private sessionDuration = 20 * 1000; // 60 segundos
   private warningDuration = 30 * 1000; // 10 segundos
   //private warningDuration = 5000; // 30 segundos
 
@@ -40,21 +40,13 @@ export class SessionService {
       console.log('Modal cerrado');
       this.logout();
     }, this.warningDuration);
-
-    /*dialogRef.afterClosed().subscribe((result: string) => {
-      if (result === 'extend') {
-        this.startSessionTimer();
-      } else {
-        this.logout();
-      }
-    });*/
   }
 
   logout() {
     this.msalService.logoutRedirect();
   }
 
-  private clearTimers() {
+  clearTimers() {
     clearTimeout(this.timeoutId);
     clearTimeout(this.warningId);
   }
