@@ -62,6 +62,10 @@ export class AppComponent implements OnInit {
         },
         complete: () => {
           const account = this.msalService.instance.getActiveAccount();
+          const idTokenClaims = account?.idTokenClaims;
+
+          const roles = idTokenClaims?.roles;
+          console.log('Rol del usuario', roles);
 
           if (!account) {
             this.login();
