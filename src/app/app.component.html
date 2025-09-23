@@ -27,4 +27,10 @@
 >
   <app-session-modal></app-session-modal>
 </div>
+<div
+  class="full-screen-chatbot-modal"
+  [ngClass]="{ open: chatbotModalState, closed: !chatbotModalState }"
+>
+  <app-session-modal></app-session-modal>
+</div>
 }

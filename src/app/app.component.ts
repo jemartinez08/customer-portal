@@ -9,6 +9,8 @@ import { AuthService } from './services/auth.service';
 import { SessionModalComponent } from './components/session-modal/session-modal.component';
 import { SessionService } from './services/session.service';
 import { SessionModalService } from './services/session-modal.service';
+import { ChatbotModalService } from './services/chatbot-modal.service';
+import { ChatbotModalComponent } from './components/chatbot-modal/chatbot-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +29,7 @@ export class AppComponent implements OnInit {
 
   // Datos para comunicar el modal
   modalState: Boolean | undefined;
+  chatbotModalState: Boolean | undefined;
   private sub!: Subscription;
 
   // msal config login comprobation
@@ -36,12 +39,18 @@ export class AppComponent implements OnInit {
     private msalService: MsalService,
     private authService: AuthService,
     private session: SessionService,
-    private modal: SessionModalService
+    private modal: SessionModalService,
+    private chatbotModal: ChatbotModalService
   ) {
+    // substribe to session modal component
     this.sub = this.modal.publicModalState$.subscribe((valor) => {
       this.modalState = valor;
     });
-    console.log(this.modalState);
+
+    // susbcribe to chatbot modal component
+    this.sub = this.chatbotModal.publicModalState$.subscribe((valor) => {
+      this.chatbotModalState = valor;
+    });
   }
 
   toggleSidebar() {
