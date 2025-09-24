@@ -1,14 +1,65 @@
 <div class="full-screen-overlay">
-  <div class="modal">
-    <h2>Session will expire soon...</h2>
-    <div>
-      <p>Your session is about to finish</p>
-      <p>If you need more time to finish your work clik the buttom below.</p>
-      <p>Tiempo restante: segundos</p>
+  <div class="chat-container">
+    <div class="chat-header">
+      <p>Chatbot</p>
+      <div class="close-button" (click)="closeModal()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#434343"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+      </div>
     </div>
-    <div class="button-container">
-      <button class="button" (click)="closeModal()">Close</button>
-      <button class="button">Continue Working</button>
+
+    <div class="messages" #messageContainer>
+      <div
+        *ngFor="let msg of messages"
+        class="message-wrapper"
+        [ngClass]="msg.sender"
+      >
+        <div class="message">
+          <strong>{{ msg.sender === "user" ? "Tú" : "Chatbot" }}:</strong>
+          <span>{{ msg.message }}</span>
+          <small>{{ msg.timestamp | date : "shortTime" }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
+      <form (ngSubmit)="sendMessage()" id="mytextarea" class="input-form">
+        <div class="textarea-wrapper">
+          <textarea
+            [(ngModel)]="userInput"
+            name="chatInput"
+            placeholder="Escribe tu mensaje..."
+            rows="1"
+            #autoResize
+            (input)="adjustTextareaHeight(autoResize)"
+            (keydown.enter)="sendOnEnter($event)"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#FFFFFF"
+          >
+            <path
+              d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"
+            />
+          </svg>
+        </button>
+      </form>
     </div>
   </div>
 </div>

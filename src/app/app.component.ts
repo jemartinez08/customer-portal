@@ -19,6 +19,7 @@ import { ChatbotModalComponent } from './components/chatbot-modal/chatbot-modal.
     RouterOutlet,
     NavbarComponentComponent,
     SessionModalComponent,
+    ChatbotModalComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -48,8 +49,9 @@ export class AppComponent implements OnInit {
     });
 
     // susbcribe to chatbot modal component
-    this.sub = this.chatbotModal.publicModalState$.subscribe((valor) => {
+    this.sub = this.chatbotModal.publicModalStateChat$.subscribe((valor) => {
       this.chatbotModalState = valor;
+      console.log('suscribiendo al modal');
     });
   }
 

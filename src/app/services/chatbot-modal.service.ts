@@ -6,11 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ChatbotModalService {
   private modalState = new BehaviorSubject<boolean>(false);
-  publicModalState$ = this.modalState.asObservable(); // Observable público
+  publicModalStateChat$ = this.modalState.asObservable(); // Observable público
 
   constructor() {}
 
   openModal() {
+    console.log('abriendo modal');
     this.modalState.next(true);
   }
 
