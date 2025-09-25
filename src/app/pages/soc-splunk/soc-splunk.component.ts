@@ -8,12 +8,11 @@ import { CustomLinechartComponent } from '../../components/custom/custom-linecha
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 
 import crossfilter from 'crossfilter2';
-import * as d3 from 'd3';
 
 @Component({
   selector: 'app-soc-splunk',
   imports: [
-    HeaderComponent, 
+    HeaderComponent,
     HeaderCardComponent,
     BarchartComponent,
     CustomBarchartComponent,
@@ -27,11 +26,11 @@ import * as d3 from 'd3';
 export class SocSplunkComponent implements OnInit {
   isMainKPI: boolean = true;
   notMainKpi: boolean = false;
-  
+
   // Properties required by the header component
   mttValue: number = 0;
   numberOfOpenedTickets: number = 0;
-  
+
   constructor() {}
 
   // Mock array of security events with diversified dates
@@ -50,7 +49,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'DC-01',
       status: 'blocked',
       risk_score: 85,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-09-08T14:25:15.000Z',
@@ -66,7 +65,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'WEB-01',
       status: 'allowed',
       risk_score: 20,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-08-15T14:20:08.000Z',
@@ -82,7 +81,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'CLIENT-05',
       status: 'quarantined',
       risk_score: 95,
-      country: 'CN'
+      country: 'CN',
     },
     {
       _time: '2025-08-12T14:15:33.000Z',
@@ -98,7 +97,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'DC-01',
       status: 'allowed',
       risk_score: 45,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-07-18T14:10:44.000Z',
@@ -114,7 +113,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'FW-01',
       status: 'blocked',
       risk_score: 80,
-      country: 'RU'
+      country: 'RU',
     },
     {
       _time: '2025-07-15T14:05:12.000Z',
@@ -130,7 +129,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'CLIENT-03',
       status: 'blocked',
       risk_score: 98,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-06-20T13:58:27.000Z',
@@ -146,7 +145,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'WEB-02',
       status: 'blocked',
       risk_score: 55,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-06-18T13:55:18.000Z',
@@ -162,7 +161,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'IDS-01',
       status: 'monitored',
       risk_score: 30,
-      country: 'DE'
+      country: 'DE',
     },
     {
       _time: '2025-05-25T13:50:41.000Z',
@@ -178,7 +177,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'SERVER-01',
       status: 'blocked',
       risk_score: 92,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-05-20T13:45:29.000Z',
@@ -194,7 +193,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'SSH-01',
       status: 'blocked',
       risk_score: 88,
-      country: 'BR'
+      country: 'BR',
     },
     {
       _time: '2025-04-15T16:30:15.000Z',
@@ -210,7 +209,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'WEB-01',
       status: 'allowed',
       risk_score: 15,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-04-10T15:45:33.000Z',
@@ -226,7 +225,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'WAF-01',
       status: 'blocked',
       risk_score: 96,
-      country: 'KP'
+      country: 'KP',
     },
     {
       _time: '2025-03-22T14:22:08.000Z',
@@ -242,7 +241,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'FILE-01',
       status: 'alert',
       risk_score: 60,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-03-18T13:15:47.000Z',
@@ -258,7 +257,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'VPN-01',
       status: 'blocked',
       risk_score: 75,
-      country: 'IR'
+      country: 'IR',
     },
     {
       _time: '2025-02-20T12:08:19.000Z',
@@ -274,7 +273,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'LINUX-02',
       status: 'allowed',
       risk_score: 25,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-02-15T18:45:22.000Z',
@@ -290,7 +289,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'EDGE-01',
       status: 'mitigated',
       risk_score: 99,
-      country: 'CN'
+      country: 'CN',
     },
     {
       _time: '2025-01-25T17:30:55.000Z',
@@ -306,7 +305,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'BACKUP-01',
       status: 'blocked',
       risk_score: 82,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2025-01-20T16:22:11.000Z',
@@ -322,7 +321,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'AUDIT-01',
       status: 'flagged',
       risk_score: 50,
-      country: 'IN'
+      country: 'IN',
     },
     {
       _time: '2024-12-15T15:18:44.000Z',
@@ -338,7 +337,7 @@ export class SocSplunkComponent implements OnInit {
       host: 'DC-02',
       status: 'allowed',
       risk_score: 40,
-      country: 'US'
+      country: 'US',
     },
     {
       _time: '2024-12-10T14:12:33.000Z',
@@ -354,8 +353,8 @@ export class SocSplunkComponent implements OnInit {
       host: 'MAIL-01',
       status: 'quarantined',
       risk_score: 94,
-      country: 'NG'
-    }
+      country: 'NG',
+    },
   ];
 
   ngOnInit() {
@@ -377,12 +376,20 @@ export class SocSplunkComponent implements OnInit {
   // 2. KPI: Total number of blocked/mitigated events
   blockedEvents = this.cf
     .groupAll()
-    .reduceSum((d) => (d.status === 'blocked' || d.status === 'quarantined' || d.status === 'mitigated' ? 1 : 0));
+    .reduceSum((d) =>
+      d.status === 'blocked' ||
+      d.status === 'quarantined' ||
+      d.status === 'mitigated'
+        ? 1
+        : 0
+    );
 
   // 3. KPI: Total number of failed login attempts
   failedLogins = this.cf
     .groupAll()
-    .reduceSum((d) => (d.action === 'login_failed' || d.action === 'brute_force' ? 1 : 0));
+    .reduceSum((d) =>
+      d.action === 'login_failed' || d.action === 'brute_force' ? 1 : 0
+    );
 
   // 4. KPI: High-risk events (risk_score >= 80)
   highRiskEvents = this.cf
@@ -446,7 +453,8 @@ export class SocSplunkComponent implements OnInit {
   // Dimension by login success vs failed
   loginStatusDimension = this.cf.dimension((d) => {
     if (d.action === 'login_success') return 'Success';
-    if (d.action === 'login_failed' || d.action === 'brute_force') return 'Failed';
+    if (d.action === 'login_failed' || d.action === 'brute_force')
+      return 'Failed';
     return 'Other';
   });
   // Bar chart: Login success vs failed
