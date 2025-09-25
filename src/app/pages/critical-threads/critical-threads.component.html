@@ -21,7 +21,15 @@
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
+    <div class="grid-item item1">
+      <app-heatmap
+        [title]="'Heatmap'"
+        [data]="tickets"
+        [xAccessor]="xAccessor"
+        [yAccessor]="yAccessor"
+      >
+      </app-heatmap>
+    </div>
     <div class="grid-item item2"></div>
     <div class="grid-item item3"></div>
     <div class="grid-item item4"></div>

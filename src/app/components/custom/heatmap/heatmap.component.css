@@ -1,0 +1,38 @@
+.heatmap-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  width: auto;
+  max-height: 70%;
+  height: auto;
+  border-radius: var(--interior-radius);
+}
+
+#title {
+  width: 100%;
+  margin-left: 22px;
+  text-align: start;
+  margin-top: 30px;
+}
+
+.heatmap-container #title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--night);
+  padding-left: 22px;
+  text-align: left;
+}
+
+.heatmap-container {
+}
+
+.heatmap-chart {
+  width: 100%;
+  height: 70%;
+  margin-left: 22px;
+}
+
+.heatmap-chart rect:hover {
+  cursor: pointer;
+}
