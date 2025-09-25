@@ -38,7 +38,7 @@ export class ChatbotModalComponent {
     setTimeout(() => {
       const botMessage: ChatMessage = {
         sender: 'bot',
-        message: `Respuesta simulada a: "${this.userInput}"`,
+        message: `Opening a new ticket for SOC's team...\nReason: False positive\nRequested by: User`,
         timestamp: new Date(),
       };
       this.messages.push(botMessage);

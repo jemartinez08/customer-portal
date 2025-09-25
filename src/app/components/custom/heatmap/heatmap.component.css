@@ -23,16 +23,8 @@
   padding-left: 22px;
   text-align: left;
 }
-
-.heatmap-container {
-}
-
 .heatmap-chart {
-  width: 100%;
+  width: 80%;
   height: 70%;
   margin-left: 22px;
-}
-
-.heatmap-chart rect:hover {
-  cursor: pointer;
 }
