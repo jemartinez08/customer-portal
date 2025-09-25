@@ -2,29 +2,80 @@
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
+      [group]="containedThreats"
+      [KpiTitle]="'Contained Threats'"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
+      [group]="activeThreats" 
+      [KpiTitle]="'Active Threats'"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
-      [KpiTitle]="'Critical Vulnerabilities'"
+      [KpiTitle]="'Critical Threats'"
+      [group]="criticalThreats"
     ></app-header-card>
   </div>
 </app-header>
+
 <div class="dashboard-content">
-  <!-- <app-dashboard-test></app-dashboard-test>
-  <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
+    <!-- Chart 1: Threat Distribution by Type -->
+    <div class="grid-item item1">
+      <app-custom-barchart
+        [dimension]="threatTypeDimension"
+        [group]="threatsByType"
+        xAxisLabel="Threat Type"
+        yAxisLabel="Count"
+        title="Threats by Type"
+      ></app-custom-barchart>
+    </div>
+    
+    <!-- Chart 2: Severity Distribution -->
+    <div class="grid-item item2">
+      <app-piechart
+        [title]="'Threats by Severity'"
+        [dimension]="severityDimension"
+        [group]="threatsBySeverity"
+      ></app-piechart>
+    </div>
+    
+    <!-- Chart 3: Department Impact -->
+    <div class="grid-item item3">
+      <app-custom-barchart
+        [dimension]="departmentDimension"
+        [group]="threatsByDepartment"
+        xAxisLabel="Department"
+        yAxisLabel="Count"
+        title="Threats by Department"
+      ></app-custom-barchart>
+    </div>
+    
+    <!-- Chart 4: Detection Methods -->
+    <div class="grid-item item4">
+      <app-custom-barchart
+        [dimension]="detectionMethodDimension"
+        [group]="threatsByDetectionMethod"
+        xAxisLabel="Detection Method"
+        yAxisLabel="Count"
+        title="Detection Methods"
+      ></app-custom-barchart>
+    </div>
+    
+    <!-- Chart 5: Threat Timeline -->
+    <div class="grid-item item5">
+      <app-custom-linechart
+        [dimention]="monthDimension"
+        [group]="threatsByMonth"
+        [title]="'Threat Detection Timeline'"
+      ></app-custom-linechart>
+    </div>
+    <div class="grid-item item5">
+    <app-custom-linechart
+      [dimention]="monthDimension"
+      [group]="threatsByMonth"
+      [title]="'Threat Detection Timeline'"
+     ></app-custom-linechart>
+  </div>
   </div>
 </div>
