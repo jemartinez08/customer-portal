@@ -29,7 +29,6 @@
         title="Login Success vs Failed Attempts"
       ></app-custom-barchart>
     </div>
-    
     <div class="grid-item item2">
       <app-piechart
         [title]="'Events by Severity'"
@@ -37,13 +36,31 @@
         [group]="eventsBySeverity"
       ></app-piechart>
     </div>
-    
-  <div class="grid-item item3">
-  <app-custom-linechart
-    [dimention]="monthDimension"
-    [group]="eventsByMonth"
-    [title]="'Security Events Timeline'"
-    ></app-custom-linechart>
+    <div class="grid-item item3">
+      <app-custom-linechart
+        [dimention]="dateDimension"
+        [group]="eventsByDate"
+        [title]="'Security Events Timeline'"
+      ></app-custom-linechart>
+    </div>
+
+    <div class="grid-item item4">
+      <app-custom-barchart
+        [dimension]="threatCategoryDimension"
+        [group]="eventsByThreatCategory"
+        xAxisLabel="Threat Type"
+        yAxisLabel="Count"
+        title="Events by Threat Category"
+      ></app-custom-barchart>
+    </div>
+
+    <div class="grid-item item5">
+      <app-custom-linechart
+        [dimention]="monthDimension"
+        [group]="eventsByMonth"
+        [title]="'Security Events Timeline'"
+      ></app-custom-linechart>
+    </div>
   </div>
 
  <div class="grid-item item4">

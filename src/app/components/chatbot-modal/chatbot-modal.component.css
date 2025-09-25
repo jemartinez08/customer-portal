@@ -1,0 +1,145 @@
+.modal {
+  max-width: 100%;
+  width: auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: var(--core);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+/* Chatbot styles */
+.chat-container {
+  width: 800px;
+  max-width: 800px;
+  height: 600px;
+  margin: auto;
+  background-color: var(--bg);
+  border-radius: var(--general-radius);
+  padding: 1.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.chat-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header .close-button:hover {
+  cursor: pointer;
+}
+
+.messages {
+  height: 82%;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.messages {
+  max-height: 600px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Contenedor de cada mensaje */
+.message-wrapper {
+  display: flex;
+}
+
+/* Alineación por tipo de mensaje */
+.user {
+  justify-content: flex-end;
+}
+
+.bot {
+  justify-content: flex-start;
+}
+
+/* Estilo de la burbuja de mensaje */
+.message {
+  padding: 0.5rem;
+  border-radius: 5px;
+  max-width: 70%;
+  word-wrap: break-word;
+  background-color: #e0e0e0;
+  gap: 5px;
+}
+
+/* Colores personalizados */
+.user .message {
+  background-color: #e7e7e7;
+}
+
+.bot .message {
+  background-color: #bba6dc;
+}
+
+.input-wrapper {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.input-form {
+  display: flex;
+  align-items: flex-end; /* mantiene botón abajo */
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.textarea-wrapper {
+  flex: 1; /* ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column-reverse; /* textarea crece hacia arriba */
+}
+
+.textarea-wrapper textarea {
+  width: 100%;
+  resize: none;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 40px; /* altura base */
+  max-height: 96px; /* 4 líneas (24px * 4) */
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--core);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end; /* botón siempre al fondo */
+}
+
+button:hover {
+  background-color: #874ee1;
+}

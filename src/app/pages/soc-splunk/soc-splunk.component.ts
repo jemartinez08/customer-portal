@@ -8,6 +8,7 @@ import { CustomLinechartComponent } from '../../components/custom/custom-linecha
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 
 import crossfilter from 'crossfilter2';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-soc-splunk',
