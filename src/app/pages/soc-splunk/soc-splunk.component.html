@@ -38,16 +38,16 @@
       ></app-piechart>
     </div>
     
-    <div class="grid-item item3">
-      <app-custom-linechart
-        [dimention]="dateDimension"
-        [group]="eventsByDate"
-        [title]="'Security Events Timeline'"
-      ></app-custom-linechart>
-    </div>
-    
-    <div class="grid-item item4">
-      <app-custom-barchart
+  <div class="grid-item item3">
+  <app-custom-linechart
+    [dimention]="monthDimension"
+    [group]="eventsByMonth"
+    [title]="'Security Events Timeline'"
+    ></app-custom-linechart>
+  </div>
+
+ <div class="grid-item item4">
+ <app-custom-barchart
         [dimension]="threatCategoryDimension"
         [group]="eventsByThreatCategory"
         xAxisLabel="Threat Type"
@@ -57,11 +57,4 @@
     </div>
   </div>
 
-  <div class="grid-item item3">
-  <app-custom-linechart
-    [dimention]="monthDimension"
-    [group]="eventsByMonth"
-    [title]="'Security Events Timeline'"
-    ></app-custom-linechart>
-  </div>
 </div>

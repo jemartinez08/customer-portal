@@ -6,11 +6,8 @@ import { PiechartComponent } from '../../components/custom/piechart/piechart.com
 import { LinechartComponent } from '../../components/custom/linechart/linechart.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
-import { DataTableComponent } from '../../components/custom/data-table/data-table.component';
 
 import crossfilter from 'crossfilter2';
-import * as d3 from 'd3';
-
 
 @Component({
   selector: 'app-soc-splunk',
@@ -22,7 +19,6 @@ import * as d3 from 'd3';
     PiechartComponent,
     LinechartComponent,
     CustomLinechartComponent,
-    DataTableComponent,
   ],
   templateUrl: './soc-splunk.component.html',
   styleUrl: './soc-splunk.component.css',
@@ -37,7 +33,7 @@ export class SocSplunkComponent implements OnInit {
   
   constructor() {}
 
-  // Mock array of security events - mimicking a typical Splunk structure
+  // Mock array of security events with diversified dates
   securityEvents = [
     {
       _time: '2025-09-09T14:30:22.000Z',
@@ -56,7 +52,7 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-09T14:25:15.000Z',
+      _time: '2025-09-08T14:25:15.000Z',
       month: '2025-09',
       event_id: 'SEC-002',
       source_ip: '203.0.113.45',
@@ -72,8 +68,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-09T14:20:08.000Z',
-      month: '2025-09',
+      _time: '2025-08-15T14:20:08.000Z',
+      month: '2025-08',
       event_id: 'SEC-003',
       source_ip: '198.51.100.75',
       dest_ip: '10.0.0.25',
@@ -88,8 +84,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'CN'
     },
     {
-      _time: '2025-09-09T14:15:33.000Z',
-      month: '2025-09',
+      _time: '2025-08-12T14:15:33.000Z',
+      month: '2025-08',
       event_id: 'SEC-004',
       source_ip: '172.16.1.200',
       dest_ip: '10.0.0.75',
@@ -104,8 +100,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-09T14:10:44.000Z',
-      month: '2025-09',
+      _time: '2025-07-18T14:10:44.000Z',
+      month: '2025-07',
       event_id: 'SEC-005',
       source_ip: '203.0.113.88',
       dest_ip: '10.0.0.150',
@@ -120,8 +116,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'RU'
     },
     {
-      _time: '2025-09-09T14:05:12.000Z',
-      month: '2025-09',
+      _time: '2025-07-15T14:05:12.000Z',
+      month: '2025-07',
       event_id: 'SEC-006',
       source_ip: '10.0.0.25',
       dest_ip: '185.199.108.153',
@@ -136,8 +132,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-09T13:58:27.000Z',
-      month: '2025-09',
+      _time: '2025-06-20T13:58:27.000Z',
+      month: '2025-06',
       event_id: 'SEC-007',
       source_ip: '192.168.1.50',
       dest_ip: '10.0.0.10',
@@ -152,8 +148,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-09T13:55:18.000Z',
-      month: '2025-09',
+      _time: '2025-06-18T13:55:18.000Z',
+      month: '2025-06',
       event_id: 'SEC-008',
       source_ip: '198.51.100.33',
       dest_ip: '10.0.0.200',
@@ -168,8 +164,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'DE'
     },
     {
-      _time: '2025-09-09T13:50:41.000Z',
-      month: '2025-09',
+      _time: '2025-05-25T13:50:41.000Z',
+      month: '2025-05',
       event_id: 'SEC-009',
       source_ip: '172.16.2.100',
       dest_ip: '10.0.0.50',
@@ -184,8 +180,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-09T13:45:29.000Z',
-      month: '2025-09',
+      _time: '2025-05-20T13:45:29.000Z',
+      month: '2025-05',
       event_id: 'SEC-010',
       source_ip: '203.0.113.99',
       dest_ip: '10.0.0.300',
@@ -200,8 +196,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'BR'
     },
     {
-      _time: '2025-09-08T16:30:15.000Z',
-      month: '2025-09',
+      _time: '2025-04-15T16:30:15.000Z',
+      month: '2025-04',
       event_id: 'SEC-011',
       source_ip: '192.168.1.75',
       dest_ip: '10.0.0.125',
@@ -216,8 +212,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-08T15:45:33.000Z',
-      month: '2025-09',
+      _time: '2025-04-10T15:45:33.000Z',
+      month: '2025-04',
       event_id: 'SEC-012',
       source_ip: '198.51.100.120',
       dest_ip: '10.0.0.175',
@@ -232,8 +228,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'KP'
     },
     {
-      _time: '2025-09-08T14:22:08.000Z',
-      month: '2025-09',
+      _time: '2025-03-22T14:22:08.000Z',
+      month: '2025-03',
       event_id: 'SEC-013',
       source_ip: '172.16.3.50',
       dest_ip: '10.0.0.250',
@@ -248,8 +244,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-08T13:15:47.000Z',
-      month: '2025-09',
+      _time: '2025-03-18T13:15:47.000Z',
+      month: '2025-03',
       event_id: 'SEC-014',
       source_ip: '203.0.113.200',
       dest_ip: '10.0.0.400',
@@ -264,8 +260,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'IR'
     },
     {
-      _time: '2025-09-08T12:08:19.000Z',
-      month: '2025-09',
+      _time: '2025-02-20T12:08:19.000Z',
+      month: '2025-02',
       event_id: 'SEC-015',
       source_ip: '192.168.2.30',
       dest_ip: '10.0.0.80',
@@ -280,8 +276,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-07T18:45:22.000Z',
-      month: '2025-09',
+      _time: '2025-02-15T18:45:22.000Z',
+      month: '2025-02',
       event_id: 'SEC-016',
       source_ip: '198.51.100.250',
       dest_ip: '10.0.0.500',
@@ -296,8 +292,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'CN'
     },
     {
-      _time: '2025-09-07T17:30:55.000Z',
-      month: '2025-09',
+      _time: '2025-01-25T17:30:55.000Z',
+      month: '2025-01',
       event_id: 'SEC-017',
       source_ip: '172.16.4.75',
       dest_ip: '10.0.0.350',
@@ -312,8 +308,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-07T16:22:11.000Z',
-      month: '2025-09',
+      _time: '2025-01-20T16:22:11.000Z',
+      month: '2025-01',
       event_id: 'SEC-018',
       source_ip: '203.0.113.150',
       dest_ip: '10.0.0.600',
@@ -328,8 +324,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'IN'
     },
     {
-      _time: '2025-09-07T15:18:44.000Z',
-      month: '2025-09',
+      _time: '2024-12-15T15:18:44.000Z',
+      month: '2024-12',
       event_id: 'SEC-019',
       source_ip: '192.168.3.100',
       dest_ip: '10.0.0.90',
@@ -344,8 +340,8 @@ export class SocSplunkComponent implements OnInit {
       country: 'US'
     },
     {
-      _time: '2025-09-07T14:12:33.000Z',
-      month: '2025-09',
+      _time: '2024-12-10T14:12:33.000Z',
+      month: '2024-12',
       event_id: 'SEC-020',
       source_ip: '198.51.100.300',
       dest_ip: '10.0.0.700',
@@ -362,7 +358,7 @@ export class SocSplunkComponent implements OnInit {
   ];
 
   ngOnInit() {
-  // Initialization if needed
+    // Initialization if needed
   }
 
   // Load data into crossfilter
@@ -435,11 +431,6 @@ export class SocSplunkComponent implements OnInit {
   monthDimension = this.cf.dimension((d) => d.month);
   // Line chart: Temporal evolution of events
   eventsByMonth = this.monthDimension.group().reduceCount();
-
-  // Dimension by date (for more detailed time series)
-  dateDimension = this.cf.dimension((d) => new Date(d._time));
-  // Line chart: Temporal evolution of events by date
-  eventsByDate = this.dateDimension.group(d3.timeDay).reduceCount();
 
   // Dimension by risk range (for analysis)
   riskRangeDimension = this.cf.dimension((d) => {
