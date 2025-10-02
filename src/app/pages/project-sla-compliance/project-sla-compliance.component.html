@@ -9,7 +9,7 @@
     isKpiValue o notKpiValue, aqui solo necesita pasar el valor por medio de las data que ponga usted
     en el codigo de JAVASCRIPT -->
   <div kpiObject class="kpi-object-container">
-    <app-header-card
+    <!-- <app-header-card
       [KPICard]="notMainKpi"
       [KpiValue]="mttValue"
       [KpiTitle]="'Mean Time to Resolution'"
@@ -23,18 +23,54 @@
       [KPICard]="isMainKPI"
       [KpiValue]="22"
       [KpiTitle]="'Critical Vulnerabilities'"
-    ></app-header-card>
+    ></app-header-card> -->
   </div>
 </app-header>
 <div class="dashboard-content">
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
-    <div class="grid-item item6"></div>
+    <div class="grid-item item1">
+      <app-sla-card
+        [KpiValue]="mttValue"
+        [KpiTitle]="'MTTD'"
+        [KpiSubtitle]="'Mean Time to Detect per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item2">
+      <app-sla-card
+        [KpiValue]="mttValue"
+        [KpiTitle]="'MTTR'"
+        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item3">
+      <app-sla-card
+        [KpiValue]="mttValue"
+        [KpiTitle]="'MTTR'"
+        [KpiSubtitle]="'Mean Time to Resolve per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item4">
+      <app-sla-card
+        [KpiValue]="mttValue"
+        [KpiTitle]="'False Positive Rate'"
+        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item5">
+      <app-sla-card
+        [KpiValue]="mttValue"
+        [KpiTitle]="'Breached SLA Tickets'"
+        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item6">
+      <app-sla-card
+        [KpiValue]="mttValue"
+        [KpiTitle]="'Covered enpoinds'"
+        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+      ></app-sla-card>
+    </div>
   </div>
 </div>

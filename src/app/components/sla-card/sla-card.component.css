@@ -1,0 +1,73 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: var(--bg);
+  border-radius: var(--interior-radius);
+
+  border: 2px solid;
+  border-color: var(--core);
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+
+  height: 95%;
+}
+
+.card-container #title {
+  color: var(--night);
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2px;
+}
+
+.title-container #subtitle {
+  font-size: 0.9rem;
+  color: var(--night);
+  font-weight: 500;
+  margin: 0px;
+  padding-left: 2px;
+}
+
+.card-container .value {
+  color: var(--night);
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.indicator-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.indicator-container .icon-container {
+  border: 2px solid var(--core);
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  border-radius: 8px;
+  height: 14px;
+}
+
+.indicator-container #icon-indicator {
+  color: var(--core);
+  padding: 0px;
+}
+
+.indicator-container #indicator {
+  color: var(--night);
+  font-size: 0.7rem;
+  font-weight: 400;
+}
