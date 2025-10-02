@@ -1,4 +1,9 @@
-<app-header title="Ticket Analysis">
+<app-header
+  title="Ticket Analysis"
+  [subtitle]="
+    'Visualize incident tickets, response times, and resolution trends.'
+  "
+>
   <!-- Para los recuadros del header, que le mencione se utiliza esta parte
    cada <app-header> si se fija tiene propiedades con los datos, y si es o no mainKpi con
     isKpiValue o notKpiValue, aqui solo necesita pasar el valor por medio de las data que ponga usted

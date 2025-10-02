@@ -9,6 +9,7 @@ import { ChartDataService } from '../../services/chart-data.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: string = 'Tickets per month';
+  @Input() subtitle: string = 'Tickets per month';
   isMainKPI: boolean = true;
   notMainKpi: boolean = false;
   mttValue: number = 0;

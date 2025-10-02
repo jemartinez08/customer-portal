@@ -8,6 +8,7 @@ import { EppProofpointComponent } from './pages/epp-proofpoint/epp-proofpoint.co
 import { AdvancedThreadHuntingComponent } from './pages/advanced-thread-hunting/advanced-thread-hunting.component';
 import { IncidentResponseComponent } from './pages/incident-response/incident-response.component';
 import { TicketAnalysisComponent } from './pages/ticket-analysis/ticket-analysis.component';
+import { ProjectSlaComplianceComponent } from './pages/project-sla-compliance/project-sla-compliance.component';
 import { AccountComponent } from './pages/account/account.component';
 
 import { MsalGuard } from '@azure/msal-angular';
@@ -52,6 +53,11 @@ export const routes: Routes = [
   {
     path: 'ticket-analysis',
     component: TicketAnalysisComponent,
+    canActivate: [MsalGuard],
+  },
+  {
+    path: 'project-sla-compliance',
+    component: ProjectSlaComplianceComponent,
     canActivate: [MsalGuard],
   },
   {

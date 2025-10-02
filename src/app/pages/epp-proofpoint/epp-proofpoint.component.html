@@ -1,4 +1,9 @@
-<app-header title="EPP (Proofpoint)">
+<app-header
+  title="EPP (Proofpoint)"
+  [subtitle]="
+    'Email protection, phishing detection, and user security awareness.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
@@ -7,7 +12,7 @@
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [group]="activeThreats" 
+      [group]="activeThreats"
       [KpiTitle]="'Active Threats'"
     ></app-header-card>
     <app-header-card
@@ -30,7 +35,7 @@
         title="Threats by Type"
       ></app-custom-barchart>
     </div>
-    
+
     <!-- Chart 2: Severity Distribution -->
     <div class="grid-item item2">
       <app-piechart
@@ -39,7 +44,7 @@
         [group]="threatsBySeverity"
       ></app-piechart>
     </div>
-    
+
     <!-- Chart 3: Department Impact -->
     <div class="grid-item item3">
       <app-custom-barchart
@@ -50,7 +55,7 @@
         title="Threats by Department"
       ></app-custom-barchart>
     </div>
-    
+
     <!-- Chart 4: Detection Methods -->
     <div class="grid-item item4">
       <app-custom-barchart
@@ -61,7 +66,7 @@
         title="Detection Methods"
       ></app-custom-barchart>
     </div>
-    
+
     <!-- Chart 5: Threat Timeline -->
     <div class="grid-item item5">
       <app-custom-linechart
@@ -71,11 +76,11 @@
       ></app-custom-linechart>
     </div>
     <div class="grid-item item5">
-    <app-custom-linechart
-      [dimention]="monthDimension"
-      [group]="threatsByMonth"
-      [title]="'Threat Detection Timeline'"
-     ></app-custom-linechart>
-  </div>
+      <app-custom-linechart
+        [dimention]="monthDimension"
+        [group]="threatsByMonth"
+        [title]="'Threat Detection Timeline'"
+      ></app-custom-linechart>
+    </div>
   </div>
 </div>

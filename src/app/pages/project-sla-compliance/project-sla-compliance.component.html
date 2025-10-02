@@ -1,9 +1,13 @@
 <app-header
-  title="Incident Response"
+  title="Project SLA Compliance"
   [subtitle]="
-    'Centralized coordination of investigation, containment, and remediation activities.'
+    'Track service level adherence and project performance indicators.'
   "
 >
+  <!-- Para los recuadros del header, que le mencione se utiliza esta parte
+   cada <app-header> si se fija tiene propiedades con los datos, y si es o no mainKpi con
+    isKpiValue o notKpiValue, aqui solo necesita pasar el valor por medio de las data que ponga usted
+    en el codigo de JAVASCRIPT -->
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
@@ -31,5 +35,6 @@
     <div class="grid-item item3"></div>
     <div class="grid-item item4"></div>
     <div class="grid-item item5"></div>
+    <div class="grid-item item6"></div>
   </div>
 </div>

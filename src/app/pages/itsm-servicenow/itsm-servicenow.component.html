@@ -1,4 +1,7 @@
-<app-header title="ITSM ServiceNow Portal">
+<app-header
+  title="ITSM ServiceNow Portal"
+  [subtitle]="'Manage service requests, incidents, and workflow automation.'"
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
@@ -7,7 +10,7 @@
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [group]="highPriorityIncidents" 
+      [group]="highPriorityIncidents"
       [KpiTitle]="'High Priority Incidents'"
     ></app-header-card>
     <app-header-card
@@ -60,7 +63,7 @@
         [group]="incidentsByCategory"
         xAxisLabel="Thread type"
         yAxisLabel="Amount"
-        title="Incidents by Caregory"
+        title="Incidents by Category"
       ></app-custom-barchart>
     </div>
   </div>

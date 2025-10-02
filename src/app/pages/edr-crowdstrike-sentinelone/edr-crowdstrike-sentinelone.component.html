@@ -1,4 +1,9 @@
-<app-header title="EDR (Crowdstrike & Sentinel One)">
+<app-header
+  title="EDR (Crowdstrike & Sentinel One)"
+  [subtitle]="
+    'Endpoint activity tracking and advanced malware defense analytics.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"

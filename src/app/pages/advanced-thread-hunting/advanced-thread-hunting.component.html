@@ -1,4 +1,9 @@
-<app-header title="Advanced Thread Hunting">
+<app-header
+  title="Advanced Thread Hunting"
+  [subtitle]="
+    'Proactive search for hidden threats across multiple data sources.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"

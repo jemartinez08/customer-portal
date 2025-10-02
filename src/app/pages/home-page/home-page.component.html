@@ -1,4 +1,7 @@
-<app-header title="Portal Home Page">
+<app-header
+  title="Portal Home Page"
+  [subtitle]="'Overview of key security metrics and system performance.'"
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"

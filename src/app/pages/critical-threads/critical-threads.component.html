@@ -1,4 +1,9 @@
-<app-header title="Critical Threads Portal">
+<app-header
+  title="Critical Threads Portal"
+  [subtitle]="
+    'Real-time monitoring of top priority security incidents globally.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
