@@ -73,7 +73,6 @@ export class CustomLinechartComponent
     const container = this.el.nativeElement.querySelector('#linechart');
     const { width, height } = container.getBoundingClientRect();
     if (width === 0 || height === 0) return;
-    console.log(width, height);
 
     const margin = { top: 20, right: 20, bottom: 40, left: 50 };
     const innerWidth = width - margin.left - margin.right;

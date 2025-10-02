@@ -1,0 +1,14 @@
+<div class="full-screen-overlay">
+  <div class="modal">
+    <h2>Session will expire soon...</h2>
+    <div>
+      <p>Your session is about to finish</p>
+      <p>If you need more time to finish your work clik the buttom below.</p>
+      <p>Tiempo restante: {{ timeLeft }} segundos</p>
+    </div>
+    <div class="button-container">
+      <button class="button" (click)="closeModal()">Close</button>
+      <button class="button" (click)="contiueWorking()">Continue Working</button>
+    </div>
+  </div>
+</div>

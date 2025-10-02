@@ -66,9 +66,11 @@
   </div>
 
   <div class="incidents-table">
-    <app-data-table
+    <!-- <app-data-table
       [data]="tickets"
       [title]="'Incidents Table'"
-    ></app-data-table>
+    ></app-data-table> -->
+    <app-data-dropdown [data]="tickets" [title]="'Incidents'">
+    </app-data-dropdown>
   </div>
 </div>

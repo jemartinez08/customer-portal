@@ -1,0 +1,27 @@
+.modal {
+  max-width: 100%;
+  width: auto;
+  width: 100%;
+  background: #fff;
+  border-radius: var(--general-radius);
+  padding: 1.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: var(--core);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.button:hover {
+  cursor: pointer;
+}

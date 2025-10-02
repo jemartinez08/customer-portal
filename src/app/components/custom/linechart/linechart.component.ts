@@ -61,7 +61,6 @@ export class LinechartComponent implements OnChanges, OnInit, OnDestroy {
       '#line-chart'
     ) as HTMLElement;
     if (!container) {
-      console.log('Hola');
       return;
     }
     const width = container.clientWidth;
