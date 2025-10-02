@@ -32,44 +32,44 @@
   <div class="main-grid-container">
     <div class="grid-item item1">
       <app-sla-card
-        [KpiValue]="mttValue"
+        [group]="mttdGroup"
         [KpiTitle]="'MTTD'"
         [KpiSubtitle]="'Mean Time to Detect per Criticality'"
       ></app-sla-card>
     </div>
     <div class="grid-item item2">
       <app-sla-card
-        [KpiValue]="mttValue"
+        [group]="mttrGroup"
         [KpiTitle]="'MTTR'"
         [KpiSubtitle]="'Mean Time to Respond per Criticality'"
       ></app-sla-card>
     </div>
     <div class="grid-item item3">
       <app-sla-card
-        [KpiValue]="mttValue"
-        [KpiTitle]="'MTTR'"
+        [group]="mttrsGroup"
+        [KpiTitle]="'MTTRs'"
         [KpiSubtitle]="'Mean Time to Resolve per Criticality'"
       ></app-sla-card>
     </div>
     <div class="grid-item item4">
       <app-sla-card
-        [KpiValue]="mttValue"
+        [group]="falsePositiveRateGroup"
         [KpiTitle]="'False Positive Rate'"
-        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+        [KpiSubtitle]="'False Positive Rate'"
       ></app-sla-card>
     </div>
     <div class="grid-item item5">
       <app-sla-card
-        [KpiValue]="mttValue"
+        [group]="breachedTicketsGroup"
         [KpiTitle]="'Breached SLA Tickets'"
-        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+        [KpiSubtitle]="'Breached SLA Tickets'"
       ></app-sla-card>
     </div>
     <div class="grid-item item6">
       <app-sla-card
-        [KpiValue]="mttValue"
-        [KpiTitle]="'Covered enpoinds'"
-        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+        [group]="coveredEndpointsGroup"
+        [KpiTitle]="'Covered Endpoints'"
+        [KpiSubtitle]="'Covered Endpoints'"
       ></app-sla-card>
     </div>
   </div>
