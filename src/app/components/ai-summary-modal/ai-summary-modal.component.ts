@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AiSummaryModalService } from '../../services/ai-summary-modal.service';
 
 @Component({
@@ -9,7 +8,13 @@ import { AiSummaryModalService } from '../../services/ai-summary-modal.service';
   styleUrl: './ai-summary-modal.component.css',
 })
 export class AiSummaryModalComponent {
-  constructor(public aiSummaryModal: AiSummaryModalService) {}
+  summaryHtml: string = '';
+
+  constructor(public aiSummaryModal: AiSummaryModalService) {
+    this.aiSummaryModal.publicSummaryContent$.subscribe((html) => {
+      this.summaryHtml = html;
+    });
+  }
 
   // close modal function
   closeModal() {

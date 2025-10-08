@@ -28,8 +28,8 @@
 
 /* Chatbot styles */
 .chat-container {
-  width: 800px;
-  max-width: 800px;
+  width: 1200px;
+  max-width: 1200px;
   height: 600px;
   margin: auto;
   background-color: var(--bg);
@@ -58,4 +58,12 @@
 
 .chat-header .close-button:hover {
   cursor: pointer;
+}
+
+/* AI Summary Response Styles */
+.ai-summary-response {
+  width: 100%;
+  height: 95%;
+  overflow-y: auto;
+  padding: 18px -2px 18px 18px;
 }

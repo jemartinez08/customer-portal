@@ -12,7 +12,7 @@ import * as d3 from 'd3';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 import { ClearFiltersButtonComponent } from '../../components/ui/clear-filters-button/clear-filters-button.component';
-import { AiSummaryModalService } from '../../services/ai-summary-modal.service';
+import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component';
 
 @Component({
   selector: 'app-home-page',
@@ -26,6 +26,7 @@ import { AiSummaryModalService } from '../../services/ai-summary-modal.service';
     CustomBarchartComponent,
     CustomLinechartComponent,
     ClearFiltersButtonComponent,
+    AiSummaryAdvertisementComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -35,8 +36,6 @@ export class HomePageComponent {
   notMainKpi: boolean = false;
   mttValue: number = 0;
   numberOfOpenedTickets: number = 0;
-
-  constructor(private AISummaryModal: AiSummaryModalService) {}
 
   home_data = {
     events: [
@@ -201,10 +200,5 @@ export class HomePageComponent {
     // Si agregas más dimensiones, inclúyelas aquí
 
     dc.redrawAll(); // Redibuja todos los gráficos si es necesario
-  }
-
-  // Open AI Summary Modal Button
-  openAiSummaryModal() {
-    this.AISummaryModal.openModal();
   }
 }
