@@ -1,4 +1,7 @@
-<app-header title="Portal Home Page">
+<app-header
+  title="Portal Home Page"
+  [subtitle]="'Overview of key security metrics and system performance.'"
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
@@ -17,7 +20,17 @@
     ></app-header-card>
   </div>
 </app-header>
+
+<!-- AI Summary Modal component -->
+<app-ai-summary-advertisement
+  [AIItemsRequest]="['requestObject', 'requestObject2']"
+></app-ai-summary-advertisement>
+
 <div class="dashboard-content">
+  <!-- <app-clear-filters-button
+    [clearFn]="clearAllFilters.bind(this)"
+  ></app-clear-filters-button> -->
+
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">

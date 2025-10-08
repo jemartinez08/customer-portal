@@ -12,6 +12,7 @@ import { ItsmServicenowComponent } from '../../../pages/itsm-servicenow/itsm-ser
 
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
+import { ChatbotModalService } from '../../../services/chatbot-modal.service';
 
 @Component({
   selector: 'app-data-dropdown',
@@ -33,7 +34,8 @@ export class DataDropdownComponent
 
   constructor(
     private service: ItsmServicenowComponent,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private chatbotModal: ChatbotModalService
   ) {}
 
   ngAfterViewInit() {
@@ -75,6 +77,11 @@ export class DataDropdownComponent
     this.expandedIndex = this.expandedIndex === index ? null : index;
     this.cdr.detectChanges();
     console.log('Expanded: ', this.expandedIndex);
+  }
+
+  // open chatbot modal
+  openModal() {
+    this.chatbotModal.openModal();
   }
 
   ngOnDestroy() {

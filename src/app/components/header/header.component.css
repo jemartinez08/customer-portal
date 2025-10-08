@@ -10,9 +10,26 @@
   padding: 8px;
 }
 
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+}
+
+.title-container p {
+  color: #595959;
+  padding: 0px;
+  padding-left: 4px;
+  margin: 2px;
+  font-size: 14px;
+}
+
 h1 {
   color: var(--night);
-  padding: 12px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .header-card-container {

@@ -1,0 +1,76 @@
+<app-header
+  title="Project SLA Compliance"
+  [subtitle]="
+    'Track service level adherence and project performance indicators.'
+  "
+>
+  <!-- Para los recuadros del header, que le mencione se utiliza esta parte
+   cada <app-header> si se fija tiene propiedades con los datos, y si es o no mainKpi con
+    isKpiValue o notKpiValue, aqui solo necesita pasar el valor por medio de las data que ponga usted
+    en el codigo de JAVASCRIPT -->
+  <div kpiObject class="kpi-object-container">
+    <!-- <app-header-card
+      [KPICard]="notMainKpi"
+      [KpiValue]="mttValue"
+      [KpiTitle]="'Mean Time to Resolution'"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="notMainKpi"
+      [KpiValue]="numberOfOpenedTickets"
+      [KpiTitle]="'Opened Tickets'"
+    ></app-header-card>
+    <app-header-card
+      [KPICard]="isMainKPI"
+      [KpiValue]="22"
+      [KpiTitle]="'Critical Vulnerabilities'"
+    ></app-header-card> -->
+  </div>
+</app-header>
+<div class="dashboard-content">
+  <!-- <app-dashboard-test></app-dashboard-test>
+  <app-servicenow-test></app-servicenow-test> -->
+  <div class="main-grid-container">
+    <div class="grid-item item1">
+      <app-sla-card
+        [group]="mttdGroup"
+        [KpiTitle]="'MTTD'"
+        [KpiSubtitle]="'Mean Time to Detect per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item2">
+      <app-sla-card
+        [group]="mttrGroup"
+        [KpiTitle]="'MTTR'"
+        [KpiSubtitle]="'Mean Time to Respond per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item3">
+      <app-sla-card
+        [group]="mttrsGroup"
+        [KpiTitle]="'MTTRs'"
+        [KpiSubtitle]="'Mean Time to Resolve per Criticality'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item4">
+      <app-sla-card
+        [group]="falsePositiveRateGroup"
+        [KpiTitle]="'False Positive Rate'"
+        [KpiSubtitle]="'False Positive Rate'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item5">
+      <app-sla-card
+        [group]="breachedTicketsGroup"
+        [KpiTitle]="'Breached SLA Tickets'"
+        [KpiSubtitle]="'Breached SLA Tickets'"
+      ></app-sla-card>
+    </div>
+    <div class="grid-item item6">
+      <app-sla-card
+        [group]="coveredEndpointsGroup"
+        [KpiTitle]="'Covered Endpoints'"
+        [KpiSubtitle]="'Covered Endpoints'"
+      ></app-sla-card>
+    </div>
+  </div>
+</div>

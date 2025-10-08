@@ -1,4 +1,9 @@
-<app-header title="SOC (Splunk)">
+<app-header
+  title="SOC (Splunk)"
+  [subtitle]="
+    'Security event analysis, correlation, and threat detection dashboards.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
@@ -40,8 +45,8 @@
 
     <div class="grid-item item3">
       <app-custom-linechart
-        [dimention]="dateDimension"
-        [group]="eventsByDate"
+        [dimention]="monthDimension"
+        [group]="eventsByMonth"
         [title]="'Security Events Timeline'"
       ></app-custom-linechart>
     </div>
@@ -54,14 +59,6 @@
         yAxisLabel="Count"
         title="Events by Threat Category"
       ></app-custom-barchart>
-    </div>
-
-    <div class="grid-item item5">
-      <app-custom-linechart
-        [dimention]="monthDimension"
-        [group]="eventsByMonth"
-        [title]="'Security Events Timeline'"
-      ></app-custom-linechart>
     </div>
   </div>
 </div>

@@ -1,30 +1,79 @@
-<app-header title="Advanced Thread Hunting">
+<app-header
+  title="Advanced Thread Hunting"
+  [subtitle]="
+    'Proactive search for hidden threats across multiple data sources.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
+      [group]="mitigatedThreats"
+      [KpiTitle]="'Mean Dwell Time (hrs)'"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
+      [group]="openInvestigations"
+      [KpiTitle]="'Open Investigations'"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
-      [KpiTitle]="'Critical Vulnerabilities'"
+      [group]="criticalIncidents"
+      [KpiTitle]="'Critical Incidents'"
     ></app-header-card>
   </div>
 </app-header>
+
 <div class="dashboard-content">
-  <!-- <app-dashboard-test></app-dashboard-test>
-  <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
+    <!-- Chart 1: Incidents by MITRE Tactic -->
+    <div class="grid-item item1">
+      <app-custom-barchart
+        [dimension]="tacticDimension"
+        [group]="incidentsByTactic"
+        xAxisLabel="Tactic"
+        yAxisLabel="Count"
+        title="Incidents by MITRE Tactic"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- Chart 2: Severity Distribution -->
+    <div class="grid-item item2">
+      <app-piechart
+        [title]="'Incidents by Severity'"
+        [dimension]="severityDimension"
+        [group]="incidentsBySeverity"
+      ></app-piechart>
+    </div>
+
+    <!-- Chart 3: Department Impact -->
+    <div class="grid-item item3">
+      <app-custom-barchart
+        [dimension]="departmentDimension"
+        [group]="incidentsByDepartment"
+        xAxisLabel="Department"
+        yAxisLabel="Count"
+        title="Incidents by Department"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- Chart 4: Detection Methods -->
+    <div class="grid-item item4">
+      <app-custom-barchart
+        [dimension]="detectionMethodDimension"
+        [group]="incidentsByDetectionMethod"
+        xAxisLabel="Detection Method"
+        yAxisLabel="Count"
+        title="Detection Methods"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- Chart 5: Incident Timeline -->
+    <div class="grid-item item5">
+      <app-custom-linechart
+        [dimention]="monthDimension"
+        [group]="incidentsByMonth"
+        [title]="'Incident Timeline'"
+      ></app-custom-linechart>
+    </div>
   </div>
 </div>

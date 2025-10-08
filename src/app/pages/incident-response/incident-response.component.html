@@ -1,30 +1,81 @@
-<app-header title="Incident Response">
+<app-header
+  title="Incident Response"
+  [subtitle]="
+    'Centralized coordination of investigation, containment, and remediation activities.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
+      [group]="containedIncidents"
+      [KpiTitle]="'Mean Response Time (hrs)'"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
+      [group]="openInvestigations"
+      [KpiTitle]="'Open Investigations'"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
-      [KpiTitle]="'Critical Vulnerabilities'"
+      [group]="criticalIncidents"
+      [KpiTitle]="'Critical Incidents'"
     ></app-header-card>
   </div>
 </app-header>
+
 <div class="dashboard-content">
-  <!-- <app-dashboard-test></app-dashboard-test>
-  <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
+    <!-- Chart 1: Severity Distribution (Pie) -->
+    <div class="grid-item item1">
+      <app-piechart
+        [title]="'Incidents by Severity'"
+        [dimension]="severityDimension"
+        [group]="incidentsBySeverity"
+      ></app-piechart>
+    </div>
+
+    <!-- Chart 2: Timeline (Line) -->
+    <div class="grid-item item2">
+      <app-custom-linechart
+        [dimention]="monthDimension"
+        [group]="incidentsByMonth"
+        [title]="'Incident Timeline'"
+        xAxis="Month"
+        yAxis="Incidents"
+      ></app-custom-linechart>
+    </div>
+
+    <!-- Chart 3: Incidents by Type (Bar) -->
+    <div class="grid-item item3">
+      <app-custom-barchart
+        [dimension]="typeDimension"
+        [group]="incidentsByType"
+        [title]="'Incidents by Type'"
+        xAxis="Type"
+        yAxis="Count"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- Chart 4: Risk Range (Custom Bar) -->
+    <div class="grid-item item4">
+      <app-custom-barchart
+        [dimension]="riskRangeDimension"
+        [group]="incidentsByRiskRange"
+        xAxisLabel="Risk Range"
+        yAxisLabel="Count"
+        title="Risk Distribution"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- Chart 5: Asset Type (Bar) -->
+    <div class="grid-item item5">
+      <app-custom-barchart
+        [dimension]="assetTypeDimension"
+        [group]="incidentsByAssetType"
+        [title]="'Incidents by Asset Type'"
+        xAxis="Asset Type"
+        yAxis="Count"
+      ></app-custom-barchart>
+    </div>
   </div>
 </div>

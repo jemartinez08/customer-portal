@@ -1,0 +1,23 @@
+/* AI Summary first message to open modal */
+.ai-summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--sand);
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: var(--general-radius);
+}
+
+.button {
+  background-color: var(--core);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.button:hover {
+  cursor: pointer;
+}

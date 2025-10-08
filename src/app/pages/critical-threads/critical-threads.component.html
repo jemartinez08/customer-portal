@@ -1,30 +1,77 @@
-<app-header title="Critical Threads">
+<app-header
+  title="Critical Threads Portal"
+  [subtitle]="
+    'Real-time monitoring of top priority security incidents globally.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
+      [KpiTitle]="'Total Incidents'"
+      [group]="all"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
+      [KpiTitle]="'Affected Hosts'"
+      [group]="openIncidentsGroup"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
       [KpiTitle]="'Critical Vulnerabilities'"
+      [group]="criticalTotal"
     ></app-header-card>
   </div>
 </app-header>
+
 <div class="dashboard-content">
-  <!-- <app-dashboard-test></app-dashboard-test>
-  <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
+    <!-- 1. Incidents per thread type -->
+    <div class="grid-item item1">
+      <app-custom-barchart
+        [dimension]="typeDim"
+        [group]="typeGroup"
+        xAxisLabel="Thread type"
+        yAxisLabel="Number of Incidents"
+        title="Incidents per Thread Type"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- 2. Threads by Severity -->
+    <div class="grid-item item2">
+      <app-custom-barchart
+        [dimension]="sevDim"
+        [group]="sevGroup"
+        xAxisLabel="Severity"
+        yAxisLabel="Number of Threads"
+        title="Threads by Severity"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- 3. Threads by day (Critical only) -->
+    <div class="grid-item item3">
+      <app-custom-linechart
+        [dimention]="dateDim"
+        [group]="criticalGroup"
+        [title]="'Critical Threads per Day'"
+      ></app-custom-linechart>
+    </div>
+
+    <!-- 4. Incidents source -->
+    <div class="grid-item item4">
+      <app-piechart
+        [title]="'Incidents Source'"
+        [dimension]="srcDim"
+        [group]="srcGroup"
+      ></app-piechart>
+    </div>
+
+    <!-- 5. Attack vectors -->
+    <div class="grid-item item5">
+      <app-radar-chart
+        [dimension]="vectorDim"
+        [group]="vectorGroup"
+        [title]="'Attack Vectors'"
+      ></app-radar-chart>
+    </div>
   </div>
 </div>

@@ -116,6 +116,7 @@
   }
 }
 
+/* //////////////////////////////////////////////////// */
 /* Styles for modal */
 /* Contenedor overlay */
 .full-screen-overlay {
@@ -146,6 +147,78 @@
 
 /* Overlay cerrado */
 .full-screen-overlay.closed {
+  opacity: 0;
+  pointer-events: none; /* bloquea clicks al cerrar */
+  transition: opacity 250ms ease, pointer-events 0s linear 250ms;
+}
+
+/* //////////////////////////////////////////////////// */
+
+/* Estilos y animaciones para el chatbot-modal */
+.full-screen-chatbot-modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+
+  /* transición de apertura/cierre */
+  opacity: 0; /* inicio cerrado */
+  pointer-events: none; /* bloquea clicks mientras está cerrado */
+  transition: opacity 250ms ease, pointer-events 0s linear 250ms;
+}
+
+/* Overlay abierto */
+.full-screen-chatbot-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 250ms ease; /* sin delay al abrir */
+}
+
+/* Overlay cerrado */
+.full-screen-chatbot-modal.closed {
+  opacity: 0;
+  pointer-events: none; /* bloquea clicks al cerrar */
+  transition: opacity 250ms ease, pointer-events 0s linear 250ms;
+}
+
+/* //////////////////////////////////////////////////// */
+/* Estilos para el modal de AI Summary */
+/* Estilos y animaciones para el chatbot-modal */
+.full-screen-ai-summary-modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+
+  /* transición de apertura/cierre */
+  opacity: 0; /* inicio cerrado */
+  pointer-events: none; /* bloquea clicks mientras está cerrado */
+  transition: opacity 250ms ease, pointer-events 0s linear 250ms;
+}
+
+/* Overlay abierto */
+.full-screen-ai-summary-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 250ms ease; /* sin delay al abrir */
+}
+
+/* Overlay cerrado */
+.full-screen-ai-summary-modal.closed {
   opacity: 0;
   pointer-events: none; /* bloquea clicks al cerrar */
   transition: opacity 250ms ease, pointer-events 0s linear 250ms;

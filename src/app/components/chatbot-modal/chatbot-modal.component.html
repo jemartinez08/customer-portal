@@ -1,0 +1,79 @@
+<div class="full-screen-overlay">
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="title-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#434343"
+        >
+          <path
+            d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q97-30 162-118.5T718-480H480v-315l-240 90v207q0 7 2 18h238v316Z"
+          />
+        </svg>
+        <h4 id="title">Chatbot</h4>
+      </div>
+      <div class="close-button" (click)="closeModal()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#434343"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="messages" #messageContainer>
+      <div
+        *ngFor="let msg of messages"
+        class="message-wrapper"
+        [ngClass]="msg.sender"
+      >
+        <div class="message">
+          <strong>{{ msg.sender === "user" ? "Tú" : "Chatbot" }}:</strong>
+          <span> {{ msg.message }}</span>
+          <br />
+          <small class="time">{{ msg.timestamp | date : "shortTime" }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
+      <form (ngSubmit)="sendMessage()" id="mytextarea" class="input-form">
+        <div class="textarea-wrapper">
+          <textarea
+            [(ngModel)]="userInput"
+            name="chatInput"
+            placeholder="Escribe tu mensaje..."
+            rows="1"
+            #autoResize
+            (input)="adjustTextareaHeight(autoResize)"
+            (keydown.enter)="sendOnEnter($event)"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#FFFFFF"
+          >
+            <path
+              d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

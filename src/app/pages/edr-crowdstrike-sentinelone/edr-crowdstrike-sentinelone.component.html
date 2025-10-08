@@ -1,30 +1,77 @@
-<app-header title="EDR (Crowdstrike & Sentinel One)">
+<app-header
+  title="EDR (Crowdstrike & Sentinel One)"
+  [subtitle]="
+    'Endpoint activity tracking and advanced malware defense analytics.'
+  "
+>
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
-      [KpiTitle]="'Mean Time to Resolution'"
+      [KpiTitle]="'Total Detections'"
+      [group]="totalDetections"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
-      [KpiTitle]="'Opened Tickets'"
+      [KpiTitle]="'Compromised Hosts'"
+      [group]="compromisedHosts"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
-      [KpiTitle]="'Critical Vulnerabilities'"
+      [KpiTitle]="'Critical Detections'"
+      [group]="criticalDetections"
     ></app-header-card>
   </div>
 </app-header>
+
 <div class="dashboard-content">
-  <!-- <app-dashboard-test></app-dashboard-test>
-  <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
+    <!-- 1. Threats by type -->
+    <div class="grid-item item1">
+      <app-custom-barchart
+        [dimension]="typeDim"
+        [group]="typeGroup"
+        xAxisLabel="Threat Type"
+        yAxisLabel="Detections"
+        title="Detections by Threat Type"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- 2. Threats by severity -->
+    <div class="grid-item item2">
+      <app-custom-barchart
+        [dimension]="sevDim"
+        [group]="sevGroup"
+        xAxisLabel="Severity"
+        yAxisLabel="Count"
+        title="Detections by Severity"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- 3. Critical detections over time -->
+    <div class="grid-item item3">
+      <app-custom-linechart
+        [dimention]="dateDim"
+        [group]="criticalGroup"
+        [title]="'Critical Detections Over Time'"
+      ></app-custom-linechart>
+    </div>
+
+    <!-- 4. Source distribution -->
+    <div class="grid-item item4">
+      <app-piechart
+        [title]="'Source (Crowdstrike vs SentinelOne)'"
+        [dimension]="srcDim"
+        [group]="srcGroup"
+      ></app-piechart>
+    </div>
+
+    <!-- 5. Attack vectors -->
+    <div class="grid-item item5">
+      <app-radar-chart
+        [dimension]="vectorDim"
+        [group]="vectorGroup"
+        [title]="'Attack Vectors'"
+      ></app-radar-chart>
+    </div>
   </div>
 </div>

@@ -1,5 +1,8 @@
 <div class="header-container">
-  <h1>{{ title }}</h1>
+  <div class="title-container">
+    <h1>{{ title }}</h1>
+    <p>{{ subtitle }}</p>
+  </div>
   <div class="header-card-container">
     <ng-content select="[kpiObject]"></ng-content>
   </div>
