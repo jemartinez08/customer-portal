@@ -21,16 +21,26 @@
     </section>
   </div>
 </div>
+<!-- Session Modal -->
 <div
   class="full-screen-overlay"
   [ngClass]="{ open: modalState, closed: !modalState }"
 >
   <app-session-modal></app-session-modal>
 </div>
+
+<!-- Chatbot Modal -->
 <div
   class="full-screen-chatbot-modal"
   [ngClass]="{ open: chatbotModalState, closed: !chatbotModalState }"
 >
   <app-chatbot-modal></app-chatbot-modal>
+</div>
+<!-- AI Summary Modal -->
+<div
+  class="full-screen-ai-summary-modal"
+  [ngClass]="{ open: aiSummaryModalState, closed: !aiSummaryModalState }"
+>
+  <app-ai-summary-modal></app-ai-summary-modal>
 </div>
 }

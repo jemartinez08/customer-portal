@@ -20,10 +20,20 @@
     ></app-header-card>
   </div>
 </app-header>
+
+<div class="ai-summary">
+  <p>
+    We've prepared a summary of the day's most important insights. Click the
+    button to access the details.
+  </p>
+  <button class="button" (click)="openAiSummaryModal()">Open AI Summary</button>
+</div>
+
 <div class="dashboard-content">
-  <app-clear-filters-button
+  <!-- <app-clear-filters-button
     [clearFn]="clearAllFilters.bind(this)"
-  ></app-clear-filters-button>
+  ></app-clear-filters-button> -->
+
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">

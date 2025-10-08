@@ -11,6 +11,8 @@ import { SessionService } from './services/session.service';
 import { SessionModalService } from './services/session-modal.service';
 import { ChatbotModalService } from './services/chatbot-modal.service';
 import { ChatbotModalComponent } from './components/chatbot-modal/chatbot-modal.component';
+import { AiSummaryModalService } from './services/ai-summary-modal.service';
+import { AiSummaryModalComponent } from "./components/ai-summary-modal/ai-summary-modal.component";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,8 @@ import { ChatbotModalComponent } from './components/chatbot-modal/chatbot-modal.
     NavbarComponentComponent,
     SessionModalComponent,
     ChatbotModalComponent,
-  ],
+    AiSummaryModalComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -28,9 +31,10 @@ export class AppComponent implements OnInit {
   title = 'chats-test';
   isSidebarClosed = false;
 
-  // Datos para comunicar el modal
+  // variables to communicate different modals
   modalState: Boolean | undefined;
   chatbotModalState: Boolean | undefined;
+  aiSummaryModalState: Boolean | undefined;
   private sub!: Subscription;
 
   // msal config login comprobation
@@ -41,7 +45,8 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
     private session: SessionService,
     private modal: SessionModalService,
-    private chatbotModal: ChatbotModalService
+    private chatbotModal: ChatbotModalService,
+    private AISummaryModal: AiSummaryModalService
   ) {
     // substribe to session modal component
     this.sub = this.modal.publicModalState$.subscribe((valor) => {
@@ -51,8 +56,14 @@ export class AppComponent implements OnInit {
     // susbcribe to chatbot modal component
     this.sub = this.chatbotModal.publicModalStateChat$.subscribe((valor) => {
       this.chatbotModalState = valor;
-      console.log('suscribiendo al modal');
     });
+
+    // susbcribe to ai summary modal component
+    this.sub = this.AISummaryModal.publicModalStateSummary$.subscribe(
+      (valor) => {
+        this.aiSummaryModalState = valor;
+      }
+    );
   }
 
   toggleSidebar() {
