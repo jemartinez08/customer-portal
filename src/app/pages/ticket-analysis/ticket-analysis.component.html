@@ -11,18 +11,18 @@
   <div kpiObject class="kpi-object-container">
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="mttValue"
+      [group]="meanResolutionTimeGroup"
       [KpiTitle]="'Mean Time to Resolution'"
     ></app-header-card>
     <app-header-card
       [KPICard]="notMainKpi"
-      [KpiValue]="numberOfOpenedTickets"
+      [group]="openTicketsGroup"
       [KpiTitle]="'Opened Tickets'"
     ></app-header-card>
     <app-header-card
       [KPICard]="isMainKPI"
-      [KpiValue]="22"
-      [KpiTitle]="'Critical Vulnerabilities'"
+      [group]="criticalTicketsGroup"
+      [KpiTitle]="'Critical Tickets'"
     ></app-header-card>
   </div>
 </app-header>
@@ -30,10 +30,53 @@
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->
   <div class="main-grid-container">
-    <div class="grid-item item1"></div>
-    <div class="grid-item item2"></div>
-    <div class="grid-item item3"></div>
-    <div class="grid-item item4"></div>
-    <div class="grid-item item5"></div>
+    <!-- Chart 1: Tickets by Priority (Bar) -->
+    <div class="grid-item item1">
+      <app-custom-barchart
+        [dimension]="priorityDimension"
+        [group]="ticketsByPriority"
+        xAxisLabel="Priority"
+        yAxisLabel="Count"
+        title="Tickets by Priority"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- Chart 2: Tickets by Category (Pie) -->
+    <div class="grid-item item2">
+      <app-piechart
+        [dimension]="categoryDimension"
+        [group]="ticketsByCategory"
+        [title]="'Tickets by Category'"
+      ></app-piechart>
+    </div>
+
+    <!-- Chart 3: Tickets by Assigned Group (Bar) -->
+    <div class="grid-item item3">
+      <app-custom-barchart
+        [dimension]="assignedGroupDimension"
+        [group]="ticketsByAssignedGroup"
+        xAxisLabel="Assigned Group"
+        yAxisLabel="Count"
+        title="Tickets by Assigned Group"
+      ></app-custom-barchart>
+    </div>
+
+    <!-- Chart 4: Tickets by Status (Pie) -->
+    <div class="grid-item item4">
+      <app-custom-linechart
+        [dimention]="statusDimension"
+        [group]="ticketsByStatus"
+        [title]="'Tickets by Status'"
+      ></app-custom-linechart>
+    </div>
+
+    <!-- Chart 5: Tickets Over Time (Line) -->
+    <div class="grid-item item5">
+      <app-custom-linechart
+        [dimention]="monthDimension"
+        [group]="ticketsByMonth"
+        [title]="'Tickets Over Time'"
+      ></app-custom-linechart>
+    </div>
   </div>
 </div>

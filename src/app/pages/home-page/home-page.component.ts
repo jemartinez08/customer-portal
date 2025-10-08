@@ -11,6 +11,7 @@ import * as dc from 'dc';
 import * as d3 from 'd3';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
+import { ClearFiltersButtonComponent } from '../../components/ui/clear-filters-button/clear-filters-button.component';
 
 @Component({
   selector: 'app-home-page',
@@ -23,6 +24,7 @@ import { CustomLinechartComponent } from '../../components/custom/custom-linecha
     RadarChartComponent,
     CustomBarchartComponent,
     CustomLinechartComponent,
+    ClearFiltersButtonComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -184,4 +186,17 @@ export class HomePageComponent {
   // 6. Incidentes por vector dimension y grupo
   vectorDim = this.cf.dimension((d) => d.attack_vector);
   vectorGroup = this.vectorDim.group().reduceCount();
+
+  // Ejemplo en ticket-analysis.component.ts
+  clearAllFilters() {
+    console.log('Clearing all filters');
+    this.typeDim.filterAll();
+    this.sevDim.filterAll();
+    this.dateDim.filterAll();
+    this.srcDim.filterAll();
+    this.vectorDim.filterAll();
+    // Si agregas más dimensiones, inclúyelas aquí
+
+    dc.redrawAll(); // Redibuja todos los gráficos si es necesario
+  }
 }
