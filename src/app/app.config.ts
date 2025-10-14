@@ -25,6 +25,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // Local: 7d66c9b1-dd71-4520-a747-1064728e6be9
 // URI
 // https://orange-mud-08c19b51e.2.azurestaticapps.net
+// https://customer-portal-nla6x99r9-jesus-garcias-projects-d5c471db.vercel.app
 // http://localhost:4200
 
 function MSALInstanceFactory() {
@@ -33,7 +34,7 @@ function MSALInstanceFactory() {
       clientId: 'a6910611-37cd-4b01-bc6b-70802d75a167',
       authority:
         'https://login.microsoftonline.com/7f0478e2-05c5-419a-873b-b8cdf0069fd4',
-      redirectUri: 'https://orange-mud-08c19b51e.2.azurestaticapps.net',
+      redirectUri: 'https://customer-portal-nla6x99r9-jesus-garcias-projects-d5c471db.vercel.app',
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,
