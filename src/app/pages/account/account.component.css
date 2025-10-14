@@ -87,7 +87,7 @@
   align-items: center;
   justify-content: center;
   color: #888;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   border: 2px dashed #aaa;
 }
 
@@ -97,18 +97,18 @@
 
 .profile-info h2 {
   margin-top: 0;
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: var(--night);
 }
 
 .profile-info p {
   margin: 0.4rem 0;
   color: #555;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .profile-info .highlight {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--core);
   font-weight: bold;
 }

@@ -23,9 +23,9 @@ export class AiSummaryAdvertisementComponent implements OnInit {
             role: 'assistant',
             content: `
               <article style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #222; max-width: 900px; margin: 0 auto; padding: 1rem;">
-  <h1 style="color: #1e88e5; text-align: center; border-bottom: 2px solid #1e88e5; padding-bottom: 0.3rem;">
+  <h3 style="color: #1e88e5; text-align: center; border-bottom: 2px solid #1e88e5; padding-bottom: 0.3rem;">
     🛡️ Security Summary — SOC Daily Report
-  </h1>
+  </h3>
 
   <p style="font-size: 1.05rem; margin-top: 1rem;">
     During the last <strong>24 hours</strong>, the Security Operations Center (SOC) analyzed 
@@ -34,9 +34,9 @@ export class AiSummaryAdvertisementComponent implements OnInit {
   </p>
 
   <section style="margin-top: 1.5rem;">
-    <h2 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
+    <h4 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
       🔍 Key Observations
-    </h2>
+    </h4>
     <ul style="margin-left: 1.2rem;">
       <li>🚨 <strong>6 high-priority incidents</strong> (P1/P2) were escalated for immediate response.</li>
       <li>🧰 <strong>27 medium-priority alerts</strong> were contained through EDR auto-remediation.</li>
@@ -47,9 +47,9 @@ export class AiSummaryAdvertisementComponent implements OnInit {
   </section>
 
   <section style="margin-top: 1.5rem;">
-    <h2 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
+    <h4 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
       ⚠️ Notable Incidents
-    </h2>
+    </h4>
     <article style="background: #f9f9f9; border-left: 4px solid #fbc02d; padding: 0.8rem; margin: 0.8rem 0;">
       <h3 style="color: #f57c00;">Incident #A102 — Credential Theft (Escalated)</h3>
       <p>Detected suspicious privilege escalation attempts on a developer VM. 
@@ -64,9 +64,9 @@ export class AiSummaryAdvertisementComponent implements OnInit {
   </section>
 
   <section style="margin-top: 1.5rem;">
-    <h2 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
+    <h4 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
       📈 Metrics Overview
-    </h2>
+    </h4>
     <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.95rem;">
       <thead style="background: #e3f2fd;">
         <tr>
@@ -96,9 +96,9 @@ export class AiSummaryAdvertisementComponent implements OnInit {
   </section>
 
   <section style="margin-top: 1.5rem;">
-    <h2 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
+    <h4 style="color: #1565c0; border-left: 4px solid #1565c0; padding-left: 0.5rem;">
       💡 Recommendations
-    </h2>
+    </h4>
     <ol style="margin-left: 1.2rem;">
       <li>🔐 Strengthen MFA enforcement for remote and privileged users.</li>
       <li>🧩 Improve SIEM rule tuning to reduce redundant EDR alerts.</li>

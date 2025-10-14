@@ -23,19 +23,20 @@ nav {
 
 ul {
   list-style: none;
+  margin-left: -10px;
 }
 
 ul li {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 a {
   color: var(--night);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 
@@ -49,4 +50,8 @@ a.active {
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
+}
+
+.account-container ul {
+  margin-bottom: 30px;
 }
