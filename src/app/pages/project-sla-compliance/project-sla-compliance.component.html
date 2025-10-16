@@ -32,45 +32,57 @@
   <div class="main-grid-container">
     <div class="grid-item item1">
       <app-sla-card
-        [group]="mttdGroup"
+        [groupOne]="mttdGroupLow"
+        [groupTwo]="mttdGroupMedium"
+        [groupThree]="mttdGroupHigh"
         [KpiTitle]="'MTTD'"
         [KpiSubtitle]="'Mean Time to Detect per Criticality'"
       ></app-sla-card>
     </div>
     <div class="grid-item item2">
       <app-sla-card
-        [group]="mttrGroup"
+        [groupOne]="mttrGroupLow"
+        [groupTwo]="mttrGroupMedium"
+        [groupThree]="mttrGroupHigh"
         [KpiTitle]="'MTTR'"
         [KpiSubtitle]="'Mean Time to Respond per Criticality'"
       ></app-sla-card>
     </div>
     <div class="grid-item item3">
       <app-sla-card
-        [group]="mttrsGroup"
+        [groupOne]="mttrsGroupLow"
+        [groupTwo]="mttrsGroupMedium"
+        [groupThree]="mttrsGroupHigh"
         [KpiTitle]="'MTTRs'"
         [KpiSubtitle]="'Mean Time to Resolve per Criticality'"
       ></app-sla-card>
     </div>
     <div class="grid-item item4">
-      <app-sla-card
-        [group]="falsePositiveRateGroup"
+      <app-sla-single-card
+        [groupOne]="falsePositiveRateGroupLow"
+        [groupTwo]="falsePositiveRateGroupMedium"
+        [groupThree]="falsePositiveRateGroupHigh"
         [KpiTitle]="'False Positive Rate'"
         [KpiSubtitle]="'False Positive Rate'"
-      ></app-sla-card>
+      ></app-sla-single-card>
     </div>
     <div class="grid-item item5">
-      <app-sla-card
-        [group]="breachedTicketsGroup"
+      <app-sla-single-card
+        [groupOne]="breachedTicketsGroupLow"
+        [groupTwo]="breachedTicketsGroupMedium"
+        [groupThree]="breachedTicketsGroupHigh"
         [KpiTitle]="'Breached SLA Tickets'"
         [KpiSubtitle]="'Breached SLA Tickets'"
-      ></app-sla-card>
+      ></app-sla-single-card>
     </div>
     <div class="grid-item item6">
-      <app-sla-card
-        [group]="coveredEndpointsGroup"
+      <app-sla-single-card
+        [groupOne]="coveredEndpointsGroupLow"
+        [groupTwo]="coveredEndpointsGroupMedium"
+        [groupThree]="coveredEndpointsGroupHigh"
         [KpiTitle]="'Covered Endpoints'"
         [KpiSubtitle]="'Covered Endpoints'"
-      ></app-sla-card>
+      ></app-sla-single-card>
     </div>
   </div>
 </div>

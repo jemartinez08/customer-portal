@@ -10,14 +10,13 @@ import { CommonModule } from '@angular/common';
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
-
 @Component({
-  selector: 'app-sla-card',
-  imports: [CommonModule],
-  templateUrl: './sla-card.component.html',
-  styleUrl: './sla-card.component.css',
+  selector: 'app-sla-single-card',
+  imports: [],
+  templateUrl: './sla-single-card.component.html',
+  styleUrl: './sla-single-card.component.css',
 })
-export class SlaCardComponent implements OnChanges {
+export class SlaSingleCardComponent {
   @Input() KpiValue: number = 0;
   @Input() KpiTitle: string = 'KPI';
   @Input() KpiSubtitle: string = 'KPI subtitle';
@@ -29,9 +28,6 @@ export class SlaCardComponent implements OnChanges {
   @Input() groupThree!: crossfilter.GroupAll<unknown, unknown>;
 
   @ViewChild('kpiContainerOne', { static: true }) kpiContainerOne!: ElementRef;
-  @ViewChild('kpiContainerTwo', { static: true }) kpiContainerTwo!: ElementRef;
-  @ViewChild('kpiContainerThree', { static: true })
-  kpiContainerThree!: ElementRef;
 
   ngOnChanges() {
     if (this.groupOne) {
@@ -42,28 +38,12 @@ export class SlaCardComponent implements OnChanges {
 
   private renderChart() {
     const kpiNumberOne = dc.numberDisplay(this.kpiContainerOne.nativeElement);
-    const kpiNumberTwo = dc.numberDisplay(this.kpiContainerTwo.nativeElement);
-    const kpiNumberThree = dc.numberDisplay(
-      this.kpiContainerThree.nativeElement
-    );
 
     kpiNumberOne
       .formatNumber(d3.format('d'))
       .valueAccessor((d: any) => d) // el groupAll devuelve el total de registros
       .group(this.groupOne);
 
-    kpiNumberTwo
-      .formatNumber(d3.format('d'))
-      .valueAccessor((d: any) => d) // el groupAll devuelve el total de registros
-      .group(this.groupTwo);
-
-    kpiNumberThree
-      .formatNumber(d3.format('d'))
-      .valueAccessor((d: any) => d) // el groupAll devuelve el total de registros
-      .group(this.groupThree);
-
     kpiNumberOne.render();
-    kpiNumberTwo.render();
-    kpiNumberThree.render();
   }
 }

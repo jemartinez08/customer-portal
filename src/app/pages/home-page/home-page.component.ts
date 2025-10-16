@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { HeaderCardComponent } from '../../components/header-card/header-card.component';
-import { BarchartComponent } from '../../components/custom/barchart/barchart.component';
 import { PiechartComponent } from '../../components/custom/piechart/piechart.component';
-import { LinechartComponent } from '../../components/custom/linechart/linechart.component';
 import { RadarChartComponent } from '../../components/custom/radar-chart/radar-chart.component';
 
 import crossfilter from 'crossfilter2';
@@ -11,7 +9,6 @@ import * as dc from 'dc';
 import * as d3 from 'd3';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
-import { ClearFiltersButtonComponent } from '../../components/ui/clear-filters-button/clear-filters-button.component';
 import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component';
 
 @Component({
@@ -19,13 +16,10 @@ import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-
   imports: [
     HeaderComponent,
     HeaderCardComponent,
-    BarchartComponent,
     PiechartComponent,
-    LinechartComponent,
     RadarChartComponent,
     CustomBarchartComponent,
     CustomLinechartComponent,
-    ClearFiltersButtonComponent,
     AiSummaryAdvertisementComponent,
   ],
   templateUrl: './home-page.component.html',

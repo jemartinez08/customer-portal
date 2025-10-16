@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { HeaderCardComponent } from '../../components/header-card/header-card.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { SlaCardComponent } from '../../components/sla-card/sla-card.component';
 import crossfilter from 'crossfilter2';
+import { SlaSingleCardComponent } from "../../components/sla-single-card/sla-single-card.component";
 
 @Component({
   selector: 'app-project-sla-compliance',
-  imports: [HeaderComponent, HeaderCardComponent, SlaCardComponent],
+  imports: [HeaderComponent, SlaCardComponent, SlaSingleCardComponent],
   templateUrl: './project-sla-compliance.component.html',
   styleUrl: './project-sla-compliance.component.css',
 })
@@ -123,22 +123,40 @@ export class ProjectSlaComplianceComponent {
   cf = crossfilter(this.slaData);
 
   // KPI Groups
-  // KPI Groups (reduceSum/reduceCount style)
-  // 1. MTTD: Mean Time to Detect
-  mttdGroup = this.cf.groupAll().reduceSum((d) => d.detection_time);
+  // KPI Groups por criticality
+  // MTTD
+  mttdGroupLow = this.cf.groupAll().reduceSum((d) => d.criticality === 'Low' ? d.detection_time : 0);
+  mttdGroupMedium = this.cf.groupAll().reduceSum((d) => d.criticality === 'Medium' ? d.detection_time : 0);
+  mttdGroupHigh = this.cf.groupAll().reduceSum((d) => d.criticality === 'High' ? d.detection_time : 0);
+  mttdGroupCritical = this.cf.groupAll().reduceSum((d) => d.criticality === 'Critical' ? d.detection_time : 0);
 
-  // 2. MTTR: Mean Time to Respond
-  mttrGroup = this.cf.groupAll().reduceSum((d) => d.response_time);
+  // MTTR
+  mttrGroupLow = this.cf.groupAll().reduceSum((d) => d.criticality === 'Low' ? d.response_time : 0);
+  mttrGroupMedium = this.cf.groupAll().reduceSum((d) => d.criticality === 'Medium' ? d.response_time : 0);
+  mttrGroupHigh = this.cf.groupAll().reduceSum((d) => d.criticality === 'High' ? d.response_time : 0);
+  mttrGroupCritical = this.cf.groupAll().reduceSum((d) => d.criticality === 'Critical' ? d.response_time : 0);
 
-  // 3. MTTRs: Mean Time to Resolve
-  mttrsGroup = this.cf.groupAll().reduceSum((d) => d.resolve_time);
+  // MTTRs
+  mttrsGroupLow = this.cf.groupAll().reduceSum((d) => d.criticality === 'Low' ? d.resolve_time : 0);
+  mttrsGroupMedium = this.cf.groupAll().reduceSum((d) => d.criticality === 'Medium' ? d.resolve_time : 0);
+  mttrsGroupHigh = this.cf.groupAll().reduceSum((d) => d.criticality === 'High' ? d.resolve_time : 0);
+  mttrsGroupCritical = this.cf.groupAll().reduceSum((d) => d.criticality === 'Critical' ? d.resolve_time : 0);
 
-  // 4. False Positive Rate (count of false positives)
-  falsePositiveRateGroup = this.cf.groupAll().reduceSum((d) => d.false_positive ? 1 : 0);
+  // False Positive Rate
+  falsePositiveRateGroupLow = this.cf.groupAll().reduceSum((d) => d.criticality === 'Low' && d.false_positive ? 1 : 0);
+  falsePositiveRateGroupMedium = this.cf.groupAll().reduceSum((d) => d.criticality === 'Medium' && d.false_positive ? 1 : 0);
+  falsePositiveRateGroupHigh = this.cf.groupAll().reduceSum((d) => d.criticality === 'High' && d.false_positive ? 1 : 0);
+  falsePositiveRateGroupCritical = this.cf.groupAll().reduceSum((d) => d.criticality === 'Critical' && d.false_positive ? 1 : 0);
 
-  // 5. Breached SLA Tickets (count of breached)
-  breachedTicketsGroup = this.cf.groupAll().reduceSum((d) => d.breached ? 1 : 0);
+  // Breached SLA Tickets
+  breachedTicketsGroupLow = this.cf.groupAll().reduceSum((d) => d.criticality === 'Low' && d.breached ? 1 : 0);
+  breachedTicketsGroupMedium = this.cf.groupAll().reduceSum((d) => d.criticality === 'Medium' && d.breached ? 1 : 0);
+  breachedTicketsGroupHigh = this.cf.groupAll().reduceSum((d) => d.criticality === 'High' && d.breached ? 1 : 0);
+  breachedTicketsGroupCritical = this.cf.groupAll().reduceSum((d) => d.criticality === 'Critical' && d.breached ? 1 : 0);
 
-  // 6. Covered Endpoints (count of covered)
-  coveredEndpointsGroup = this.cf.groupAll().reduceSum((d) => d.endpoint_covered ? 1 : 0);
+  // Covered Endpoints
+  coveredEndpointsGroupLow = this.cf.groupAll().reduceSum((d) => d.criticality === 'Low' && d.endpoint_covered ? 1 : 0);
+  coveredEndpointsGroupMedium = this.cf.groupAll().reduceSum((d) => d.criticality === 'Medium' && d.endpoint_covered ? 1 : 0);
+  coveredEndpointsGroupHigh = this.cf.groupAll().reduceSum((d) => d.criticality === 'High' && d.endpoint_covered ? 1 : 0);
+  coveredEndpointsGroupCritical = this.cf.groupAll().reduceSum((d) => d.criticality === 'Critical' && d.endpoint_covered ? 1 : 0);
 }

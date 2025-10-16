@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { HeaderCardComponent } from '../../components/header-card/header-card.component';
-import { BarchartComponent } from '../../components/custom/barchart/barchart.component';
 import { PiechartComponent } from '../../components/custom/piechart/piechart.component';
-import { LinechartComponent } from '../../components/custom/linechart/linechart.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 
@@ -14,9 +12,7 @@ import crossfilter from 'crossfilter2';
   imports: [
     HeaderComponent,
     HeaderCardComponent,
-    BarchartComponent,
     PiechartComponent,
-    LinechartComponent,
     CustomLinechartComponent,
     CustomBarchartComponent,
   ],
