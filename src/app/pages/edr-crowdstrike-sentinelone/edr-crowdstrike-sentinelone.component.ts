@@ -5,6 +5,7 @@ import { CustomBarchartComponent } from '../../components/custom/custom-barchart
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 import { PiechartComponent } from '../../components/custom/piechart/piechart.component';
 import { RadarChartComponent } from '../../components/custom/radar-chart/radar-chart.component';
+import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component';
 
 import crossfilter from 'crossfilter2';
 
@@ -17,6 +18,7 @@ import crossfilter from 'crossfilter2';
     CustomLinechartComponent,
     PiechartComponent,
     RadarChartComponent,
+    AiSummaryAdvertisementComponent,
   ],
   templateUrl: './edr-crowdstrike-sentinelone.component.html',
   styleUrl: './edr-crowdstrike-sentinelone.component.css',

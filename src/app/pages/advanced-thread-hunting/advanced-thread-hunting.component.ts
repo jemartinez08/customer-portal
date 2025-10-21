@@ -4,6 +4,7 @@ import { HeaderCardComponent } from '../../components/header-card/header-card.co
 import { PiechartComponent } from '../../components/custom/piechart/piechart.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
+import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component';
 
 import crossfilter from 'crossfilter2';
 
@@ -15,6 +16,7 @@ import crossfilter from 'crossfilter2';
     PiechartComponent,
     CustomLinechartComponent,
     CustomBarchartComponent,
+    AiSummaryAdvertisementComponent
   ],
   templateUrl: './advanced-thread-hunting.component.html',
   styleUrl: './advanced-thread-hunting.component.css',

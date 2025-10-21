@@ -1,34 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { HeaderCardComponent } from '../../components/header-card/header-card.component';
-import { BarchartComponent } from '../../components/custom/barchart/barchart.component';
 import { PiechartComponent } from '../../components/custom/piechart/piechart.component';
-import { LinechartComponent } from '../../components/custom/linechart/linechart.component';
-import { StackedbarsComponent } from '../../components/custom/stackedbars/stackedbars.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
+import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component';
 
 import { ChartDataService } from '../../services/chart-data.service';
 
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
-import { DataTableComponent } from '../../components/custom/data-table/data-table.component';
 import { DataDropdownComponent } from "../../components/custom/data-dropdown/data-dropdown.component";
 
 @Component({
   selector: 'app-itsm-servicenow',
   imports: [
-    BarchartComponent,
     CustomBarchartComponent,
     HeaderCardComponent,
     HeaderComponent,
     PiechartComponent,
-    LinechartComponent,
     CustomLinechartComponent,
-    StackedbarsComponent,
-    DataTableComponent,
-    DataDropdownComponent
+    DataDropdownComponent,
+    AiSummaryAdvertisementComponent
 ],
   templateUrl: './itsm-servicenow.component.html',
   styleUrl: './itsm-servicenow.component.css',
