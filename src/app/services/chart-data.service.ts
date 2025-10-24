@@ -25,9 +25,6 @@ export class ChartDataService {
     this.http
       .get<any>('http://localhost:3000/api/servicenow/servicenow-dashboard')
       .subscribe((data) => {
-        console.log(data.data);
-
-        console.log(data.data.openedTicketsPerMonth);
         this.fullData = data;
 
         this.ndx = crossfilter(data.data.openedTicketsPerMonth);

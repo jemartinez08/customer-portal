@@ -12,7 +12,7 @@ import { SessionModalService } from './services/session-modal.service';
 import { ChatbotModalService } from './services/chatbot-modal.service';
 import { ChatbotModalComponent } from './components/chatbot-modal/chatbot-modal.component';
 import { AiSummaryModalService } from './services/ai-summary-modal.service';
-import { AiSummaryModalComponent } from "./components/ai-summary-modal/ai-summary-modal.component";
+import { AiSummaryModalComponent } from './components/ai-summary-modal/ai-summary-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +22,8 @@ import { AiSummaryModalComponent } from "./components/ai-summary-modal/ai-summar
     NavbarComponentComponent,
     SessionModalComponent,
     ChatbotModalComponent,
-    AiSummaryModalComponent
-],
+    AiSummaryModalComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -87,8 +87,6 @@ export class AppComponent implements OnInit {
           const idTokenClaims = account?.idTokenClaims;
 
           const roles = idTokenClaims?.roles;
-          console.log('Rol del usuario', roles);
-
           if (!account) {
             this.login();
           } else {
