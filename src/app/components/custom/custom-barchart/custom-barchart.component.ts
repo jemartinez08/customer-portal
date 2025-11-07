@@ -32,7 +32,9 @@ export class CustomBarchartComponent
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
-    this.initChart();
+    setTimeout(() => {
+      this.initChart();
+    }, 50);
     this.observeResize();
   }
 
@@ -46,6 +48,8 @@ export class CustomBarchartComponent
             this.updateChart();
           });
         });
+
+        console.log(this.group.all());
       }, 500);
     }
   }
@@ -62,6 +66,8 @@ export class CustomBarchartComponent
   private initChart() {
     const container = this.el.nativeElement.querySelector('.chart-container');
     const { width, height } = container.getBoundingClientRect();
+
+    console.log('Hola', d3.max(this.group.all(), (d) => d.value) || 0);
 
     const maxValue = d3.max(this.group.all(), (d) => d.value) || 0;
 

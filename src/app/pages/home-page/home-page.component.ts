@@ -10,6 +10,7 @@ import * as d3 from 'd3';
 import { CustomBarchartComponent } from '../../components/custom/custom-barchart/custom-barchart.component';
 import { CustomLinechartComponent } from '../../components/custom/custom-linechart/custom-linechart.component';
 import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component';
+import { ClearFiltersButtonComponent } from '../../components/ui/clear-filters-button/clear-filters-button.component';
 
 import { ApiService } from '../../api/api.service';
 
@@ -42,6 +43,7 @@ export interface EventItem {
     CustomBarchartComponent,
     CustomLinechartComponent,
     AiSummaryAdvertisementComponent,
+    ClearFiltersButtonComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -63,6 +65,7 @@ export class HomePageComponent implements OnInit {
           this.home_data = response;
           // Inicializar crossfilter solo cuando tengamos datos válidos
           this.initializeCrossfilter(this.home_data.events);
+          console.log('Home data loaded:', this.home_data);
         } else {
           console.error('Invalid response format:', response);
         }
@@ -119,11 +122,15 @@ export class HomePageComponent implements OnInit {
       );
       this.typeGroup = this.typeDim.group();
 
+      console.log('Type group', this.typeGroup.top(5));
+
       // 2. Dimension por severidad
       this.sevDim = this.cf.dimension(
         (d: EventItem) => d.severity || 'Unknown'
       );
       this.sevGroup = this.sevDim.group();
+
+      console.log('Sev group', this.sevGroup.top(5));
 
       // 3. Dimension temporal (día)
       this.dateDim = this.cf.dimension((d: EventItem) => {
