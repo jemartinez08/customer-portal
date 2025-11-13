@@ -7,6 +7,7 @@ import { CustomLinechartComponent } from '../../components/custom/custom-linecha
 import { ApiService } from '../../api/api.service';
 
 import crossfilter from 'crossfilter2';
+import { AiSummaryAdvertisementComponent } from "../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component";
 
 export type TicketStatus = 'open' | 'in_progress' | 'resolved' | 'closed';
 export type TicketPriority = 'Low' | 'Medium' | 'High' | 'Critical';
@@ -32,7 +33,8 @@ export interface TicketData {
     CustomBarchartComponent,
     PiechartComponent,
     CustomLinechartComponent,
-  ],
+    AiSummaryAdvertisementComponent
+],
   templateUrl: './ticket-analysis.component.html',
   styleUrl: './ticket-analysis.component.css',
 })

@@ -4,6 +4,7 @@ import { SlaCardComponent } from '../../components/sla-card/sla-card.component';
 import crossfilter from 'crossfilter2';
 import { SlaSingleCardComponent } from '../../components/sla-single-card/sla-single-card.component';
 import { ApiService } from '../../api/api.service';
+import { AiSummaryAdvertisementComponent } from "../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component";
 
 export type Criticality = 'Low' | 'Medium' | 'High' | 'Critical';
 
@@ -20,7 +21,7 @@ export interface SlaData {
 
 @Component({
   selector: 'app-project-sla-compliance',
-  imports: [HeaderComponent, SlaCardComponent, SlaSingleCardComponent],
+  imports: [HeaderComponent, SlaCardComponent, SlaSingleCardComponent, AiSummaryAdvertisementComponent],
   templateUrl: './project-sla-compliance.component.html',
   styleUrl: './project-sla-compliance.component.css',
 })

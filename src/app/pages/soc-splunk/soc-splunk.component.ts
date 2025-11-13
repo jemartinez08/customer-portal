@@ -7,6 +7,7 @@ import { CustomBarchartComponent } from '../../components/custom/custom-barchart
 import { ApiService } from '../../api/api.service';
 
 import crossfilter from 'crossfilter2';
+import { AiSummaryAdvertisementComponent } from "../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component";
 
 export interface SecurityEvent {
   _time: string; // formato ISO (e.g. '2025-09-09T14:30:22.000Z')
@@ -33,7 +34,8 @@ export interface SecurityEvent {
     CustomBarchartComponent,
     PiechartComponent,
     CustomLinechartComponent,
-  ],
+    AiSummaryAdvertisementComponent
+],
   templateUrl: './soc-splunk.component.html',
   styleUrl: './soc-splunk.component.css',
 })

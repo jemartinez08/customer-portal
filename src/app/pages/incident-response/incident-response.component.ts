@@ -7,6 +7,7 @@ import { CustomBarchartComponent } from '../../components/custom/custom-barchart
 import { ApiService } from '../../api/api.service';
 
 import crossfilter from 'crossfilter2';
+import { AiSummaryAdvertisementComponent } from "../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component";
 
 export type Severity = 'low' | 'medium' | 'high' | 'critical';
 export type Status = 'contained' | 'open' | 'investigating' | 'closed';
@@ -39,7 +40,8 @@ export interface IncidentEvent {
     PiechartComponent,
     CustomLinechartComponent,
     CustomBarchartComponent,
-  ],
+    AiSummaryAdvertisementComponent
+],
   templateUrl: './incident-response.component.html',
   styleUrl: './incident-response.component.css',
 })

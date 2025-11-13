@@ -13,6 +13,7 @@ import { AiSummaryAdvertisementComponent } from '../../components/ui/ai-summary-
 import { ClearFiltersButtonComponent } from '../../components/ui/clear-filters-button/clear-filters-button.component';
 
 import { ApiService } from '../../api/api.service';
+import { CommonModule } from '@angular/common';
 
 // Interfaces de tipos para datos desde la API
 export interface HomeData {
@@ -44,6 +45,7 @@ export interface EventItem {
     CustomLinechartComponent,
     AiSummaryAdvertisementComponent,
     ClearFiltersButtonComponent,
+    CommonModule,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -166,16 +168,25 @@ export class HomePageComponent implements OnInit {
     }
   }
 
+  rebuildCharts: boolean = true;
+
   // Ejemplo en ticket-analysis.component.ts
+  // ticket-analysis.component.ts
   clearAllFilters() {
     console.log('Clearing all filters');
+
     this.typeDim.filterAll();
     this.sevDim.filterAll();
     this.dateDim.filterAll();
     this.srcDim.filterAll();
     this.vectorDim.filterAll();
-    // Si agregas más dimensiones, inclúyelas aquí
 
-    dc.redrawAll(); // Redibuja todos los gráficos si es necesario
+    // Destruye los componentes momentáneamente
+    this.rebuildCharts = false;
+    setTimeout(() => {
+      this.rebuildCharts = true;
+    });
+
+    dc.redrawAll();
   }
 }

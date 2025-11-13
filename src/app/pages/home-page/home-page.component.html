@@ -26,14 +26,16 @@
   [AIItemsRequest]="['requestObject', 'requestObject2']"
 ></app-ai-summary-advertisement>
 
-<div class="dashboard-content">
+<div class="filters-bar">
   <app-clear-filters-button
     [clearFn]="clearAllFilters.bind(this)"
   ></app-clear-filters-button>
+</div>
 
+<div class="dashboard-content">
   <!-- <app-dashboard-test></app-dashboard-test>
   <app-servicenow-test></app-servicenow-test> -->
-  <div class="main-grid-container">
+  <div class="main-grid-container" *ngIf="rebuildCharts">
     <div class="grid-item item1">
       <!-- <app-barchart
         [xAxis]="'Thread type'"

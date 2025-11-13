@@ -7,6 +7,7 @@ import { CustomBarchartComponent } from '../../components/custom/custom-barchart
 import { ApiService } from '../../api/api.service';
 
 import crossfilter from 'crossfilter2';
+import { AiSummaryAdvertisementComponent } from "../../components/ui/ai-summary-advertisement/ai-summary-advertisement.component";
 
 export interface ProofpointEvent {
   _time: string; // formato ISO, e.g. "2025-09-09T14:30:22.000Z"
@@ -35,7 +36,8 @@ export interface ProofpointEvent {
     CustomBarchartComponent,
     PiechartComponent,
     CustomLinechartComponent,
-  ],
+    AiSummaryAdvertisementComponent
+],
   templateUrl: './epp-proofpoint.component.html',
   styleUrl: './epp-proofpoint.component.css',
 })

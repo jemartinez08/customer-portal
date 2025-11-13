@@ -1,23 +1,30 @@
-/* AI Summary first message to open modal */
-.ai-summary {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--sand);
-  margin-top: 22px;
-  padding: 18px;
+.ai-summary-float-component {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
   border-radius: var(--general-radius);
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.button {
+.button-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   background-color: var(--core);
   color: var(--bg);
   border: none;
-  border-radius: 12px;
+  border-radius: var(--interior-radius);
   padding: 12px;
+
+  font-size: 0.8rem;
 }
 
-.button:hover {
+.button-component:hover {
   cursor: pointer;
 }

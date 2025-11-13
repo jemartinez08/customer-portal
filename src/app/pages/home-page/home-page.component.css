@@ -5,6 +5,18 @@
   border-radius: var(--general-radius);
 }
 
+/* AI Summary first message to open modal */
+.filters-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  background-color: var(--sand);
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: var(--general-radius);
+}
+
 .kpi-object-container {
   display: flex;
   flex-direction: row;

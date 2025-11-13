@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AiSummaryModalService } from '../../../services/ai-summary-modal.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-ai-summary-advertisement',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './ai-summary-advertisement.component.html',
   styleUrl: './ai-summary-advertisement.component.css',
 })
