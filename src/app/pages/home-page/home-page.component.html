@@ -27,6 +27,16 @@
 ></app-ai-summary-advertisement>
 
 <div class="filters-bar">
+  <!-- Calendar component -->
+  <app-date-filter [dateDim]="dateDim" [refresh$]="refresh$"></app-date-filter>
+
+  <!--  -->
+  <app-crossfilter-dropdown
+    [dimension]="typeDim"
+    label="Tipo de amenaza"
+  ></app-crossfilter-dropdown>
+
+  <!-- Clear Filters Component -->
   <app-clear-filters-button
     [clearFn]="clearAllFilters.bind(this)"
   ></app-clear-filters-button>

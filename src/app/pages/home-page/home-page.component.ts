@@ -14,6 +14,9 @@ import { ClearFiltersButtonComponent } from '../../components/ui/clear-filters-b
 
 import { ApiService } from '../../api/api.service';
 import { CommonModule } from '@angular/common';
+import { DateFilterComponent } from '../../components/date-filter/date-filter.component';
+import { Subject } from 'rxjs';
+import { CrossfilterDropdownComponent } from "../../components/crossfilter-dropdown/crossfilter-dropdown.component";
 
 // Interfaces de tipos para datos desde la API
 export interface HomeData {
@@ -46,7 +49,9 @@ export interface EventItem {
     AiSummaryAdvertisementComponent,
     ClearFiltersButtonComponent,
     CommonModule,
-  ],
+    DateFilterComponent,
+    CrossfilterDropdownComponent
+],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
 })
@@ -67,7 +72,6 @@ export class HomePageComponent implements OnInit {
           this.home_data = response;
           // Inicializar crossfilter solo cuando tengamos datos válidos
           this.initializeCrossfilter(this.home_data.events);
-          console.log('Home data loaded:', this.home_data);
         } else {
           console.error('Invalid response format:', response);
         }
@@ -189,4 +193,7 @@ export class HomePageComponent implements OnInit {
 
     dc.redrawAll();
   }
+
+  //
+  refresh$ = new Subject<void>();
 }

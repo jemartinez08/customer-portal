@@ -1,1 +1,6 @@
-<p>date-filter works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>Selecciona una fecha</mat-label>
+  <input matInput [matDatepicker]="picker" />
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
