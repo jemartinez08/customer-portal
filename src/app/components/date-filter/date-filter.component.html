@@ -1,6 +1,19 @@
-<mat-form-field appearance="fill">
-  <mat-label>Selecciona una fecha</mat-label>
-  <input matInput [matDatepicker]="picker" />
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<div class="custom-date" (click)="openNativePicker()">
+  <!-- input real -->
+  <input 
+    #nativeDate
+    type="date" 
+    [(ngModel)]="selectedStart"
+    (change)="onDateChange()"
+  />
+
+  <!-- campo visual personalizado -->
+  <div class="custom-date-display">
+    <span *ngIf="!selectedStart">Selecciona fecha</span>
+    <span *ngIf="selectedStart">{{ selectedStart }}</span>
+
+    <i class="calendar-icon">
+      <mat-icon>calendar_month</mat-icon>
+    </i>
+  </div>
+</div>

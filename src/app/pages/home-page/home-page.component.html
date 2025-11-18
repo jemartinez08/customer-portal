@@ -31,10 +31,10 @@
   <app-date-filter [dateDim]="dateDim" [refresh$]="refresh$"></app-date-filter>
 
   <!--  -->
-  <app-crossfilter-dropdown
+  <!-- <app-crossfilter-dropdown
     [dimension]="typeDim"
     label="Tipo de amenaza"
-  ></app-crossfilter-dropdown>
+  ></app-crossfilter-dropdown> -->
 
   <!-- Clear Filters Component -->
   <app-clear-filters-button
@@ -58,9 +58,9 @@
       <app-custom-barchart
         [dimension]="typeDim"
         [group]="typeGroup"
-        xAxisLabel="Thread type"
+        xAxisLabel="Threat type"
         yAxisLabel="Amount"
-        title="Incidents per thread type"
+        title="Incidents per threat type"
       ></app-custom-barchart>
     </div>
     <div class="grid-item item2">
@@ -81,7 +81,7 @@
       <app-custom-linechart
         [dimention]="dateDim"
         [group]="criticalGroup"
-        [title]="'Threads by month'"
+        [title]="'Threats by month'"
       ></app-custom-linechart>
     </div>
     <div class="grid-item item4">
@@ -96,8 +96,8 @@
         [dimension]="sevDim"
         [group]="sevGroup"
         xAxisLabel="Severity"
-        yAxisLabel="Number of threads"
-        title="Threads by Severity"
+        yAxisLabel="Number of threats"
+        title="Threats by Severity"
       ></app-custom-barchart>
     </div>
   </div>

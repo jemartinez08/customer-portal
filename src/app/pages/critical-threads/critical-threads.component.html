@@ -35,9 +35,9 @@
       <app-custom-barchart
         [dimension]="typeDim"
         [group]="typeGroup"
-        xAxisLabel="Thread type"
+        xAxisLabel="Threat type"
         yAxisLabel="Number of Incidents"
-        title="Incidents per Thread Type"
+        title="Incidents per Threat Type"
       ></app-custom-barchart>
     </div>
 
@@ -47,8 +47,8 @@
         [dimension]="sevDim"
         [group]="sevGroup"
         xAxisLabel="Severity"
-        yAxisLabel="Number of Threads"
-        title="Threads by Severity"
+        yAxisLabel="Number of Threats"
+        title="Threats by Severity"
       ></app-custom-barchart>
     </div>
 
@@ -57,7 +57,7 @@
       <app-custom-linechart
         [dimention]="dateDim"
         [group]="criticalGroup"
-        [title]="'Critical Threads per Day'"
+        [title]="'Critical Threats per Day'"
       ></app-custom-linechart>
     </div>
 

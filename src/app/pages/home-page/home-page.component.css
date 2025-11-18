@@ -1,62 +1,120 @@
+/* 📱 Estilos base - Mobile First */
 .dashboard-content {
-  margin-top: 22px;
+  margin-top: 12px;
   background-color: var(--sand);
-  padding: 18px;
+  padding: 12px;
   border-radius: var(--general-radius);
 }
 
-/* AI Summary first message to open modal */
+/* Filtros: apilados verticalmente en móviles */
 .filters-bar {
   display: flex;
-  flex-direction: row;
-  justify-content: end;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
   background-color: var(--sand);
-  margin-top: 22px;
-  padding: 18px;
+  margin-top: 12px;
+  padding: 12px;
   border-radius: var(--general-radius);
 }
 
+/* KPIs uno debajo de otro */
 .kpi-object-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 10px;
 }
 
+/* Grid simplificado para móviles */
 .main-grid-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 3 columnas */
-  grid-template-rows: repeat(6, 122px); /* 2 filas */
-  gap: 18px;
+  grid-template-columns: 1fr; /* una sola columna */
+  grid-auto-rows: auto;
+  gap: 12px;
 }
 
+/* Cada item ocupa una fila completa */
 .grid-item {
   background-color: var(--bg);
   color: white;
   text-align: center;
   justify-content: center;
   border-radius: var(--interior-radius);
+  padding: 8px;
 }
 
-.item1 {
-  grid-column: 1 / span 4;
-  grid-row: 1 / span 2;
-}
-
-.item2 {
-  grid-column: 5 / span 2;
-  grid-row: 1 / span 2;
-}
-
-.item3 {
-  grid-column: 1 / 4;
-  grid-row: 3 / span 2;
-}
-
-.item4 {
-  grid-column: 4 / span 3;
-  grid-row: 3 / span 4;
-}
+/* En móvil todos son uno debajo del otro */
+.item1,
+.item2,
+.item3,
+.item4,
 .item5 {
-  grid-column: 1 / span 3;
-  grid-row: 5 / span 2;
+  grid-column: 1;
+  grid-row: auto;
+}
+
+/* Estilos para desktop */
+@media screen and (min-width: 768px) {
+  .dashboard-content {
+    margin-top: 22px;
+    background-color: var(--sand);
+    padding: 18px;
+    border-radius: var(--general-radius);
+  }
+
+  /* AI Summary first message to open modal */
+  .filters-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    background-color: var(--sand);
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: var(--general-radius);
+  }
+
+  .kpi-object-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main-grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 3 columnas */
+    grid-template-rows: repeat(6, 122px); /* 2 filas */
+    gap: 18px;
+  }
+
+  .grid-item {
+    background-color: var(--bg);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    border-radius: var(--interior-radius);
+  }
+
+  .item1 {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 2;
+  }
+
+  .item2 {
+    grid-column: 5 / span 2;
+    grid-row: 1 / span 2;
+  }
+
+  .item3 {
+    grid-column: 1 / 4;
+    grid-row: 3 / span 2;
+  }
+
+  .item4 {
+    grid-column: 4 / span 3;
+    grid-row: 3 / span 4;
+  }
+  .item5 {
+    grid-column: 1 / span 3;
+    grid-row: 5 / span 2;
+  }
 }

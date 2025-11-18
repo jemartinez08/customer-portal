@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
+import { MatIcon } from '@angular/material/icon';
 
 import * as dc from 'dc';
 import * as d3 from 'd3';
@@ -22,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    MatIcon
   ],
   templateUrl: './date-filter.component.html',
   styleUrl: './date-filter.component.css',
@@ -61,5 +63,14 @@ export class DateFilterComponent implements OnInit {
   resetDates() {
     this.selectedStart = '';
     this.selectedEnd = '';
+  }
+
+  selectedDate: string | null = null;
+
+  @ViewChild('nativeDate') nativeDate!: ElementRef<HTMLInputElement>;
+
+  openNativePicker() {
+    this.nativeDate.nativeElement.showPicker?.();
+    // showPicker() funciona en Chrome moderno
   }
 }

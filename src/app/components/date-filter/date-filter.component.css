@@ -1,3 +1,43 @@
-.calendar-popup {
-  margin-top: 12px;
+.custom-date {
+  position: relative;
+  width: 200px;
+  cursor: pointer;
+}
+
+/* Input real invisible encima */
+.custom-date input[type="date"] {
+  position: absolute;
+  inset: 0; /* ocupa todo el contenedor */
+  opacity: 0; /* oculto completamente */
+  cursor: pointer;
+}
+
+/* Campo visible */
+.custom-date-display {
+  background: white;
+  border: 2px solid var(--core);
+  border-radius: var(--interior-radius);
+  padding: 11px 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 14px;
+  color: #444;
+}
+
+/* Hover y focus */
+.custom-date-display:hover {
+  border-color: #4a90e2;
+}
+
+.calendar-icon {
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.custom-date:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }

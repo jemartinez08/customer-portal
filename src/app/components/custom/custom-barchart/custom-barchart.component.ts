@@ -34,7 +34,7 @@ export class CustomBarchartComponent
   ngAfterViewInit() {
     setTimeout(() => {
       this.initChart();
-    }, 50);
+    }, 200);
     this.observeResize();
   }
 
