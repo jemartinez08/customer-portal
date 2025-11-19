@@ -24,99 +24,119 @@
   }
 }
 
-/* General Styles */
-
-.app-container {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.nav-container {
-  margin-left: 22px;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 302px;
-
-  background: var(--sand);
-  color: white;
-  flex-shrink: 0; /* evita que se achique */
-  transition: width 0.3s ease;
-  margin: 18px;
-  border-radius: var(--general-radius);
-}
-
-.sidebar.closed {
-  width: 38px;
-}
-
-/* Main content */
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  z-index: 10;
-  margin-left: -18px;
-}
-
-/* Header */
-.header {
-  height: 60px;
-  background: #0f172a;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-  flex-shrink: 0;
-}
-
-/* Content area */
-.content {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  width: auto;
-  height: 100%;
-  overflow-y: auto; /* scroll solo aquí */
-  background-color: var(--bg);
-  padding: 18px;
-  box-sizing: border-box;
-}
-
-.close-button {
-  position: absolute;
-  top: 22px;
-  left: 14px;
-  margin: 6px;
-  background-color: transparent;
-  border-radius: var(--general-radius);
-  border: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--core);
-  z-index: 10;
-}
-.close-button:hover {
-  cursor: pointer;
-}
+/* --------------------------------------------------------- */
 
 /* Responsive */
+@media (min-width: 768px) {
+  /* General Styles */
+  .app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .nav-container {
+    margin-left: 22px;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 302px;
+
+    background: var(--sand);
+    color: white;
+    flex-shrink: 0; /* evita que se achique */
+    transition: width 0.3s ease;
+    margin: 18px;
+    border-radius: var(--general-radius);
+  }
+
+  .sidebar.closed {
+    width: 38px;
+  }
+
+  /* Main content */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    z-index: 10;
+    margin-left: -18px;
+  }
+
+  /* Header */
+  .header {
+    height: 60px;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Content area */
+  .content {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: auto;
+    height: 100%;
+    overflow-y: auto; /* scroll solo aquí */
+    background-color: var(--bg);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 22px;
+    left: 14px;
+    margin: 6px;
+    background-color: transparent;
+    border-radius: var(--general-radius);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--core);
+    z-index: 10;
+  }
+  .close-button:hover {
+    cursor: pointer;
+  }
+  .mobile-navbar {
+    display: none !important;
+    background-color: white;
+  }
+}
+
 @media (max-width: 768px) {
   .sidebar {
-    position: absolute;
-    z-index: -10;
-    height: 100%;
+    display: none;
   }
 
   .main-content {
     flex: 1;
+    padding: 14px;
+  }
+
+  .mobile-navbar {
+    background-color: var(--sand);
+    border-radius: var(--general-radius);
+    margin-bottom: 14px;
+  }
+
+  .mobile-menu.closed {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    position: absolute;
   }
 }
 
-/* //////////////////////////////////////////////////// */
+/* ------------------------------------------------------------------- */
 /* Styles for modal */
 /* Contenedor overlay */
 .full-screen-overlay {
@@ -152,7 +172,7 @@
   transition: opacity 250ms ease, pointer-events 0s linear 250ms;
 }
 
-/* //////////////////////////////////////////////////// */
+/* --------------------------------------------------------------------- */
 
 /* Estilos y animaciones para el chatbot-modal */
 .full-screen-chatbot-modal {
@@ -188,7 +208,7 @@
   transition: opacity 250ms ease, pointer-events 0s linear 250ms;
 }
 
-/* //////////////////////////////////////////////////// */
+/* ----------------------------------------------------------------------- */
 /* Estilos para el modal de AI Summary */
 /* Estilos y animaciones para el chatbot-modal */
 .full-screen-ai-summary-modal {

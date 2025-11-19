@@ -1,0 +1,57 @@
+.img-logo {
+  margin-top: 32px;
+  width: 70%;
+  margin-left: 28px;
+}
+
+#subtitle {
+  margin-top: -5px;
+  margin-left: 30px;
+  margin-right: 38px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--core);
+  text-align: right;
+}
+
+nav {
+  z-index: -10;
+  transition: transform 0.4s ease-in-out;
+  transform: translateY(0);
+  pointer-events: auto; /* Asegura que sea clickeable */
+}
+
+ul {
+  list-style: none;
+  margin-left: -10px;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+a {
+  color: var(--night);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+a.active {
+  font-weight: 800;
+}
+
+.services-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.account-container ul {
+  margin-bottom: 30px;
+}

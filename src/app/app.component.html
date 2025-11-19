@@ -15,12 +15,48 @@
 
   <!-- Contenedor principal -->
   <div class="main-content">
+    <div
+      class="mobile-navbar"
+      style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px;
+      "
+    >
+      <div>
+        <section class="close-button" (click)="toggleMobileMenu()">
+          <mat-icon>menu</mat-icon>
+        </section>
+        <div
+          class="mobile-menu"
+          [class.closed]="isMobileMenuClosed"
+          style="width: 100%; background-color: var(--sand); margin-left: -7px"
+        >
+          <app-mobile-navbar [closeMenu]="closeMobileMenu"></app-mobile-navbar>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <p>Main Content</p>
+      </div>
+    </div>
     <!-- Aquí carga el router -->
     <section class="content">
       <router-outlet></router-outlet>
     </section>
   </div>
 </div>
+
+<!-- Modals -->
+
 <!-- Session Modal -->
 <div
   class="full-screen-overlay"
@@ -36,6 +72,7 @@
 >
   <app-chatbot-modal></app-chatbot-modal>
 </div>
+
 <!-- AI Summary Modal -->
 <div
   class="full-screen-ai-summary-modal"

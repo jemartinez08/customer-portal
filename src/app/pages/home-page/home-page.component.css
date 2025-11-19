@@ -49,8 +49,8 @@
 .item3,
 .item4,
 .item5 {
-  grid-column: 1;
-  grid-row: auto;
+  width: 98%;
+  max-width: 768px;
 }
 
 /* Estilos para desktop */

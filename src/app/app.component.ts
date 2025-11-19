@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { Subscription } from 'rxjs';
+import { MatIcon } from '@angular/material/icon';
 
 import { NavbarComponentComponent } from './components/navbar-component/navbar-component.component';
 import { AuthService } from './services/auth.service';
@@ -13,6 +14,7 @@ import { ChatbotModalService } from './services/chatbot-modal.service';
 import { ChatbotModalComponent } from './components/chatbot-modal/chatbot-modal.component';
 import { AiSummaryModalService } from './services/ai-summary-modal.service';
 import { AiSummaryModalComponent } from './components/ai-summary-modal/ai-summary-modal.component';
+import { MobileNavbarComponent } from './components/ui/mobile-navbar/mobile-navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +25,8 @@ import { AiSummaryModalComponent } from './components/ai-summary-modal/ai-summar
     SessionModalComponent,
     ChatbotModalComponent,
     AiSummaryModalComponent,
+    MatIcon,
+    MobileNavbarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -30,6 +34,7 @@ import { AiSummaryModalComponent } from './components/ai-summary-modal/ai-summar
 export class AppComponent implements OnInit {
   title = 'chats-test';
   isSidebarClosed = false;
+  isMobileMenuClosed = true;
 
   // variables to communicate different modals
   modalState: Boolean | undefined;
@@ -66,9 +71,18 @@ export class AppComponent implements OnInit {
     );
   }
 
+  // Manage navbar
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;
   }
+
+  toggleMobileMenu() {
+    this.isMobileMenuClosed = !this.isMobileMenuClosed;
+  }
+
+  closeMobileMenu = () => {
+    this.isMobileMenuClosed = true;
+  };
 
   // MSLA
   ngOnInit(): void {
