@@ -21,8 +21,9 @@
 /* KPIs uno debajo de otro */
 .kpi-object-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
+  width: 100%;
 }
 
 /* Grid simplificado para móviles */
@@ -52,6 +53,12 @@
   .item5 {
     width: 84.2%;
     max-width: 768px;
+  }
+  /* KPIs uno debajo de otro */
+  .kpi-object-container {
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%); /* 3 columnas */
+    gap: 0px;
   }
 }
 

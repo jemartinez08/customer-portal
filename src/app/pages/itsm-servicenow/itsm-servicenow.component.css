@@ -53,6 +53,12 @@
     width: 84.2%;
     max-width: 768px;
   }
+  /* KPIs uno debajo de otro */
+  .kpi-object-container {
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%); /* 3 columnas */
+    gap: 0px;
+  }
 }
 
 /* Estilos para desktop */

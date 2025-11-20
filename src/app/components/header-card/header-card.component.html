@@ -3,21 +3,23 @@
   [ngClass]="{ kpiCardTrue: !KPICard, kpiCardFalse: KPICard }"
 >
   <p id="title">{{ KpiTitle }}</p>
-  <p #kpiContainer class="value"></p>
-  <div class="indicator-container">
-    <div class="icon-container">
-      <svg
-        id="icon-indicator"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="rgb(143, 83, 240)"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M7 14l5-5 5 5z" />
-      </svg>
+  <div class="mobile-kpi-container">
+    <p #kpiContainer id="kpi-value-container" class="value"></p>
+    <div class="indicator-container">
+      <div class="icon-container">
+        <svg
+          id="icon-indicator"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="rgb(143, 83, 240)"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M7 14l5-5 5 5z" />
+        </svg>
+      </div>
+      <p id="indicator">Increased since last month</p>
     </div>
-    <p id="indicator">Increased since last month</p>
   </div>
 </div>

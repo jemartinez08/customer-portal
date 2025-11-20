@@ -39,3 +39,15 @@ h1 {
   max-width: 100%;
   width: auto;
 }
+
+/* Just Mobile Styles */
+@media screen and (max-width: 768px) {
+  /* En móvil todos son uno debajo del otro */
+  .title-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 12px;
+  }
+}
