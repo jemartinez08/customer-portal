@@ -43,14 +43,16 @@
   padding: 8px;
 }
 
-/* En móvil todos son uno debajo del otro */
-.item1,
-.item2,
-.item3,
-.item4,
-.item5 {
-  width: 322px;
-  max-width: 768px;
+@media screen and (max-width: 768px) {
+  /* En móvil todos son uno debajo del otro */
+  .item1,
+  .item2,
+  .item3,
+  .item4,
+  .item5 {
+    width: 84.2%;
+    max-width: 768px;
+  }
 }
 
 /* Estilos para desktop */
