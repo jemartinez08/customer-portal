@@ -6,6 +6,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 interface Event {
   id: string;
@@ -27,9 +28,10 @@ import * as d3 from 'd3';
 
 @Component({
   selector: 'app-header-card',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, MatIconModule],
   templateUrl: './header-card.component.html',
-  styleUrl: './header-card.component.css',
+  styleUrls: ['./header-card.component.css'],
 })
 export class HeaderCardComponent implements OnChanges {
   @Input() KPICard: boolean = false;

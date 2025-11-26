@@ -3,16 +3,17 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 import { HeaderComponent } from '../../components/header/header.component';
-import { AppComponent } from '../../app.component';
 import { SessionModalService } from '../../services/session-modal.service';
 import { SessionService } from '../../services/session.service';
 import { GraphMsalService } from '../../services/graph-msal.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-account',
-  imports: [CommonModule, HeaderComponent],
+  standalone: true,
+  imports: [CommonModule, MatIconModule, HeaderComponent],
   templateUrl: './account.component.html',
-  styleUrl: './account.component.css',
+  styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit, OnDestroy {
   modalState: Boolean | undefined;

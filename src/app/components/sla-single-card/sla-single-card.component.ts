@@ -6,17 +6,20 @@ import {
   ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
 import * as d3 from 'd3';
+
 @Component({
   selector: 'app-sla-single-card',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, MatIconModule],
   templateUrl: './sla-single-card.component.html',
-  styleUrl: './sla-single-card.component.css',
+  styleUrls: ['./sla-single-card.component.css'],
 })
-export class SlaSingleCardComponent {
+export class SlaSingleCardComponent implements OnChanges {
   @Input() KpiValue: number = 0;
   @Input() KpiTitle: string = 'KPI';
   @Input() KpiSubtitle: string = 'KPI subtitle';
@@ -32,7 +35,6 @@ export class SlaSingleCardComponent {
   ngOnChanges() {
     if (this.groupOne) {
       this.renderChart();
-      //dc.renderAll(); // forzar renderizado inicial de todos los charts/numberDisplays
     }
   }
 
@@ -41,7 +43,7 @@ export class SlaSingleCardComponent {
 
     kpiNumberOne
       .formatNumber(d3.format('d'))
-      .valueAccessor((d: any) => d) // el groupAll devuelve el total de registros
+      .valueAccessor((d: any) => d)
       .group(this.groupOne);
 
     kpiNumberOne.render();

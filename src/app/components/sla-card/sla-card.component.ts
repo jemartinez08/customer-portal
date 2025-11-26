@@ -6,6 +6,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 import crossfilter from 'crossfilter2';
 import * as dc from 'dc';
@@ -13,9 +14,10 @@ import * as d3 from 'd3';
 
 @Component({
   selector: 'app-sla-card',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, MatIconModule],
   templateUrl: './sla-card.component.html',
-  styleUrl: './sla-card.component.css',
+  styleUrls: ['./sla-card.component.css'],
 })
 export class SlaCardComponent implements OnChanges {
   @Input() KpiValue: number = 0;

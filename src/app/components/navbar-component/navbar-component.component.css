@@ -55,3 +55,37 @@ a.active {
 .account-container ul {
   margin-bottom: 30px;
 }
+
+nav .services-container ul li mat-icon,
+nav .account-container ul li mat-icon {
+  color: #8f53f0; /* morado del proyecto */
+  font-size: 20px;
+  line-height: 1;
+  transition: transform .12s ease, opacity .12s ease;
+  opacity: 0.98;
+}
+
+nav .services-container ul li:hover mat-icon,
+nav .account-container ul li:hover mat-icon {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+nav .services-container ul li a,
+nav .account-container ul li a {
+  color: rgba(0,0,0,0.75);
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+nav .services-container ul li a.router-link-active,
+nav .account-container ul li a.router-link-active {
+  color: #8f53f0;
+}
+
+.mobile-navbar .nav-item mat-icon {
+  color: #8f53f0;
+  font-size: 22px;
+}

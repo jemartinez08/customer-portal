@@ -7,6 +7,7 @@ import {
   ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 import { ItsmServicenowComponent } from '../../../pages/itsm-servicenow/itsm-servicenow.component';
 
@@ -16,9 +17,10 @@ import { ChatbotModalService } from '../../../services/chatbot-modal.service';
 
 @Component({
   selector: 'app-data-dropdown',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, MatIconModule],
   templateUrl: './data-dropdown.component.html',
-  styleUrl: './data-dropdown.component.css',
+  styleUrls: ['./data-dropdown.component.css'],
 })
 export class DataDropdownComponent
   implements OnChanges, AfterViewInit, OnDestroy

@@ -19,30 +19,10 @@
     <div class="table-row collapsed">
       <div class="arrow" (click)="toggleExpand(i)">
         <span *ngIf="expandedIndex !== i">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="40px"
-            viewBox="0 -960 960 960"
-            width="40px"
-            fill="#434343"
-          >
-            <path
-              d="M480-344 240-584l47.33-47.33L480-438.67l192.67-192.66L720-584 480-344Z"
-            />
-          </svg>
+          <mat-icon aria-hidden="false" aria-label="expand">expand_more</mat-icon>
         </span>
         <span *ngIf="expandedIndex === i">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="40px"
-            viewBox="0 -960 960 960"
-            width="40px"
-            fill="#434343"
-          >
-            <path
-              d="M480-545.33 287.33-352.67 240-400l240-240 240 240-47.33 47.33L480-545.33Z"
-            />
-          </svg>
+          <mat-icon aria-hidden="false" aria-label="collapse">expand_less</mat-icon>
         </span>
       </div>
       <div>{{ ticket.number }}</div>
@@ -54,15 +34,7 @@
       <div>{{ ticket.urgency }}</div>
       <div>{{ ticket.category }}</div>
       <div class="open-modal" (click)="openModal()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
-          width="24px"
-          fill="#434343"
-        >
-          <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
-        </svg>
+        <mat-icon aria-hidden="false" aria-label="open">open_in_new</mat-icon>
       </div>
     </div>
 

@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 import { AiSummaryModalService } from '../../services/ai-summary-modal.service';
 
 @Component({
   selector: 'app-ai-summary-modal',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, MatIconModule],
   templateUrl: './ai-summary-modal.component.html',
-  styleUrl: './ai-summary-modal.component.css',
+  styleUrls: ['./ai-summary-modal.component.css'],
 })
 export class AiSummaryModalComponent {
   summaryHtml: string = '';

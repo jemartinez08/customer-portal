@@ -1,12 +1,14 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-navbar-component',
-  imports: [CommonModule, RouterModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule, MatIconModule],
   templateUrl: './navbar-component.component.html',
-  styleUrl: './navbar-component.component.css',
+  styleUrls: ['./navbar-component.component.css'],
 })
 export class NavbarComponentComponent {
   isVisible = true;

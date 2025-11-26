@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { ChatbotModalService } from '../../services/chatbot-modal.service';
 
 interface ChatMessage {
@@ -11,9 +12,10 @@ interface ChatMessage {
 
 @Component({
   selector: 'app-chatbot-modal',
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, MatIconModule],
   templateUrl: './chatbot-modal.component.html',
-  styleUrl: './chatbot-modal.component.css',
+  styleUrls: ['./chatbot-modal.component.css'],
 })
 export class ChatbotModalComponent {
   messages: ChatMessage[] = [];
