@@ -40,12 +40,41 @@
         style="
           display: flex;
           width: 100%;
-          flex-direction: row;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
         "
       >
-        <p>{{ headerInfo.pageName }}</p>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            margin: 0pc;
+            padding: 0px;
+
+            color: var(--core);
+          "
+        >
+          <mat-icon style="padding: 0px">{{ headerInfo.icon }}</mat-icon>
+          <p style="padding: 0px; font-weight: 600">
+            {{ headerInfo.pageName }}
+          </p>
+        </div>
+        <div>
+          <p
+            style="
+              font-size: 0.6rem;
+              padding: 20px 0px 0px 0px;
+              margin-top: -32px;
+              margin-bottom: 5px;
+              color: var(--core);
+            "
+          >
+            {{ headerInfo.info }}
+          </p>
+        </div>
       </div>
     </div>
     <!-- Aquí carga el router -->
